@@ -1,6 +1,7 @@
 package net.north101.android.ghplayertracker
 
 import android.arch.lifecycle.MutableLiveData
+import android.content.Context
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
@@ -11,9 +12,10 @@ import net.north101.android.ghplayertracker.livedata.InitLiveData
 import net.north101.android.ghplayertracker.livedata.PerkLiveData
 import net.north101.android.ghplayertracker.livedata.PerkNoteLiveData
 
-class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
+class CharacterAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*>>() {
     private val items = ArrayList<RecyclerItemCompare>()
     lateinit var display: DisplayItems
+    private val context = context
 
     enum class DisplayItems(val id: Int) {
         None(1),
@@ -66,11 +68,12 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
     fun updateItems(character: CharacterLiveData) {
         val newItems = ArrayList<RecyclerItemCompare>()
 
+
         if ((display.id and DisplayItems.Left.id) == DisplayItems.Left.id) {
-            newItems.add(TextHeader("Character"))
+            newItems.add(TextHeader(context.getString(R.string.character)))
             newItems.add(Stats(character))
 
-            newItems.add(TextHeaderIcon("Abilities", {
+            newItems.add(TextHeaderIcon(context.getString(R.string.abilities), {
                 onAbilityGalleryClick?.invoke()
             }, R.drawable.ic_view_comfy_black_24dp))
             newItems.addAll(
@@ -79,7 +82,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
                     .filter { it.level <= character.level.value }
             )
 
-            newItems.add(TextHeaderIcon("Items", {
+            newItems.add(TextHeaderIcon(context.getString(R.string.items), {
                 onItemAddClick?.invoke()
             }))
             newItems.addAll(
@@ -90,7 +93,7 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
                     .map { it }
             )
 
-            newItems.add(TextHeaderIcon("Notes", {
+            newItems.add(TextHeaderIcon(context.getString(R.string.notes), {
                 onNoteAddClick?.invoke()
             }))
             newItems.addAll(
@@ -99,12 +102,12 @@ class CharacterAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
         }
 
         if ((display.id and DisplayItems.Right.id) == DisplayItems.Right.id) {
-            newItems.add(TextHeader("Perks"))
+            newItems.add(TextHeader(context.getString(R.string.perks)))
             newItems.addAll(
                 character.perks.value.map { Perk(it) }
             )
 
-            newItems.add(TextHeader("Perk Notes"))
+            newItems.add(TextHeader(context.getString(R.string.perks_notes)))
             newItems.addAll(
                 character.perkNotes.value.withIndex().map { PerkNote(it.index, it.value) }
             )

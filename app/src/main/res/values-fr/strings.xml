@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GH Player Tracker</string>
+    <string name="prefs_house_rule_vantage">house_rule_vantage</string>
+    <string name="character">personnage</string>
+    <string name="abilities">aptitudes</string>
+    <string name="items">objets</string>
+    <string name="notes">notes</string>
+    <string name="perks">bénéfices</string>
+    <string name="perks_notes">notes de bénéfices</string>
+</resources>

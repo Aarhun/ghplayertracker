@@ -99,7 +99,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         actionBar.setBackgroundDrawable(ColorDrawable(c))
 
         if (!this::listAdapter1.isInitialized) {
-            listAdapter1 = CharacterAdapter()
+            listAdapter1 = CharacterAdapter(context!!)
         }
         listAdapter1.onNumberEditClick = callback@{
             val fragment = when (it) {
@@ -216,7 +216,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         listView1.adapter = listAdapter1
 
         if (!this::listAdapter2.isInitialized) {
-            listAdapter2 = CharacterAdapter()
+            listAdapter2 = CharacterAdapter(context!!)
         }
 
         val listLayoutManager2 = GridLayoutManager(context, 3)

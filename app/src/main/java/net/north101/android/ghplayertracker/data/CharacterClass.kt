@@ -97,11 +97,11 @@ class CharacterClassData(val context: Context, val data: JSONArray) {
         }
 
         private fun getFileInput(context: Context): InputStream {
-            val file = File(context.getExternalFilesDir(null), "classes.json")
+            val file = File(context.getExternalFilesDir(null), "classes_fr.json")
             return if (file.exists()) {
                 FileInputStream(file)
             } else {
-                context.assets.open("classes.json", Context.MODE_PRIVATE)
+                context.assets.open("classes_fr.json", Context.MODE_PRIVATE)
             }
         }
 
