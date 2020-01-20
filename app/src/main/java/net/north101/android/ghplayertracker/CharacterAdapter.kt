@@ -53,13 +53,13 @@ class CharacterAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*
 
     var onNumberEditClick: ((CharacterNumericValue) -> Unit)? = null
 
-    var onAbilityGalleryClick: (() -> Unit)? = null
-    var onAbilityEditClick: ((AbilityItem) -> Unit)? = null
-    var onAbilityViewClick: ((AbilityItem) -> Unit)? = null
+//    var onAbilityGalleryClick: (() -> Unit)? = null
+//    var onAbilityEditClick: ((AbilityItem) -> Unit)? = null
+//    var onAbilityViewClick: ((AbilityItem) -> Unit)? = null
 
-    var onItemAddClick: (() -> Unit)? = null
-    var onItemViewClick: ((Item) -> Unit)? = null
-    var onItemDeleteClick: ((Item) -> Unit)? = null
+//    var onItemAddClick: (() -> Unit)? = null
+//    var onItemViewClick: ((Item) -> Unit)? = null
+//    var onItemDeleteClick: ((Item) -> Unit)? = null
 
     var onNoteAddClick: (() -> Unit)? = null
     var onNoteEditClick: ((CharacterAdapter.Note) -> Unit)? = null
@@ -73,25 +73,25 @@ class CharacterAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*
             newItems.add(TextHeader(context.getString(R.string.character)))
             newItems.add(Stats(character))
 
-            newItems.add(TextHeaderIcon(context.getString(R.string.abilities), {
-                onAbilityGalleryClick?.invoke()
-            }, R.drawable.ic_view_comfy_black_24dp))
-            newItems.addAll(
-                character.abilities.value.withIndex()
-                    .map { AbilityItem(it.index, it.value) }
-                    .filter { it.level <= character.level.value }
-            )
+//            newItems.add(TextHeaderIcon(context.getString(R.string.abilities), {
+//                onAbilityGalleryClick?.invoke()
+//            }, R.drawable.ic_view_comfy_black_24dp))
+//            newItems.addAll(
+//                character.abilities.value.withIndex()
+//                    .map { AbilityItem(it.index, it.value) }
+//                    .filter { it.level <= character.level.value }
+//            )
 
-            newItems.add(TextHeaderIcon(context.getString(R.string.items), {
-                onItemAddClick?.invoke()
-            }))
-            newItems.addAll(
-                character.items.value
-                    .also {
-                        it.sortWith(compareBy({ it.type }, { it.name }))
-                    }
-                    .map { it }
-            )
+//            newItems.add(TextHeaderIcon(context.getString(R.string.items), {
+//                onItemAddClick?.invoke()
+//            }))
+//            newItems.addAll(
+//                character.items.value
+//                    .also {
+//                        it.sortWith(compareBy({ it.type }, { it.name }))
+//                    }
+//                    .map { it }
+//            )
 
             newItems.add(TextHeaderIcon(context.getString(R.string.notes), {
                 onNoteAddClick?.invoke()
@@ -145,24 +145,24 @@ class CharacterAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*
                     onNumberEditClick?.invoke(it)
                 }
             }
-            is CharacterItemViewHolder -> {
-                holder.bind(item as Item)
-                holder.onItemViewClick = {
-                    onItemViewClick?.invoke(it)
-                }
-                holder.onItemDeleteClick = {
-                    onItemDeleteClick?.invoke(it)
-                }
-            }
-            is CharacterAbilityViewHolder -> {
-                holder.bind(item as AbilityItem)
-                holder.onItemEditClick = {
-                    onAbilityEditClick?.invoke(it)
-                }
-                holder.onItemViewClick = {
-                    onAbilityViewClick?.invoke(it)
-                }
-            }
+//            is CharacterItemViewHolder -> {
+//                holder.bind(item as Item)
+//                holder.onItemViewClick = {
+//                    onItemViewClick?.invoke(it)
+//                }
+//                holder.onItemDeleteClick = {
+//                    onItemDeleteClick?.invoke(it)
+//                }
+//            }
+//            is CharacterAbilityViewHolder -> {
+//                holder.bind(item as AbilityItem)
+//                holder.onItemEditClick = {
+//                    onAbilityEditClick?.invoke(it)
+//                }
+//                holder.onItemViewClick = {
+//                    onAbilityViewClick?.invoke(it)
+//                }
+//            }
             is CharacterNoteViewHolder -> {
                 holder.bind(item as Note)
                 holder.onItemEditClick = {

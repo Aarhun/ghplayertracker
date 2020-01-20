@@ -110,76 +110,76 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             fragment.setTargetFragment(this@CharacterFragment, 0)
             fragment.show(fragmentManager, "CharacterNumberEdit")
         }
-        listAdapter1.onItemAddClick = {
-            val items = characterModel.character.items.value
-            val fragment = ItemListFragment.newInstance(items)
-            fragment.setTargetFragment(this, 1)
-
-            fragmentManager!!.beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                .replace(R.id.content, fragment)
-                .addToBackStack(null)
-                .commit()
-        }
-        listAdapter1.onItemViewClick = {
-            val items = characterModel.character.items.value
-            val fragment = ImagePagerFragment.newInstance(ArrayList(characterClass.abilities.map {
-                it as ImageUrl
-            }), items.indexOf(it))
-
-            activity!!.supportFragmentManager
-                .beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                .replace(R.id.content, fragment)
-                .addToBackStack(null)
-                .commit()
-        }
-        listAdapter1.onItemDeleteClick = {
-            characterModel.character.items.value.remove(it)
-            characterModel.character.items.value = characterModel.character.items.value
-
-        }
-        listAdapter1.onAbilityGalleryClick = {
-            val fragment = ImagePagerFragment.newInstance(ArrayList(characterClass.abilities.map {
-                it as ImageUrl
-            }))
-
-            activity!!.supportFragmentManager
-                .beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                .replace(R.id.content, fragment)
-                .addToBackStack(null)
-                .commit()
-        }
-        listAdapter1.onAbilityEditClick = { it ->
-            val abilities = characterClass.abilities.filter { ability ->
-                ability.level == 1
-            } + characterModel.character.abilities.value.mapNotNull { ability ->
-                ability.value
-            }
-            val fragment = ImagePagerFragment.newInstance(
-                ArrayList(abilities.map {
-                    it as ImageUrl
-                }),
-                abilities.indexOf(it.ability.value!!)
-            )
-            activity!!.supportFragmentManager
-                .beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-                .replace(R.id.content, fragment)
-                .addToBackStack(null)
-                .commit()
-        }
-        listAdapter1.onAbilityViewClick = {
-            val args = Bundle()
-            args.putInt("index", it.index)
-
-            val fragment = CharacterAbilityDialog_.builder().build()
-            fragment.arguments = args
-            fragment.setTargetFragment(this, 0)
-
-            fragment.show(fragmentManager, "CharacterAbilityDialog")
-        }
+//        listAdapter1.onItemAddClick = {
+//            val items = characterModel.character.items.value
+//            val fragment = ItemListFragment.newInstance(items)
+//            fragment.setTargetFragment(this, 1)
+//
+//            fragmentManager!!.beginTransaction()
+//                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+//                .replace(R.id.content, fragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        listAdapter1.onItemViewClick = {
+//            val items = characterModel.character.items.value
+//            val fragment = ImagePagerFragment.newInstance(ArrayList(characterClass.abilities.map {
+//                it as ImageUrl
+//            }), items.indexOf(it))
+//
+//            activity!!.supportFragmentManager
+//                .beginTransaction()
+//                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+//                .replace(R.id.content, fragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        listAdapter1.onItemDeleteClick = {
+//            characterModel.character.items.value.remove(it)
+//            characterModel.character.items.value = characterModel.character.items.value
+//
+//        }
+//        listAdapter1.onAbilityGalleryClick = {
+//            val fragment = ImagePagerFragment.newInstance(ArrayList(characterClass.abilities.map {
+//                it as ImageUrl
+//            }))
+//
+//            activity!!.supportFragmentManager
+//                .beginTransaction()
+//                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+//                .replace(R.id.content, fragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        listAdapter1.onAbilityEditClick = { it ->
+//            val abilities = characterClass.abilities.filter { ability ->
+//                ability.level == 1
+//            } + characterModel.character.abilities.value.mapNotNull { ability ->
+//                ability.value
+//            }
+//            val fragment = ImagePagerFragment.newInstance(
+//                ArrayList(abilities.map {
+//                    it as ImageUrl
+//                }),
+//                abilities.indexOf(it.ability.value!!)
+//            )
+//            activity!!.supportFragmentManager
+//                .beginTransaction()
+//                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+//                .replace(R.id.content, fragment)
+//                .addToBackStack(null)
+//                .commit()
+//        }
+//        listAdapter1.onAbilityViewClick = {
+//            val args = Bundle()
+//            args.putInt("index", it.index)
+//
+//            val fragment = CharacterAbilityDialog_.builder().build()
+//            fragment.arguments = args
+//            fragment.setTargetFragment(this, 0)
+//
+//            fragment.show(fragmentManager, "CharacterAbilityDialog")
+//        }
         listAdapter1.onNoteAddClick = {
             val fragment = CharacterNoteDialog_.builder().build()
             fragment.setTargetFragment(this, 0)
