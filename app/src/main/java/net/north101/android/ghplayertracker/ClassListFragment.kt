@@ -49,7 +49,7 @@ open class ClassListFragment : Fragment() {
         }
         listAdapter.setOnClickListener(onClickListener)
 
-        val maxSpan = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 4 else 2
+        val maxSpan = if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) 6 else 4
         val gridLayoutManager = GridLayoutManager(context, maxSpan)
         gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
