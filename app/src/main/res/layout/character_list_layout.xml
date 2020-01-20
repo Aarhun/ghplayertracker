@@ -21,8 +21,8 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:title="Characters"
-                app:titleMarginStart="20dp"/>
+                app:title="@string/characters"
+                app:titleMarginStart="20dp" />
 
         </android.support.design.widget.AppBarLayout>
 
