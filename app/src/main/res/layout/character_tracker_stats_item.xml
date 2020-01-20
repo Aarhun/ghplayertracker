@@ -52,26 +52,6 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/preference_list_divider_material"/>
 
-                <FrameLayout
-                    android:id="@+id/health_plus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
-                </FrameLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/preference_list_divider_material"/>
-
                 <LinearLayout
                     android:id="@+id/health_container"
                     android:layout_width="0dp"
@@ -101,6 +81,26 @@
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/icon_heal"/>
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/preference_list_divider_material"/>
+
+                <FrameLayout
+                    android:id="@+id/health_plus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
+                </FrameLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </LinearLayout>
@@ -146,26 +146,6 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/preference_list_divider_material"/>
 
-                <FrameLayout
-                    android:id="@+id/xp_plus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
-                </FrameLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/preference_list_divider_material"/>
-
                 <LinearLayout
                     android:id="@+id/xp_container"
                     android:layout_width="0dp"
@@ -195,6 +175,26 @@
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/icon_xp"/>
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/preference_list_divider_material"/>
+
+                <FrameLayout
+                    android:id="@+id/xp_plus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
+                </FrameLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -232,24 +232,7 @@
                         app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
                 </FrameLayout>
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/preference_list_divider_material"/>
 
-                <FrameLayout
-                    android:id="@+id/loot_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
-                </FrameLayout>
 
                 <View
                     android:layout_width="1dp"
@@ -285,6 +268,25 @@
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/icon_loot"/>
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/preference_list_divider_material"/>
+
+                <FrameLayout
+                    android:id="@+id/loot_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
+                </FrameLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </LinearLayout>

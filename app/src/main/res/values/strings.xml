@@ -8,4 +8,7 @@
     <string name="notes">notes</string>
     <string name="perks">perks</string>
     <string name="perks_notes">perks notes</string>
+    <string name="retired">Retired</string>
+    <string name="stats">stats</string>
+    <string name="attack_deck">Attack Deck</string>
 </resources>

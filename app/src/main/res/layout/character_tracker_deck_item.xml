@@ -49,25 +49,6 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/preference_list_divider_material"/>
 
-                <FrameLayout
-                    android:id="@+id/bless_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
-                </FrameLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/preference_list_divider_material"/>
-
                 <LinearLayout
                     android:id="@+id/bless_container"
                     android:layout_width="0dp"
@@ -96,7 +77,30 @@
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/icon_bless"/>
+
+
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/preference_list_divider_material"/>
+
+                <FrameLayout
+                    android:id="@+id/bless_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/ic_add_circle_black_24dp" />
+
+                </FrameLayout>
+
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -134,24 +138,6 @@
                         app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
                 </FrameLayout>
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/preference_list_divider_material"/>
-
-                <FrameLayout
-                    android:id="@+id/curse_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
-                </FrameLayout>
 
                 <View
                     android:layout_width="1dp"
@@ -187,6 +173,27 @@
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/icon_curse"/>
                 </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/preference_list_divider_material"/>
+
+                <FrameLayout
+                    android:id="@+id/curse_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?attr/selectableItemBackground">
+
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/ic_add_circle_black_24dp" />
+
+                </FrameLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
     </LinearLayout>
@@ -233,25 +240,6 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/preference_list_divider_material"/>
 
-                <FrameLayout
-                    android:id="@+id/minus_1_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
-                </FrameLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/preference_list_divider_material"/>
-
                 <LinearLayout
                     android:id="@+id/minus_1_container"
                     android:layout_width="0dp"
@@ -280,54 +268,33 @@
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/icon_minus_1"/>
+
                 </LinearLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/preference_list_divider_material"/>
+
+                <FrameLayout
+                    android:id="@+id/minus_1_plus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/ic_add_circle_black_24dp" />
+
+                </FrameLayout>
+
             </LinearLayout>
+
         </android.support.v7.widget.CardView>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/advantage"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                app:srcCompat="@drawable/icon_status_strengthen"/>
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="4dp"/>
-
-            <ImageView
-                android:id="@+id/disadvantage"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                app:srcCompat="@drawable/icon_status_muddle"/>
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/draw_deck"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:adjustViewBounds="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/card_back"/>
-
         <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -343,4 +310,53 @@
                 app:srcCompat="@drawable/icon_shuffle"/>
         </FrameLayout>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/draw_deck"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:adjustViewBounds="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/card_back"/>
+        </FrameLayout>
+
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/preference_list_divider_material"/>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/discard_deck"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:adjustViewBounds="true"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
 </LinearLayout>

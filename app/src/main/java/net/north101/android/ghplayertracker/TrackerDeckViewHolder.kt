@@ -29,8 +29,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     var minus1MinusView: View = itemView.findViewById(R.id.minus_1_minus)
 
     val deckView: ImageView = itemView.findViewById(R.id.draw_deck)
-    val advantageView: ImageView = itemView.findViewById(R.id.advantage)
-    val disadvantageView: ImageView = itemView.findViewById(R.id.disadvantage)
+
+//    val advantageView: ImageView = itemView.findViewById(R.id.advantage)
+//    val disadvantageView: ImageView = itemView.findViewById(R.id.disadvantage)
     val shuffleView: ImageView = itemView.findViewById(R.id.shuffle)
 
     var onNumberClickListener: ((String) -> Unit)? = null
@@ -125,20 +126,20 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             updateMinus1Text()
         }))
 
-        advantageView.setOnClickListener {
-            attackStatus = if (attackStatus == AttackStatus.Advantage) {
-                AttackStatus.None
-            } else {
-                AttackStatus.Advantage
-            }
-        }
-        disadvantageView.setOnClickListener {
-            attackStatus = if (attackStatus == AttackStatus.Disadvantage) {
-                AttackStatus.None
-            } else {
-                AttackStatus.Disadvantage
-            }
-        }
+//        advantageView.setOnClickListener {
+//            attackStatus = if (attackStatus == AttackStatus.Advantage) {
+//                AttackStatus.None
+//            } else {
+//                AttackStatus.Advantage
+//            }
+//        }
+//        disadvantageView.setOnClickListener {
+//            attackStatus = if (attackStatus == AttackStatus.Disadvantage) {
+//                AttackStatus.None
+//            } else {
+//                AttackStatus.Disadvantage
+//            }
+//        }
         deckView.setOnClickListener {
             draw()
         }
@@ -151,9 +152,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         updateShuffle()
     }
 
-    val attackStatusObserver: (AttackStatus) -> Unit = {
-        updateAttackStatus()
-    }
+//    val attackStatusObserver: (AttackStatus) -> Unit = {
+//        updateAttackStatus()
+//    }
 
     val deckObserver: (ArrayList<Card>) -> Unit = {
         updateBlessText()
@@ -166,14 +167,14 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         super.bind(item)
 
         item.shuffle.observeForever(shuffleObserver)
-        item.attackStatus.observeForever(attackStatusObserver)
+//        item.attackStatus.observeForever(attackStatusObserver)
         item.drawDeck.observeForever(deckObserver)
     }
 
     override fun unbind() {
         item?.let {
             item!!.shuffle.removeObserver(shuffleObserver)
-            item!!.attackStatus.removeObserver(attackStatusObserver)
+//            item!!.attackStatus.removeObserver(attackStatusObserver)
             item!!.drawDeck.removeObserver(deckObserver)
         }
 
@@ -203,10 +204,10 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         minus1TextView.text = count.toString()
     }
 
-    fun updateAttackStatus() {
-        setImageViewGreyscale(advantageView, attackStatus != AttackStatus.Advantage)
-        setImageViewGreyscale(disadvantageView, attackStatus != AttackStatus.Disadvantage)
-    }
+//    fun updateAttackStatus() {
+//        setImageViewGreyscale(advantageView, attackStatus != AttackStatus.Advantage)
+//        setImageViewGreyscale(disadvantageView, attackStatus != AttackStatus.Disadvantage)
+//    }
 
     fun updateShuffle() {
         shuffleView.isEnabled = shuffle
@@ -319,7 +320,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             val card = drawCard()
 
             cards.add(card)
-            if (card.special != CardSpecial.Rolling)
+//            if (card.special != CardSpecial.Rolling)
                 break
         }
 

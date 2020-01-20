@@ -8,4 +8,7 @@
     <string name="notes">notes</string>
     <string name="perks">bénéfices</string>
     <string name="perks_notes">notes de bénéfices</string>
+    <string name="retired">Retraite</string>
+    <string name="stats">caractéristiques</string>
+    <string name="attack_deck">Cartes d\'Attaque</string>
 </resources>

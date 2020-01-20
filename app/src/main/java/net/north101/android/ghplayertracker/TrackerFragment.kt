@@ -94,17 +94,17 @@ open class TrackerFragment : Fragment() {
         actionBar.setBackgroundDrawable(ColorDrawable(c))
 
         if (!this::listAdapter1.isInitialized) {
-            listAdapter1 = TrackerAdapter()
+            listAdapter1 = TrackerAdapter(context!!)
         }
-        listAdapter1.onSummonAddClick = {
-            val fragment = TrackerSummonDialog_.builder().build()
-            fragment.setTargetFragment(this, 0)
-            fragment.show(fragmentManager, "TrackerSummonDialog_")
-        }
-        listAdapter1.onSummonDeleteClick = {
-            trackerModel.tracker.summons.value.remove(it)
-            trackerModel.tracker.summons.value = trackerModel.tracker.summons.value
-        }
+//        listAdapter1.onSummonAddClick = {
+//            val fragment = TrackerSummonDialog_.builder().build()
+//            fragment.setTargetFragment(this, 0)
+//            fragment.show(fragmentManager, "TrackerSummonDialog_")
+//        }
+//        listAdapter1.onSummonDeleteClick = {
+//            trackerModel.tracker.summons.value.remove(it)
+//            trackerModel.tracker.summons.value = trackerModel.tracker.summons.value
+//        }
         listAdapter1.onNumberClick = callback@{
             val fragment = when (it) {
                 "health" -> TrackerEditHealthDialog_.builder().build()
@@ -136,7 +136,7 @@ open class TrackerFragment : Fragment() {
         listView1.adapter = listAdapter1
 
         if (!this::listAdapter2.isInitialized) {
-            listAdapter2 = TrackerAdapter()
+            listAdapter2 = TrackerAdapter(context!!)
         }
 
         val listLayoutManager2 = GridLayoutManager(context, 2)
@@ -172,12 +172,12 @@ open class TrackerFragment : Fragment() {
             listAdapter2.updateItems(trackerModel.tracker)
         })
 
-        trackerModel.tracker.summons.observe(this, Observer {
-            if (it == null) return@Observer
-
-            listAdapter1.updateItems(trackerModel.tracker)
-            listAdapter2.updateItems(trackerModel.tracker)
-        })
+//        trackerModel.tracker.summons.observe(this, Observer {
+//            if (it == null) return@Observer
+//
+//            listAdapter1.updateItems(trackerModel.tracker)
+//            listAdapter2.updateItems(trackerModel.tracker)
+//        })
 
         trackerModel.tracker.houseRule.observe(this, Observer {
             if (it == null) return@Observer
@@ -197,12 +197,13 @@ open class TrackerFragment : Fragment() {
 
     @OptionsItem(R.id.complete)
     fun onCompleteClick() {
-        val fragment = TrackerCompleteDialog_.builder().build()
-        fragment.arguments = Bundle()
-        fragment.arguments!!.putInt("gold", trackerModel.tracker.loot.value)
-        fragment.arguments!!.putInt("xp", trackerModel.tracker.xp.value)
-        fragment.setTargetFragment(this, 0)
-        fragment.show(fragmentManager, "TrackerCompleteDialog_")
+//        val fragment = TrackerCompleteDialog_.builder().build()
+//        fragment.arguments = Bundle()
+//        fragment.arguments!!.putInt("gold", trackerModel.tracker.loot.value)
+//        fragment.arguments!!.putInt("xp", trackerModel.tracker.xp.value)
+//        fragment.setTargetFragment(this, 0)
+//        fragment.show(fragmentManager, "TrackerCompleteDialog_")
+        fragmentManager!!.popBackStack()
     }
 
     @OptionsItem(R.id.houseRuleVantage)
