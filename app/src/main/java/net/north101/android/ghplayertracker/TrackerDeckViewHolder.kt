@@ -31,6 +31,8 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     val deckView: ImageView = itemView.findViewById(R.id.draw_deck)
     val discardView : ImageView = itemView.findViewById(R.id.discard_deck)
 
+    var toast : Toast = Toast(itemView.context)
+
 //    val advantageView: ImageView = itemView.findViewById(R.id.advantage)
 //    val disadvantageView: ImageView = itemView.findViewById(R.id.disadvantage)
     val shuffleView: ImageView = itemView.findViewById(R.id.shuffle)
@@ -232,7 +234,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 
         discardView.setImageResource(0)
 
-        Toast.makeText(itemView.context, "Shuffled", Toast.LENGTH_SHORT).show()
+        toast.cancel()
+        toast = Toast.makeText(itemView.context, itemView.context.getString(R.string.shuffled), Toast.LENGTH_SHORT)
+        toast.show()
     }
 
     fun draw() {
@@ -273,6 +277,11 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         this.playedCards.add(playedCards)
         this.playedCards = this.playedCards
         drawDeck = drawDeck
+
+        toast.cancel()
+        toast = Toast.makeText(itemView.context, String.format(itemView.context.getString(R.string.remaining), drawDeck.count()), Toast.LENGTH_SHORT)
+        toast.show()
+
     }
 
     fun drawNormal(): PlayedCards {
