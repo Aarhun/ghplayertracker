@@ -149,6 +149,10 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         shuffleView.setOnClickListener {
             shuffle()
         }
+        discardView.setOnClickListener {
+
+        }
+
     }
 
     val shuffleObserver: (Boolean) -> Unit = {
