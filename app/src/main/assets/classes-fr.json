@@ -216,7 +216,7 @@
                 "card_id": "mod_class_01_push_1_rolling"
               }
             ],
-            "text": "Ajouter trois cartes [[icon_rolling]] PUSH [[icon_push]] 1"
+            "text": "Ajouter trois cartes [[icon_rolling]] POUSSÉE [[icon_push]] 1"
           },
           {
             "cards": [
@@ -226,7 +226,7 @@
                 "card_id": "mod_class_01_pierce_3_rolling"
               }
             ],
-            "text": "Ajouter deux cartes [[icon_rolling]] TRANSPERCEMENT [[icon_pierce]] 3"
+            "text": "Ajouter deux cartes [[icon_rolling]] PERFORATION [[icon_pierce]] 3"
           },
           {
             "ticks": 2,
@@ -259,7 +259,7 @@
                 "card_id": "mod_class_01_target_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] AJOUTER UNE CIBLE [[icon_target]]"
+            "text": "Ajouter une carte [[icon_rolling]] AJOUT DE CIBLE [[icon_target]]"
           },
           {
             "cards": [
@@ -556,7 +556,7 @@
                 "card_id": "mod_class_02_target"
               }
             ],
-            "text": "Ajouter une carte AJOUTER UNE CIBLE [[icon_target]]"
+            "text": "Ajouter une carte AJOUT DE CIBLE [[icon_target]]"
           },
           {
             "cards": [],
@@ -1072,7 +1072,7 @@
                 "card_id": "mod_class_scoundral_pierce_3_rolling"
               }
             ],
-            "text": "Ajouter deux cartes [[icon_rolling]] TRANSPERCEMENT [[icon_pierce]] 3"
+            "text": "Ajouter deux cartes [[icon_rolling]] PERFORATION [[icon_pierce]] 3"
           },
           {
             "ticks": 2,
@@ -1336,7 +1336,7 @@
                 "card_id": "mod_class_05_push_2_rolling"
               }
             ],
-            "text": "Ajouter deux cartes [[icon_rolling]] PUSH [[icon_push]] 2"
+            "text": "Ajouter deux cartes [[icon_rolling]] POUSSÉE [[icon_push]] 2"
           },
           {
             "ticks": 2,
@@ -1609,7 +1609,7 @@
                 "card_id": "mod_class_06_pull_1_rolling"
               }
             ],
-            "text": "Ajouter trois cartes [[icon_rolling]] PULL [[icon_pull]] 1"
+            "text": "Ajouter trois cartes [[icon_rolling]] TRACTION [[icon_pull]] 1"
           },
           {
             "cards": [
@@ -2160,7 +2160,7 @@
                 "card_id": "mod_class_08_pierce_3_rolling"
               }
             ],
-            "text": "Ajouter deux cartes [[icon_rolling]] TRANSPERCEMENT [[icon_pierce]] 3"
+            "text": "Ajouter deux cartes [[icon_rolling]] PERFORATION [[icon_pierce]] 3"
           },
           {
             "cards": [
@@ -2178,7 +2178,7 @@
                 "card_id": "mod_class_08_target_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] AJOUTER UNE CIBLE [[icon_target]]"
+            "text": "Ajouter une carte [[icon_rolling]] AJOUT DE CIBLE [[icon_target]]"
           },
           {
             "ticks": 3,
@@ -2726,7 +2726,7 @@
                 "card_id": "mod_class_10_target_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] AJOUTER UNE CIBLE [[icon_target]]"
+            "text": "Ajouter une carte [[icon_rolling]] AJOUT DE CIBLE [[icon_target]]"
           },
           {
             "cards": [
@@ -3833,7 +3833,7 @@
                 "card_id": "mod_class_14_target_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] AJOUTER UNE CIBLE [[icon_target]]"
+            "text": "Ajouter une carte [[icon_rolling]] AJOUT DE CIBLE [[icon_target]]"
           },
           {
             "cards": [],
@@ -4427,7 +4427,7 @@
                 "card_id": "mod_class_16_plus_1_push_1"
               }
             ],
-            "text": "Ajouter deux cartes [+1] PUSH [[icon_push]] 1"
+            "text": "Ajouter deux cartes [+1] POUSSÉE [[icon_push]] 1"
           },
           {
             "cards": [
@@ -4454,7 +4454,7 @@
                 "card_id": "mod_class_16_target"
               }
             ],
-            "text": "Ajouter une carte [+0] AJOUTER UNE CIBLE [[icon_target]]"
+            "text": "Ajouter une carte [+0] AJOUT DE CIBLE [[icon_target]]"
           }
         ]
       },
