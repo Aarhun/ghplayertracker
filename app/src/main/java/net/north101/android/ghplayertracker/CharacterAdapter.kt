@@ -70,7 +70,7 @@ class CharacterAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*
 
 
         if ((display.id and DisplayItems.Left.id) == DisplayItems.Left.id) {
-            newItems.add(TextHeader(context.getString(R.string.character)))
+//            newItems.add(TextHeader(context.getString(R.string.character)))
             newItems.add(Stats(character))
 
 //            newItems.add(TextHeaderIcon(context.getString(R.string.abilities), {

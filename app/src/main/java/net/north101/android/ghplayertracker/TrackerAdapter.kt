@@ -42,7 +42,7 @@ class TrackerAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*>>
         val newItems = ArrayList<RecyclerItemCompare>()
 
         if ((display.id and DisplayItems.Left.id) == DisplayItems.Left.id) {
-            newItems.add(TextHeader(context.getString(R.string.stats)))
+//            newItems.add(TextHeader(context.getString(R.string.stats)))
             newItems.add(Stats(tracker))
             newItems.add(Status(tracker))
 
@@ -56,43 +56,43 @@ class TrackerAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*>>
             newItems.add(TextHeader(context.getString(R.string.attack_deck)))
             newItems.add(Deck(tracker))
 
-            var wasShuffled: Int? = null
-            for ((index, item) in tracker.playedCards.value.withIndex().reversed()) {
-                if (wasShuffled != item.shuffledIndex) {
-                    newItems.add(TextHeader("Shuffle #" + item.shuffledIndex.toString()))
-                    wasShuffled = item.shuffledIndex
-                }
-                if (newItems.size > 0) {
-                    newItems.add(CardDivider(index.toString()))
-                }
-                if (item.pile2 == null) {
-                    for (card in item.pile1) {
-                        newItems.add(CardInfo(item, card, false, item.shuffledIndex))
-                    }
-                } else {
-                    val count = Math.max(item.pile1.size, item.pile2.size)
-                    for (i in 0 until count) {
-                        if (i < item.pile1.size) {
-                            newItems.add(CardInfo(item, item.pile1[i], true, item.shuffledIndex))
-                        } else {
-                            newItems.add(CardInfo(item, null, true, item.shuffledIndex))
-                        }
-                        if (i < item.pile2.size) {
-                            newItems.add(CardInfo(item, item.pile2[i], true, item.shuffledIndex))
-                        } else {
-                            newItems.add(CardInfo(item, null, true, item.shuffledIndex))
-                        }
-                    }
-                }
-            }
+//            var wasShuffled: Int? = null
+//            for ((index, item) in tracker.playedCards.value.withIndex().reversed()) {
+//                if (wasShuffled != item.shuffledIndex) {
+//                    newItems.add(TextHeader("Shuffle #" + item.shuffledIndex.toString()))
+//                    wasShuffled = item.shuffledIndex
+//                }
+//                if (newItems.size > 0) {
+//                    newItems.add(CardDivider(index.toString()))
+//                }
+//                if (item.pile2 == null) {
+//                    for (card in item.pile1) {
+//                        newItems.add(CardInfo(item, card, false, item.shuffledIndex))
+//                    }
+//                } else {
+//                    val count = Math.max(item.pile1.size, item.pile2.size)
+//                    for (i in 0 until count) {
+//                        if (i < item.pile1.size) {
+//                            newItems.add(CardInfo(item, item.pile1[i], true, item.shuffledIndex))
+//                        } else {
+//                            newItems.add(CardInfo(item, null, true, item.shuffledIndex))
+//                        }
+//                        if (i < item.pile2.size) {
+//                            newItems.add(CardInfo(item, item.pile2[i], true, item.shuffledIndex))
+//                        } else {
+//                            newItems.add(CardInfo(item, null, true, item.shuffledIndex))
+//                        }
+//                    }
+//                }
+//            }
         }
 
-        val diffCallback = RecyclerListItemsCallback(this.items, newItems)
-        val diffResult = DiffUtil.calculateDiff(diffCallback)
+//        val diffCallback = RecyclerListItemsCallback(this.items, newItems)
+//        val diffResult = DiffUtil.calculateDiff(diffCallback)
 
         this.items.clear()
         this.items.addAll(newItems)
-        diffResult.dispatchUpdatesTo(this)
+//        diffResult.dispatchUpdatesTo(this)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
