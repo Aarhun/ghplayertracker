@@ -9,8 +9,8 @@
         android:title="Complete"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/houseRuleVantage"
-        android:checkable="true"
-        android:title="House Rule Advantage/Disadvantage"/>
+<!--    <item-->
+<!--        android:id="@+id/houseRuleVantage"-->
+<!--        android:checkable="true"-->
+<!--        android:title="House Rule Advantage/Disadvantage"/>-->
 </menu>

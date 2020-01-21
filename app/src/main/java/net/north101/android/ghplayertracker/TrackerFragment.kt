@@ -33,8 +33,8 @@ open class TrackerFragment : Fragment() {
     @ViewById(R.id.list2)
     protected lateinit var listView2: RecyclerView
 
-    @OptionsMenuItem(R.id.houseRuleVantage)
-    protected lateinit var houseRuleVantageMenu: MenuItem
+//    @OptionsMenuItem(R.id.houseRuleVantage)
+//    protected lateinit var houseRuleVantageMenu: MenuItem
 
     protected lateinit var listAdapter1: TrackerAdapter
     protected lateinit var listAdapter2: TrackerAdapter
@@ -179,20 +179,20 @@ open class TrackerFragment : Fragment() {
 //            listAdapter2.updateItems(trackerModel.tracker)
 //        })
 
-        trackerModel.tracker.houseRule.observe(this, Observer {
-            if (it == null) return@Observer
-
-            sharedPrefs.houseRuleVantage().put(it)
-            if (this@TrackerFragment::houseRuleVantageMenu.isInitialized) {
-                houseRuleVantageMenu.isChecked = it
-            }
-        })
+//        trackerModel.tracker.houseRule.observe(this, Observer {
+//            if (it == null) return@Observer
+//
+//            sharedPrefs.houseRuleVantage().put(it)
+//            if (this@TrackerFragment::houseRuleVantageMenu.isInitialized) {
+//                houseRuleVantageMenu.isChecked = it
+//            }
+//        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         super.onCreateOptionsMenu(menu, inflater)
 
-        trackerModel.tracker.houseRule.value = trackerModel.tracker.houseRule.value
+//        trackerModel.tracker.houseRule.value = trackerModel.tracker.houseRule.value
     }
 
     @OptionsItem(R.id.complete)
@@ -206,10 +206,10 @@ open class TrackerFragment : Fragment() {
         fragmentManager!!.popBackStack()
     }
 
-    @OptionsItem(R.id.houseRuleVantage)
-    fun onHomebrewVantageClick() {
-        trackerModel.tracker.houseRule.value = !(trackerModel.tracker.houseRule.value)
-    }
+//    @OptionsItem(R.id.houseRuleVantage)
+//    fun onHomebrewVantageClick() {
+//        trackerModel.tracker.houseRule.value = !(trackerModel.tracker.houseRule.value)
+//    }
 
     companion object {
         const val ARG_CHARACTER = "character"
