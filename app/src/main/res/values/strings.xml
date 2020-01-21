@@ -11,4 +11,18 @@
     <string name="retired">Retired</string>
     <string name="stats">stats</string>
     <string name="attack_deck">Attack Deck</string>
+    <string name="shuffled">Shuffled</string>
+    <string name="remaining">%1$d card(s) remaining</string>
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
+    <string name="edit">Edit: %1$s</string>
+    <string name="note">Note</string>
+    <string name="level">Level</string>
+    <string name="health">Health</string>
+    <string name="gold">Gold</string>
+    <string name="xp">Experience</string>
+    <string name="coins">Coins</string>
+    <string name="bless">Bless</string>
+    <string name="curse">Curses</string>
+    <string name="minus1">-1</string>
 </resources>

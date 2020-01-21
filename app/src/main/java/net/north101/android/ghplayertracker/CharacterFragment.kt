@@ -373,7 +373,7 @@ abstract class CharacterNumberDialog : EditNumberDialog() {
 
 @EFragment
 open class CharacterEditLevelDialog : CharacterNumberDialog() {
-    override val title = "Edit Level"
+    override val title = R.string.level
 
     override var value: Int
         get() = characterModel.character.level.value
@@ -385,7 +385,7 @@ open class CharacterEditLevelDialog : CharacterNumberDialog() {
 
 @EFragment
 open class CharacterEditXPDialog : CharacterNumberDialog() {
-    override val title = "Edit XP"
+    override val title = R.string.xp
 
     override var value: Int
         get() = characterModel.character.xp.value
@@ -397,7 +397,7 @@ open class CharacterEditXPDialog : CharacterNumberDialog() {
 
 @EFragment
 open class CharacterEditGoldDialog : CharacterNumberDialog() {
-    override val title = "Edit Gold"
+    override val title = R.string.gold
 
     override var value: Int
         get() = characterModel.character.gold.value

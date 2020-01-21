@@ -20,7 +20,7 @@ abstract class EditNumberDialog : DialogFragment() {
     @ViewById(R.id.text)
     protected lateinit var textView: EditText
 
-    abstract val title: String
+    abstract val title: Int
     abstract var value: Int
 
     override fun onCreateDialog(state: Bundle?): Dialog {
@@ -29,9 +29,9 @@ abstract class EditNumberDialog : DialogFragment() {
         view2 = inflater.inflate(R.layout.edit_number_layout, null as ViewGroup?)
 
         builder.setView(view2)
-            .setTitle(title)
-            .setPositiveButton("OK", null)
-            .setNegativeButton("CANCEL") { dialog, id ->
+            .setTitle(String.format(context!!.getString(R.string.edit),context!!.getString(title)))
+            .setPositiveButton(context!!.getString(R.string.ok), null)
+            .setNegativeButton(context!!.getString(R.string.cancel)) { dialog, id ->
                 this@EditNumberDialog.dialog.cancel()
             }
 

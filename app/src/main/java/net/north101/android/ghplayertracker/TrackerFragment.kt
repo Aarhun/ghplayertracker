@@ -242,7 +242,7 @@ abstract class TrackerNumberDialog : EditNumberDialog() {
 
 @EFragment
 open class TrackerEditHealthDialog : TrackerNumberDialog() {
-    override val title = "Edit Health"
+    override val title = R.string.health
 
     override var value: Int
         get() = trackerModel.tracker.health.value
@@ -254,7 +254,7 @@ open class TrackerEditHealthDialog : TrackerNumberDialog() {
 
 @EFragment
 open class TrackerEditXPDialog : TrackerNumberDialog() {
-    override val title = "Edit XP"
+    override val title = R.string.xp
 
     override var value: Int
         get() = trackerModel.tracker.xp.value
@@ -266,7 +266,7 @@ open class TrackerEditXPDialog : TrackerNumberDialog() {
 
 @EFragment
 open class TrackerEditLootDialog : TrackerNumberDialog() {
-    override val title = "Edit Coins"
+    override val title = R.string.coins
 
     override var value: Int
         get() = trackerModel.tracker.loot.value
@@ -308,7 +308,7 @@ abstract class TrackerEditCardDialog : TrackerNumberDialog() {
 
 @EFragment
 open class TrackerEditBlessDialog : TrackerEditCardDialog() {
-    override val title = "Edit Bless"
+    override val title = R.string.bless
 
     override val card: Card
         get() = Card["mod_extra_double_bless_remove"]
@@ -317,7 +317,7 @@ open class TrackerEditBlessDialog : TrackerEditCardDialog() {
 
 @EFragment
 open class TrackerEditCurseDialog : TrackerEditCardDialog() {
-    override val title = "Edit Curse"
+    override val title = R.string.curse
 
     override val card: Card
         get() = Card["mod_extra_null_curse_remove"]
@@ -326,7 +326,7 @@ open class TrackerEditCurseDialog : TrackerEditCardDialog() {
 
 @EFragment
 open class TrackerEditMinus1Dialog : TrackerEditCardDialog() {
-    override val title = "Edit -1"
+    override val title = R.string.minus1
 
     override val card: Card
         get() = Card["mod_extra_minus_1"]

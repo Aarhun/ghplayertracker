@@ -41,8 +41,8 @@ open class CharacterNoteDialog : DialogFragment() {
         view2 = inflater.inflate(R.layout.character_note_layout, null as ViewGroup?)
 
         builder.setView(view2)
-            .setTitle("Edit Note")
-            .setPositiveButton("OK") { dialog, id ->
+            .setTitle(String.format(context!!.getString(R.string.edit),context!!.getString(R.string.note)))
+            .setPositiveButton(context!!.getString(R.string.ok)) { dialog, id ->
                 if (index == null) {
                     notes.add(InitLiveData(textView.text.toString()))
                 } else {
@@ -50,7 +50,7 @@ open class CharacterNoteDialog : DialogFragment() {
                 }
                 notes = notes
             }
-            .setNegativeButton("CANCEL") { dialog, id ->
+            .setNegativeButton(context!!.getString(R.string.cancel)) { dialog, id ->
                 this@CharacterNoteDialog.dialog.cancel()
             }
 

@@ -11,4 +11,18 @@
     <string name="retired">Retraite</string>
     <string name="stats">caractéristiques</string>
     <string name="attack_deck">Cartes d\'Attaque</string>
+    <string name="shuffled">Mélangé</string>
+    <string name="remaining">Il reste %1$d carte(s)</string>
+    <string name="ok">OK</string>
+    <string name="cancel">ANNULER</string>
+    <string name="edit">Édition: %1%s</string>
+    <string name="note">Note</string>
+    <string name="level">Niveau</string>
+    <string name="health">Vie</string>
+    <string name="gold">Or</string>
+    <string name="xp">Expérience</string>
+    <string name="coins">Pièces</string>
+    <string name="bless">Bénédictions</string>
+    <string name="curse">Malédictions</string>
+    <string name="minus1">-1</string>
 </resources>
