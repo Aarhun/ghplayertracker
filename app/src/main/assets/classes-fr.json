@@ -249,7 +249,7 @@
                 "card_id": "mod_class_01_muddle_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] DISARM [[icon_status_disarm]] card and one [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
+            "text": "Ajouter une carte [[icon_rolling]] DÉSARMEMENT [[icon_status_disarm]] card and one [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
           },
           {
             "ticks": 2,
@@ -1651,7 +1651,7 @@
                 "card_id": "mod_class_06_muddle_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] DISARM [[icon_status_disarm]] card and one [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
+            "text": "Ajouter une carte [[icon_rolling]] DÉSARMEMENT [[icon_status_disarm]] card and one [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
           },
           {
             "cards": [],
@@ -3245,7 +3245,7 @@
                 "card_id": "mod_class_12_plus_1_disarm_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] [+1] DISARM [[icon_status_disarm]]"
+            "text": "Ajouter une carte [[icon_rolling]] [+1] DÉSARMEMENT [[icon_status_disarm]]"
           },
           {
             "cards": [
@@ -3489,7 +3489,7 @@
                 "card_id": "mod_class_13_plus_1_disarm"
               }
             ],
-            "text": "Remplacer une carte [+0] par une carte [+1] DISARM [[icon_status_disarm]] "
+            "text": "Remplacer une carte [+0] par une carte [+1] DÉSARMEMENT [[icon_status_disarm]] "
           },
           {
             "cards": [
