@@ -1852,7 +1852,7 @@
             "cards": [
               {
                 "action": "remove",
-                "card_id": "mod_basic_minus_1"
+                "card_id": "mod_basic_minus_2"
               },
               {
                 "action": "add",
@@ -1860,6 +1860,19 @@
               }
             ],
             "text": "Replace one [-2] card with one [+0] card"
+          },
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_0"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_07_plus_2"
+              }
+            ],
+            "text": "Replace one [+0] card with one [+2] card"
           },
           {
             "ticks": 2,
