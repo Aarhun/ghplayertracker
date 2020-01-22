@@ -15,7 +15,7 @@
     <string name="remaining">Il reste %1$d carte(s)</string>
     <string name="ok">OK</string>
     <string name="cancel">ANNULER</string>
-    <string name="edit">Édition: %1%s</string>
+    <string name="edit">Édition: %1$s</string>
     <string name="note">Note</string>
     <string name="level">Niveau</string>
     <string name="health">Vie</string>
