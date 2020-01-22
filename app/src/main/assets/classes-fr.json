@@ -683,11 +683,11 @@
           }
         },
         "cards": {
-          "mod_class_03_earth_rolling": {
+          "mod_class_03_element_earth_rolling": {
             "deck": "class",
             "special": "rolling"
           },
-          "mod_class_03_dark_rolling": {
+          "mod_class_03_element_dark_rolling": {
             "deck": "class",
             "special": "rolling"
           },
@@ -712,11 +712,13 @@
           "mod_class_03_stun": {
             "deck": "class"
           },
-          "mod_class_03_light_rolling": {
-            "deck": "class"
+          "mod_class_03_element_light_rolling": {
+            "deck": "class",
+            "special": "rolling"
           },
-          "mod_class_03_air_rolling": {
-            "deck": "class"
+          "mod_class_03_element_air_rolling": {
+            "deck": "class",
+            "special": "rolling"
           }
         },
         "perks": [
@@ -815,11 +817,11 @@
             "cards": [
               {
                 "action": "add",
-                "card_id": "mod_class_03_earth_rolling"
+                "card_id": "mod_class_03_element_earth_rolling"
               },
               {
                 "action": "add",
-                "card_id": "mod_class_03_air_rolling"
+                "card_id": "mod_class_03_element_air_rolling"
               }
             ],
             "text": "Ajouter une carte [[icon_rolling]] [[icon_element_earth]] and one [[icon_rolling]] [[icon_element_air]]"
@@ -828,11 +830,11 @@
             "cards": [
               {
                 "action": "add",
-                "card_id": "mod_class_03_light_rolling"
+                "card_id": "mod_class_03_element_light_rolling"
               },
               {
                 "action": "add",
-                "card_id": "mod_class_03_dark_rolling"
+                "card_id": "mod_class_03_element_dark_rolling"
               }
             ],
             "text": "Ajouter une carte [[icon_rolling]] [[icon_element_light]] and one [[icon_rolling]] [[icon_element_dark]]"
@@ -962,32 +964,32 @@
           }
         },
         "cards": {
-          "mod_class_scoundral_muddle_rolling": {
+          "mod_class_04_muddle_rolling": {
             "deck": "class",
             "special": "rolling"
           },
-          "mod_class_scoundral_pierce_3_rolling": {
+          "mod_class_04_pierce_3_rolling": {
             "deck": "class",
             "special": "rolling"
           },
-          "mod_class_scoundral_plus_0": {
+          "mod_class_04_plus_0": {
             "deck": "class"
           },
-          "mod_class_scoundral_plus_1_rolling": {
+          "mod_class_04_plus_1_rolling": {
             "deck": "class",
             "special": "rolling"
           },
-          "mod_class_scoundral_plus_1": {
+          "mod_class_04_plus_1": {
             "deck": "class"
           },
-          "mod_class_scoundral_plus_2": {
+          "mod_class_04_plus_2": {
             "deck": "class"
           },
-          "mod_class_scoundral_poison_rolling": {
+          "mod_class_04_poison_rolling": {
             "deck": "class",
             "special": "rolling"
           },
-          "mod_class_scoundral_invisible_rolling": {
+          "mod_class_04_invisible_rolling": {
             "deck": "class",
             "special": "rolling"
           }
@@ -1022,7 +1024,7 @@
               },
               {
                 "action": "add",
-                "card_id": "mod_class_scoundral_plus_0"
+                "card_id": "mod_class_04_plus_0"
               }
             ],
             "text": "Remplacer une carte [-2] par une carte [+0]"
@@ -1035,7 +1037,7 @@
               },
               {
                 "action": "add",
-                "card_id": "mod_class_scoundral_plus_1"
+                "card_id": "mod_class_04_plus_1"
               }
             ],
             "text": "Remplacer une carte [-1] par une carte [+1]"
@@ -1049,7 +1051,7 @@
               },
               {
                 "action": "add",
-                "card_id": "mod_class_scoundral_plus_2"
+                "card_id": "mod_class_04_plus_2"
               }
             ],
             "text": "Remplacer une carte [+0] par une carte [+2]"
@@ -1059,7 +1061,7 @@
             "cards": [
               {
                 "action": "add",
-                "card_id": "mod_class_scoundral_plus_1_rolling"
+                "card_id": "mod_class_04_plus_1_rolling"
               }
             ],
             "text": "Ajouter deux cartes [[icon_rolling]] [+1]"
@@ -1069,7 +1071,7 @@
               {
                 "action": "add",
                 "repeat": 2,
-                "card_id": "mod_class_scoundral_pierce_3_rolling"
+                "card_id": "mod_class_04_pierce_3_rolling"
               }
             ],
             "text": "Ajouter deux cartes [[icon_rolling]] PERFORATION [[icon_pierce]] 3"
@@ -1080,7 +1082,7 @@
               {
                 "action": "add",
                 "repeat": 2,
-                "card_id": "mod_class_scoundral_poison_rolling"
+                "card_id": "mod_class_04_poison_rolling"
               }
             ],
             "text": "Ajouter deux cartes [[icon_rolling]] POISON [[icon_status_poison]]"
@@ -1090,7 +1092,7 @@
               {
                 "action": "add",
                 "repeat": 2,
-                "card_id": "mod_class_scoundral_muddle_rolling"
+                "card_id": "mod_class_04_muddle_rolling"
               }
             ],
             "text": "Ajouter deux cartes [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
@@ -1099,7 +1101,7 @@
             "cards": [
               {
                 "action": "add",
-                "card_id": "mod_class_scoundral_invisible_rolling"
+                "card_id": "mod_class_04_invisible_rolling"
               }
             ],
             "text": "Ajouter une carte [[icon_rolling]] INVISIBLE [[icon_status_invisible]]"
@@ -1256,7 +1258,7 @@
           "mod_class_05_plus_2": {
             "deck": "class"
           },
-          "mod_class_05_earth_rolling": {
+          "mod_class_05_element_earth_rolling": {
             "deck": "class",
             "special": "rolling"
           },
@@ -1264,7 +1266,7 @@
             "deck": "class",
             "special": "rolling"
           },
-          "mod_class_05_air_rolling": {
+          "mod_class_05_element_air_rolling": {
             "deck": "class",
             "special": "rolling"
           }
@@ -1344,7 +1346,7 @@
               {
                 "action": "add",
                 "repeat": 2,
-                "card_id": "mod_class_05_earth_rolling"
+                "card_id": "mod_class_05_element_earth_rolling"
               }
             ],
             "text": "Ajouter deux cartes [[icon_rolling]] [[icon_element_earth]]"
@@ -1354,7 +1356,7 @@
               {
                 "action": "add",
                 "repeat": 2,
-                "card_id": "mod_class_05_air_rolling"
+                "card_id": "mod_class_05_element_air_rolling"
               }
             ],
             "text": "Ajouter deux cartes [[icon_rolling]] [[icon_element_air]]"
@@ -4586,7 +4588,8 @@
         },
         "cards": {
           "mod_class_17_element_earth_rolling": {
-            "deck": "class"
+            "deck": "class",
+            "special": "rolling"
           },
           "mod_class_17_heal_1_rolling": {
             "deck": "class",
