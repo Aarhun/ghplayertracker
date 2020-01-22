@@ -14,7 +14,6 @@ import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.WindowManager
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.Character
@@ -25,7 +24,7 @@ import org.androidannotations.annotations.sharedpreferences.Pref
 @OptionsMenu(R.menu.character_tracker)
 @EFragment(R.layout.character_tracker_layout)
 open class TrackerFragment : Fragment() {
-    protected lateinit var actionBar: ActionBar
+    private lateinit var actionBar: ActionBar
     @ViewById(R.id.toolbar)
     protected lateinit var toolbar: Toolbar
     @ViewById(R.id.list1)

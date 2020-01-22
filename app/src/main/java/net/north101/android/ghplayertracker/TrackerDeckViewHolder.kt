@@ -1,10 +1,11 @@
 package net.north101.android.ghplayertracker
 
+import android.app.AlertDialog
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
+import kotlinx.android.synthetic.main.discarded_cards_list_layout.view.*
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.CardSpecial
 import net.north101.android.ghplayertracker.data.PlayedCards
@@ -150,9 +151,28 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             shuffle()
         }
         discardView.setOnClickListener {
-
+            showDiscardedCards()
         }
 
+    }
+
+    fun showDiscardedCards()
+    {
+        //Inflate the dialog with custom view
+        val dialog = LayoutInflater.from(itemView.context!!).inflate(R.layout.discarded_cards_list_layout, null)
+        var cardList: ArrayList<Card> = discardDeck
+        if(cardList.count() > 1)
+        {
+            cardList.reverse()
+        }
+
+        val adapter = CardsAdapter(itemView.context!!, cardList)
+        dialog.card_list.setAdapter(adapter)
+        //AlertDialogBuilder
+        val builder = AlertDialog.Builder(itemView.context!!)
+                .setView(dialog)
+        //show dialog
+        val  mAlertDialog = builder.show()
     }
 
     val shuffleObserver: (Boolean) -> Unit = {
