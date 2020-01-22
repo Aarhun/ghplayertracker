@@ -103,8 +103,8 @@ class TrackerAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*>>
             TrackerViewType.Status -> TrackerStatusViewHolder.inflate(parent)
 //            TrackerViewType.Summon -> TrackerSummonViewHolder.inflate(parent)
             TrackerViewType.Deck -> TrackerDeckViewHolder.inflate(parent)
-            TrackerViewType.CardInfo -> TrackerCardViewHolder.inflate(parent)
-            TrackerViewType.CardDivider -> TrackerCardDividerViewHolder.inflate(parent)
+//            TrackerViewType.CardInfo -> TrackerCardViewHolder.inflate(parent)
+//            TrackerViewType.CardDivider -> TrackerCardDividerViewHolder.inflate(parent)
         }
     }
 
@@ -157,8 +157,8 @@ class TrackerAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*>>
             is Status -> TrackerViewType.Status
 //            is SummonLiveData -> TrackerViewType.Summon
             is Deck -> TrackerViewType.Deck
-            is CardInfo -> TrackerViewType.CardInfo
-            is CardDivider -> TrackerViewType.CardDivider
+//            is CardInfo -> TrackerViewType.CardInfo
+//            is CardDivider -> TrackerViewType.CardDivider
             else -> throw RuntimeException(position.toString())
         }.ordinal
     }
@@ -174,7 +174,7 @@ enum class TrackerViewType {
     Stats,
     Status,
 //    Summon,
-    Deck,
-    CardInfo,
-    CardDivider
+    Deck
+//    CardInfo,
+//    CardDivider
 }
