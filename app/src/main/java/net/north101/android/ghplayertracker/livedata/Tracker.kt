@@ -14,6 +14,7 @@ class TrackerLiveData {
     }.toMap())
     val drawDeck = InitLiveData<ArrayList<Card>>(ArrayList())
     val discardDeck = InitLiveData<ArrayList<Card>>(ArrayList())
+    val cleanedDiscardDeck = InitLiveData<ArrayList<Card>>(ArrayList())
     val playedCards = InitLiveData<ArrayList<PlayedCards>>(ArrayList())
     val summons = InitLiveData<ArrayList<SummonLiveData>>(ArrayList())
 

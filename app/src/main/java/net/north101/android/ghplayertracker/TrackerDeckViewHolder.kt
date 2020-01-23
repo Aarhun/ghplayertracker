@@ -82,6 +82,12 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             item!!.discardDeck.value = value
         }
 
+    var cleanedDiscardDeck: ArrayList<Card>
+        get() = item!!.cleanedDiscardDeck.value
+        set(value) {
+            item!!.cleanedDiscardDeck.value = value
+        }
+
     var playedCards: ArrayList<PlayedCards>
         get() = item!!.playedCards.value
         set(value) {
@@ -322,7 +328,8 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             playedCards.shuffledIndex = shuffleCount
         }
 
-        drawDeck.addAll(discardDeck)
+        drawDeck.addAll(cleanedDiscardDeck)
+        cleanedDiscardDeck.clear()
         discardDeck.clear()
 
         drawDeck = drawDeck
@@ -335,36 +342,16 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     }
 
     fun draw() {
-        val playedCards = if (attackStatus == AttackStatus.Advantage) {
-            if (houseRule) {
-                drawHouse()
-            } else {
-                drawAdvantage()
-            }
-        } else if (attackStatus == AttackStatus.Disadvantage) {
-            if (houseRule) {
-                drawHouse()
-            } else {
-                drawDisadvantage()
-            }
-        } else {
-            drawNormal()
-        }
+        val playedCards =  drawNormal()
         if (playedCards.hasShuffle()) {
             shuffle = true
         }
 
         for (card in playedCards.pile1) {
             if (card.special != CardSpecial.Remove) {
-                discardDeck.add(card)
+                cleanedDiscardDeck.add(card)
             }
-        }
-        if (playedCards.pile2 != null) {
-            for (card in playedCards.pile2) {
-                if (card.special != CardSpecial.Remove) {
-                    discardDeck.add(card)
-                }
-            }
+            discardDeck.add(card)
         }
 
         this.playedCards.add(playedCards)
