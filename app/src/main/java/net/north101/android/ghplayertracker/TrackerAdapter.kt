@@ -132,8 +132,8 @@ class TrackerAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*>>
                     onNumberClick?.invoke(it)
                 }
             }
-            is TrackerCardViewHolder -> holder.bind(item as CardInfo)
-            is TrackerCardDividerViewHolder -> holder.bind(item as CardDivider)
+//            is TrackerCardViewHolder -> holder.bind(item as CardInfo)
+//            is TrackerCardDividerViewHolder -> holder.bind(item as CardDivider)
             else -> throw RuntimeException(holder.toString())
         }
     }
