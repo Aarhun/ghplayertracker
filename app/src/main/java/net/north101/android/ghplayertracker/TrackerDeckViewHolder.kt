@@ -7,8 +7,10 @@ import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.*
-import android.widget.*
+import android.view.animation.OvershootInterpolator
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.discarded_cards_list_layout.view.*
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.CardSpecial
@@ -37,6 +39,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     val discardView : ImageView = itemView.findViewById(R.id.discard_deck)
     val discardView2 : ImageView = itemView.findViewById(R.id.discard_deck_2)
     val discardView3 : ImageView = itemView.findViewById(R.id.discard_deck_3)
+
+    val discardViewInitialX = discardView.x
+    val discardViewInitialY = discardView.y
 
     var toast : Toast = Toast(itemView.context)
 
@@ -221,8 +226,8 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 
     fun onStartAnimation()
     {
-        val anim3X : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "x", discardView.x+200f, discardView.x+365f)
-        val anim3Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "y", discardView.y+60f, discardView.y+100f)
+        val anim3X : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "x", discardViewInitialX+200f, discardViewInitialX+365f)
+        val anim3Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "y", discardViewInitialY+60f, discardViewInitialY+100f)
         val anim3Scale = ValueAnimator.ofFloat(01f, 0.5f)
 
         anim3Scale.addUpdateListener {
@@ -230,9 +235,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             discardView3.scaleX = value
             discardView3.scaleY = value
         }
-        val anim2X : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "x", discardView.x, discardView.x+200f)
-        val anim2Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "y", discardView.y, discardView.y+60f)
-        val anim1X : ObjectAnimator = ObjectAnimator.ofFloat(discardView, "x", discardView.x-200f, discardView.x)
+        val anim2X : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "x", discardViewInitialX, discardViewInitialX+200f)
+        val anim2Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "y", discardViewInitialY, discardViewInitialY+60f)
+        val anim1X : ObjectAnimator = ObjectAnimator.ofFloat(discardView, "x", discardViewInitialX-200f, discardViewInitialX)
         val anim2Scale = ValueAnimator.ofFloat(01f, 0.8f)
 
         anim2Scale.addUpdateListener {
