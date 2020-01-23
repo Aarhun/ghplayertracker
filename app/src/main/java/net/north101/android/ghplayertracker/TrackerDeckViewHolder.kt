@@ -1,9 +1,13 @@
 package net.north101.android.ghplayertracker
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.*
 import android.widget.*
 import kotlinx.android.synthetic.main.discarded_cards_list_layout.view.*
 import net.north101.android.ghplayertracker.data.Card
@@ -200,15 +204,56 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             discardView3.setImageResource(0)
         }
         else {
+
             var i = discardDeck.lastIndex
             discardView.setImageResource(Util.getImageResource(itemView.context, discardDeck[i--].id))
+
             if (i >= 0) {
                 discardView2.setImageResource(Util.getImageResource(itemView.context, discardDeck[i--].id))
             }
             if (i >= 0) {
                 discardView3.setImageResource(Util.getImageResource(itemView.context, discardDeck[i].id))
             }
+
+            onStartAnimation()
         }
+    }
+
+    fun onStartAnimation()
+    {
+        val anim3X : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "x", discardView.x+200f, discardView.x+365f)
+        val anim3Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "y", discardView.y+60f, discardView.y+100f)
+        val anim3Scale = ValueAnimator.ofFloat(01f, 0.5f)
+
+        anim3Scale.addUpdateListener {
+            val value = it.animatedValue as Float
+            discardView3.scaleX = value
+            discardView3.scaleY = value
+        }
+        val anim2X : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "x", discardView.x, discardView.x+200f)
+        val anim2Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "y", discardView.y, discardView.y+60f)
+        val anim1X : ObjectAnimator = ObjectAnimator.ofFloat(discardView, "x", discardView.x-200f, discardView.x)
+        val anim2Scale = ValueAnimator.ofFloat(01f, 0.8f)
+
+        anim2Scale.addUpdateListener {
+            val value = it.animatedValue as Float
+            discardView2.scaleX = value
+            discardView2.scaleY = value
+        }
+
+        val animatorSet = AnimatorSet()
+        animatorSet.play(anim2Scale).with(anim2X).with(anim2Y).with(anim1X).with(anim3X).with(anim3Y).with(anim3Scale)
+
+        anim2X.interpolator = OvershootInterpolator(1.5f)
+        anim2Y.interpolator = OvershootInterpolator(1.5f)
+        anim3X.interpolator = OvershootInterpolator(1.5f)
+        anim3Y.interpolator = OvershootInterpolator(1.5f)
+        anim1X.interpolator = OvershootInterpolator(1.5f)
+        anim2Scale.interpolator = OvershootInterpolator(1.5f)
+        anim3Scale.interpolator = OvershootInterpolator(1.5f)
+        animatorSet.duration = 500
+
+        animatorSet.start()
     }
 
     override fun bind(item: TrackerLiveData) {
