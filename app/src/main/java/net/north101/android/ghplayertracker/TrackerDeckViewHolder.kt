@@ -4,9 +4,12 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.app.AlertDialog
+import android.content.Context
+import android.graphics.Point
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.TextView
@@ -18,6 +21,8 @@ import net.north101.android.ghplayertracker.data.PlayedCards
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.math.min
+
 
 class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(itemView) {
     var blessContainerView: View = itemView.findViewById(R.id.bless_container)
@@ -44,6 +49,12 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     val discardViewInitialY = discardView.y
 
     var toast : Toast = Toast(itemView.context)
+    var displayWidth = 0f
+    var initialDiscardViewXOffset = -200f
+    var finalDiscardView2XOffset = 200f
+    var finalDiscardView3XOffset = 365f
+    var finalDiscardView2YOffset = 60f
+    var finalDiscardView3YOffset = 100f
 
 //    val advantageView: ImageView = itemView.findViewById(R.id.advantage)
 //    val disadvantageView: ImageView = itemView.findViewById(R.id.disadvantage)
@@ -170,6 +181,17 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         discardView.setOnClickListener {
             showDiscardedCards()
         }
+
+        var wm = itemView.context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val point = Point()
+        wm.defaultDisplay.getSize(point)
+        displayWidth = point.x.toFloat()
+        initialDiscardViewXOffset = -displayWidth / 3
+        finalDiscardView2XOffset = displayWidth / 5
+        finalDiscardView3XOffset = displayWidth / 3.05f
+        deckView.setScaleX(min(displayWidth / 1000, 1f))
+        deckView.setScaleY(min(displayWidth / 1000, 1f))
+
     }
 
 
@@ -232,8 +254,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 
     fun onStartAnimation()
     {
-        val anim3X : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "x", discardViewInitialX+200f, discardViewInitialX+365f)
-        val anim3Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "y", discardViewInitialY+60f, discardViewInitialY+100f)
+
+        val anim3X : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "x", discardViewInitialX+finalDiscardView2XOffset, discardViewInitialX+finalDiscardView3XOffset)
+        val anim3Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "y", discardViewInitialY+finalDiscardView2YOffset, discardViewInitialY+finalDiscardView3YOffset)
         val anim3Scale = ValueAnimator.ofFloat(01f, 0.5f)
 
         anim3Scale.addUpdateListener {
@@ -241,9 +264,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             discardView3.scaleX = value
             discardView3.scaleY = value
         }
-        val anim2X : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "x", discardViewInitialX, discardViewInitialX+200f)
-        val anim2Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "y", discardViewInitialY, discardViewInitialY+60f)
-        val anim1X : ObjectAnimator = ObjectAnimator.ofFloat(discardView, "x", discardViewInitialX-200f, discardViewInitialX)
+        val anim2X : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "x", discardViewInitialX, discardViewInitialX+finalDiscardView2XOffset)
+        val anim2Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "y", discardViewInitialY, discardViewInitialY+finalDiscardView2YOffset)
+        val anim1X : ObjectAnimator = ObjectAnimator.ofFloat(discardView, "x", discardViewInitialX+initialDiscardViewXOffset, discardViewInitialX)
         val anim2Scale = ValueAnimator.ofFloat(01f, 0.8f)
 
         anim2Scale.addUpdateListener {
@@ -359,9 +382,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         drawDeck = drawDeck
         discardDeck = discardDeck
 
-        toast.cancel()
-        toast = Toast.makeText(itemView.context, String.format(itemView.context.getString(R.string.remaining), drawDeck.count()), Toast.LENGTH_SHORT)
-        toast.show()
+//        toast.cancel()
+//        toast = Toast.makeText(itemView.context, String.format(itemView.context.getString(R.string.remaining), drawDeck.count()), Toast.LENGTH_SHORT)
+//        toast.show()
 
     }
 
