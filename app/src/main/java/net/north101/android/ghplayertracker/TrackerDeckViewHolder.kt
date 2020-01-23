@@ -31,6 +31,8 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 
     val deckView: ImageView = itemView.findViewById(R.id.draw_deck)
     val discardView : ImageView = itemView.findViewById(R.id.discard_deck)
+    val discardView2 : ImageView = itemView.findViewById(R.id.discard_deck_2)
+    val discardView3 : ImageView = itemView.findViewById(R.id.discard_deck_3)
 
     var toast : Toast = Toast(itemView.context)
 
@@ -153,10 +155,10 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         discardView.setOnClickListener {
             showDiscardedCards()
         }
-
     }
 
-    fun showDiscardedCards()
+
+    private fun showDiscardedCards()
     {
         //Inflate the dialog with custom view
         val dialog = LayoutInflater.from(itemView.context!!).inflate(R.layout.discarded_cards_list_layout, null)
@@ -175,7 +177,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         val  mAlertDialog = builder.show()
     }
 
-    val shuffleObserver: (Boolean) -> Unit = {
+    private val shuffleObserver: (Boolean) -> Unit = {
         updateShuffle()
     }
 
@@ -183,11 +185,30 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 //        updateAttackStatus()
 //    }
 
-    val deckObserver: (ArrayList<Card>) -> Unit = {
+    private val deckObserver: (ArrayList<Card>) -> Unit = {
         updateBlessText()
         updateCurseText()
         updateMinus1Text()
         setImageViewGreyscale(deckView, it.isEmpty())
+    }
+
+    private val discardDeckObserver: (ArrayList<Card>) -> Unit = {
+        if(discardDeck.isEmpty())
+        {
+            discardView.setImageResource(0)
+            discardView2.setImageResource(0)
+            discardView3.setImageResource(0)
+        }
+        else {
+            var i = discardDeck.lastIndex
+            discardView.setImageResource(Util.getImageResource(itemView.context, discardDeck[i--].id))
+            if (i >= 0) {
+                discardView2.setImageResource(Util.getImageResource(itemView.context, discardDeck[i--].id))
+            }
+            if (i >= 0) {
+                discardView3.setImageResource(Util.getImageResource(itemView.context, discardDeck[i].id))
+            }
+        }
     }
 
     override fun bind(item: TrackerLiveData) {
@@ -196,6 +217,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         item.shuffle.observeForever(shuffleObserver)
 //        item.attackStatus.observeForever(attackStatusObserver)
         item.drawDeck.observeForever(deckObserver)
+        item.discardDeck.observeForever(discardDeckObserver)
     }
 
     override fun unbind() {
@@ -203,6 +225,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             item!!.shuffle.removeObserver(shuffleObserver)
 //            item!!.attackStatus.removeObserver(attackStatusObserver)
             item!!.drawDeck.removeObserver(deckObserver)
+            item!!.discardDeck.removeObserver(discardDeckObserver)
         }
 
         super.unbind()
@@ -256,8 +279,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         discardDeck = discardDeck
         playedCards = playedCards
 
-        discardView.setImageResource(0)
-
         toast.cancel()
         toast = Toast.makeText(itemView.context, itemView.context.getString(R.string.shuffled), Toast.LENGTH_SHORT)
         toast.show()
@@ -287,8 +308,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             if (card.special != CardSpecial.Remove) {
                 discardDeck.add(card)
             }
-
-            discardView.setImageResource(Util.getImageResource(itemView.context, card.id))
         }
         if (playedCards.pile2 != null) {
             for (card in playedCards.pile2) {
@@ -301,6 +320,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         this.playedCards.add(playedCards)
         this.playedCards = this.playedCards
         drawDeck = drawDeck
+        discardDeck = discardDeck
 
         toast.cancel()
         toast = Toast.makeText(itemView.context, String.format(itemView.context.getString(R.string.remaining), drawDeck.count()), Toast.LENGTH_SHORT)
