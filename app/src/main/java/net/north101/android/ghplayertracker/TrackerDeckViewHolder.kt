@@ -6,6 +6,7 @@ import android.animation.ValueAnimator
 import android.app.AlertDialog
 import android.content.Context
 import android.graphics.Point
+import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,16 +46,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     val discardView2 : ImageView = itemView.findViewById(R.id.discard_deck_2)
     val discardView3 : ImageView = itemView.findViewById(R.id.discard_deck_3)
 
-    val discardViewInitialX = discardView.x
-    val discardViewInitialY = discardView.y
-
     var toast : Toast = Toast(itemView.context)
     var displayWidth = 0f
-    var initialDiscardViewXOffset = -200f
-    var finalDiscardView2XOffset = 200f
-    var finalDiscardView3XOffset = 365f
-    var finalDiscardView2YOffset = 60f
-    var finalDiscardView3YOffset = 100f
+    var density = 0f
 
 //    val advantageView: ImageView = itemView.findViewById(R.id.advantage)
 //    val disadvantageView: ImageView = itemView.findViewById(R.id.disadvantage)
@@ -105,18 +99,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             item!!.playedCards.value = value
         }
 
-    var attackStatus: AttackStatus
-        get() = item!!.attackStatus.value
-        set(value) {
-            item!!.attackStatus.value = value
-        }
-
-    var houseRule: Boolean
-        get() = item!!.houseRule.value
-        set(value) {
-            item!!.houseRule.value = value
-        }
-
     init {
         blessContainerView.setOnClickListener {
             onNumberClickListener?.invoke("bless")
@@ -158,20 +140,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             updateMinus1Text()
         }))
 
-//        advantageView.setOnClickListener {
-//            attackStatus = if (attackStatus == AttackStatus.Advantage) {
-//                AttackStatus.None
-//            } else {
-//                AttackStatus.Advantage
-//            }
-//        }
-//        disadvantageView.setOnClickListener {
-//            attackStatus = if (attackStatus == AttackStatus.Disadvantage) {
-//                AttackStatus.None
-//            } else {
-//                AttackStatus.Disadvantage
-//            }
-//        }
         deckView.setOnClickListener {
             draw()
         }
@@ -186,12 +154,19 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         val point = Point()
         wm.defaultDisplay.getSize(point)
         displayWidth = point.x.toFloat()
-        initialDiscardViewXOffset = -displayWidth / 3
-        finalDiscardView2XOffset = displayWidth / 5
-        finalDiscardView3XOffset = displayWidth / 3.05f
-        deckView.setScaleX(min(displayWidth / 1000, 1f))
-        deckView.setScaleY(min(displayWidth / 1000, 1f))
+        val metrics = DisplayMetrics()
+        wm.defaultDisplay.getMetrics(metrics)
+        density = metrics.density
 
+        val scaleDivider = 450 * density
+        deckView.setScaleX(min(displayWidth / scaleDivider, 1f))
+        deckView.setScaleY(min(displayWidth / scaleDivider, 1f))
+        discardView.setScaleX(min(displayWidth / scaleDivider, 1f))
+        discardView.setScaleY(min(displayWidth / scaleDivider, 1f))
+        discardView2.setScaleX(min(displayWidth / scaleDivider, 1f))
+        discardView2.setScaleY(min(displayWidth / scaleDivider, 1f))
+        discardView3.setScaleX(min(displayWidth / scaleDivider * 1.25f, 0.8f))
+        discardView3.setScaleY(min(displayWidth / scaleDivider * 1.25f, 0.8f))
     }
 
 
@@ -254,9 +229,12 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 
     fun onStartAnimation()
     {
-
-        val anim3X : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "x", discardViewInitialX+finalDiscardView2XOffset, discardViewInitialX+finalDiscardView3XOffset)
-        val anim3Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "y", discardViewInitialY+finalDiscardView2YOffset, discardViewInitialY+finalDiscardView3YOffset)
+        val startingX = deckView.x
+        val endingX = deckView.x+deckView.getMeasuredWidth().toFloat()
+        val heightOffsetFactor = discardView.getMeasuredHeight() / 4f
+        val widthOffsetFactor = discardView.getMeasuredWidth() / 2f * 1.10f
+        val anim3X : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "x", endingX+widthOffsetFactor, endingX+widthOffsetFactor+widthOffsetFactor*0.8f)
+        val anim3Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "y", deckView.y+heightOffsetFactor, deckView.y+heightOffsetFactor+heightOffsetFactor*0.8f)
         val anim3Scale = ValueAnimator.ofFloat(01f, 0.5f)
 
         anim3Scale.addUpdateListener {
@@ -264,9 +242,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             discardView3.scaleX = value
             discardView3.scaleY = value
         }
-        val anim2X : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "x", discardViewInitialX, discardViewInitialX+finalDiscardView2XOffset)
-        val anim2Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "y", discardViewInitialY, discardViewInitialY+finalDiscardView2YOffset)
-        val anim1X : ObjectAnimator = ObjectAnimator.ofFloat(discardView, "x", discardViewInitialX+initialDiscardViewXOffset, discardViewInitialX)
+        val anim2X : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "x", endingX, endingX+widthOffsetFactor)
+        val anim2Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "y", deckView.y, deckView.y+heightOffsetFactor)
+        val anim1X : ObjectAnimator = ObjectAnimator.ofFloat(discardView, "x", startingX, endingX)
         val anim2Scale = ValueAnimator.ofFloat(01f, 0.8f)
 
         anim2Scale.addUpdateListener {
