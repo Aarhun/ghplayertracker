@@ -16,6 +16,14 @@
         android:orientation="horizontal"
         android:weightSum="2">
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
         <android.support.v7.widget.CardView
             android:layout_width="0dp"
             android:layout_height="40dp"
@@ -103,12 +111,10 @@
                 </FrameLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        <Space
+            android:layout_width="6dp"
+            android:layout_height="0dp"/>
 
         <android.support.v7.widget.CardView
             android:layout_width="0dp"
@@ -202,92 +208,6 @@
             android:layout_width="6dp"
             android:layout_height="0dp"/>
 
-        <android.support.v7.widget.CardView
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="4dp"
-            android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <FrameLayout
-                    android:id="@+id/loot_minus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/ic_remove_circle_black_24dp"/>
-                </FrameLayout>
-
-
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/preference_list_divider_material"/>
-
-                <LinearLayout
-                    android:id="@+id/loot_container"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp">
-
-                    <TextView
-                        android:id="@+id/loot_text"
-                        style="@style/TagEditor.EditNumber"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="4dp"
-                        android:layout_weight="1"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:longClickable="false"
-                        android:textSize="30sp"/>
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/icon_loot"/>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/preference_list_divider_material"/>
-
-                <FrameLayout
-                    android:id="@+id/loot_plus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:foreground="?attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/ic_add_circle_black_24dp"/>
-                </FrameLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
     </LinearLayout>
 </LinearLayout>
