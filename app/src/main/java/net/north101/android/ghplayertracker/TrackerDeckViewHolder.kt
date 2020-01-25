@@ -289,12 +289,12 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     }
 
     fun updateBlessText() {
-        val count = (drawDeck + discardDeck).count { it == blessCard }
+        val count = (drawDeck).count { it == blessCard }
         blessTextView.text = count.toString()
     }
 
     fun updateCurseText() {
-        val count = (drawDeck + discardDeck).count { it == curseCard }
+        val count = (drawDeck).count { it == curseCard }
         curseTextView.text = count.toString()
     }
 
