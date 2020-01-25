@@ -81,7 +81,7 @@
                         android:clickable="false"
                         android:focusable="false"
                         android:longClickable="false"
-                        android:textSize="25sp"/>
+                        android:textSize="30sp"/>
 
                     <ImageView
                         android:layout_width="30dp"
@@ -173,7 +173,7 @@
                         android:clickable="false"
                         android:focusable="false"
                         android:longClickable="false"
-                        android:textSize="25sp"/>
+                        android:textSize="30sp"/>
 
                     <ImageView
                         android:layout_width="30dp"
