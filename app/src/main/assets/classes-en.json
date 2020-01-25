@@ -172,7 +172,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -185,7 +185,7 @@
                 "card_id": "mod_class_01_plus_1"
               }
             ],
-            "text": "Replace one [-1] card with one [+1] card"
+            "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
           },
           {
             "ticks": 2,
@@ -196,7 +196,7 @@
                 "card_id": "mod_class_01_plus_1"
               }
             ],
-            "text": "Add two [+1] cards"
+            "text": "Add two [[icon_plus_1]] cards"
           },
           {
             "cards": [
@@ -205,7 +205,7 @@
                 "card_id": "mod_class_01_plus_3"
               }
             ],
-            "text": "Add one [+3] card"
+            "text": "Add one [[icon_plus_3]] card"
           },
           {
             "ticks": 2,
@@ -268,7 +268,7 @@
                 "card_id": "mod_class_01_plus_1_shield_1"
               }
             ],
-            "text": "Add one [+1] SHIELD [[icon_shield]] 1, Self card"
+            "text": "Add one [[icon_plus_1]] SHIELD [[icon_shield]] 1, Self card"
           },
           {
             "cards": [
@@ -277,7 +277,7 @@
                 "card_id": "mod_class_01_plus_1"
               }
             ],
-            "text": "Ignore negative item effects and add one [+1] card"
+            "text": "Ignore negative item effects and add one [[icon_plus_1]] card"
           }
         ]
       },
@@ -455,7 +455,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards",
+            "text": "Remove two [[icon_minus_1]] cards",
             "ticks": 2
           },
           {
@@ -469,7 +469,7 @@
                 "card_id": "mod_class_02_plus_0"
               }
             ],
-            "text": "Replace one [-2] card with one [+0] card"
+            "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
           },
           {
             "cards": [
@@ -479,7 +479,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "cards": [
@@ -489,7 +489,7 @@
                 "card_id": "mod_class_02_plus_1"
               }
             ],
-            "text": "Add two [+1] card"
+            "text": "Add two [[icon_plus_1]] card"
           },
           {
             "cards": [
@@ -498,7 +498,7 @@
                 "card_id": "mod_class_02_plus_3"
               }
             ],
-            "text": "Add one [+3] card"
+            "text": "Add one [[icon_plus_3]] card"
           },
           {
             "cards": [
@@ -527,7 +527,7 @@
                 "card_id": "mod_class_02_plus_1_wound"
               }
             ],
-            "text": "Add one [+1] WOUND [[icon_status_wound]] card"
+            "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
           },
           {
             "ticks": 2,
@@ -537,7 +537,7 @@
                 "card_id": "mod_class_02_plus_1_immobilize"
               }
             ],
-            "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
+            "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
           },
           {
             "ticks": 2,
@@ -547,7 +547,7 @@
                 "card_id": "mod_class_02_plus_1_heal_2"
               }
             ],
-            "text": "Add one [+1] HEAL [[icon_heal]] 2 card"
+            "text": "Add one [[icon_plus_1]] HEAL [[icon_heal]] 2 card"
           },
           {
             "cards": [
@@ -730,7 +730,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "ticks": 2,
@@ -744,7 +744,7 @@
                 "card_id": "mod_class_03_plus_1"
               }
             ],
-            "text": "Replace one [-1] card with one [+1] card"
+            "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
           },
           {
             "ticks": 2,
@@ -755,7 +755,7 @@
                 "card_id": "mod_class_03_plus_1"
               }
             ],
-            "text": "Add two [+1] cards"
+            "text": "Add two [[icon_plus_1]] cards"
           },
           {
             "cards": [
@@ -773,7 +773,7 @@
                 "card_id": "mod_class_03_plus_1_wound"
               }
             ],
-            "text": "Add one [+1] WOUND [[icon_status_wound]] card"
+            "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
           },
           {
             "cards": [
@@ -782,7 +782,7 @@
                 "card_id": "mod_class_03_plus_1_immobilize"
               }
             ],
-            "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
+            "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
           },
           {
             "cards": [
@@ -791,7 +791,7 @@
                 "card_id": "mod_class_03_plus_1_curse"
               }
             ],
-            "text": "Add one [+1] CURSE [[icon_curse]] card"
+            "text": "Add one [[icon_plus_1]] CURSE [[icon_curse]] card"
           },
           {
             "ticks": 2,
@@ -801,7 +801,7 @@
                 "card_id": "mod_class_03_plus_2_fire"
               }
             ],
-            "text": "Add one [+2] [[icon_element_fire]] card"
+            "text": "Add one [[icon_plus_2]] [[icon_element_fire]] card"
           },
           {
             "ticks": 2,
@@ -811,7 +811,7 @@
                 "card_id": "mod_class_03_plus_2_ice"
               }
             ],
-            "text": "Add one [+2] [[icon_element_ice]] card"
+            "text": "Add one [[icon_plus_2]] [[icon_element_ice]] card"
           },
           {
             "cards": [
@@ -1004,7 +1004,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -1014,7 +1014,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "cards": [
@@ -1027,7 +1027,7 @@
                 "card_id": "mod_class_04_plus_0"
               }
             ],
-            "text": "Replace one [-2] card with one [+0] card"
+            "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
           },
           {
             "cards": [
@@ -1040,7 +1040,7 @@
                 "card_id": "mod_class_04_plus_1"
               }
             ],
-            "text": "Replace one [-1] card with one [+1] card"
+            "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
           },
           {
             "ticks": 2,
@@ -1054,7 +1054,7 @@
                 "card_id": "mod_class_04_plus_2"
               }
             ],
-            "text": "Replace one [+0] card with one [+2] card"
+            "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] card"
           },
           {
             "ticks": 2,
@@ -1064,7 +1064,7 @@
                 "card_id": "mod_class_04_plus_1_rolling"
               }
             ],
-            "text": "Add two [[icon_rolling]] [+1] cards"
+            "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards"
           },
           {
             "cards": [
@@ -1280,7 +1280,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "ticks": 3,
@@ -1294,7 +1294,7 @@
                 "card_id": "mod_class_05_plus_1"
               }
             ],
-            "text": "Replace one [-1] card with one [+1] card"
+            "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
           },
           {
             "cards": [
@@ -1308,7 +1308,7 @@
                 "card_id": "mod_class_05_plus_2"
               }
             ],
-            "text": "Add one [-2] card and two [+2] cards"
+            "text": "Add one [[icon_minus_2]] card and two [[icon_plus_2]] cards"
           },
           {
             "ticks": 2,
@@ -1318,7 +1318,7 @@
                 "card_id": "mod_class_05_plus_1_immobilize"
               }
             ],
-            "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
+            "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
           },
           {
             "ticks": 2,
@@ -1328,7 +1328,7 @@
                 "card_id": "mod_class_05_plus_2_muddle"
               }
             ],
-            "text": "Add one [+2] MUDDLE [[icon_status_muddle]] card"
+            "text": "Add one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
           },
           {
             "cards": [
@@ -1542,7 +1542,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -1552,7 +1552,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "cards": [
@@ -1567,7 +1567,7 @@
                 "card_id": "mod_class_06_plus_2"
               }
             ],
-            "text": "Replace two [+1] cards with two [+2] cards"
+            "text": "Replace two [[icon_plus_1]] cards with two [[icon_plus_2]] cards"
           },
           {
             "cards": [
@@ -1580,7 +1580,7 @@
                 "card_id": "mod_class_06_plus_0"
               }
             ],
-            "text": "Replace one [-2] card with one [+0] card"
+            "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
           },
           {
             "ticks": 2,
@@ -1590,7 +1590,7 @@
                 "card_id": "mod_class_06_plus_2_ice"
               }
             ],
-            "text": "Add one [+2] [[icon_element_ice]] card"
+            "text": "Add one [[icon_plus_2]] [[icon_element_ice]] card"
           },
           {
             "ticks": 2,
@@ -1601,7 +1601,7 @@
                 "card_id": "mod_class_06_plus_1_rolling"
               }
             ],
-            "text": "Add two [[icon_rolling]] [+1] cards"
+            "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards"
           },
           {
             "cards": [
@@ -1838,7 +1838,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -1848,7 +1848,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "cards": [
@@ -1861,7 +1861,7 @@
                 "card_id": "mod_class_07_plus_0"
               }
             ],
-            "text": "Replace one [-2] card with one [+0] card"
+            "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
           },
           {
             "cards": [
@@ -1874,7 +1874,7 @@
                 "card_id": "mod_class_07_plus_2"
               }
             ],
-            "text": "Replace one [+0] card with one [+2] card"
+            "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] card"
           },
           {
             "ticks": 2,
@@ -1885,7 +1885,7 @@
                 "card_id": "mod_class_07_plus_1_rolling"
               }
             ],
-            "text": "Add two [[icon_rolling]] [+1] cards"
+            "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards"
           },
           {
             "ticks": 2,
@@ -1936,7 +1936,7 @@
                 "card_id": "mod_class_07_plus_1"
               }
             ],
-            "text": "Ignore negative item effects and add two [+1] cards"
+            "text": "Ignore negative item effects and add two [[icon_plus_1]] cards"
           },
           {
             "cards": [],
@@ -2107,7 +2107,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -2117,7 +2117,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "ticks": 2,
@@ -2131,7 +2131,7 @@
                 "card_id": "mod_class_08_plus_2"
               }
             ],
-            "text": "Replace one [+0] card with one [+2] card"
+            "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] card"
           },
           {
             "ticks": 2,
@@ -2142,7 +2142,7 @@
                 "card_id": "mod_class_08_plus_1_rolling"
               }
             ],
-            "text": "Add two [[icon_rolling]] [+1] cards"
+            "text": "Add two [[icon_rolling]] [[icon_plus_1]] cards"
           },
           {
             "cards": [
@@ -2190,7 +2190,7 @@
                 "card_id": "mod_class_08_refresh_item"
               }
             ],
-            "text": "Add one [+0] Refresh an item card"
+            "text": "Add one [[icon_plus_0]] Refresh an item card"
           },
           {
             "cards": [
@@ -2200,7 +2200,7 @@
                 "card_id": "mod_class_08_plus_1"
               }
             ],
-            "text": "Ignore negative item effects and add two [+1] cards"
+            "text": "Ignore negative item effects and add two [[icon_plus_1]] cards"
           }
         ]
       },
@@ -2374,7 +2374,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -2387,7 +2387,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Replace one [-2] card with one [+0] card"
+            "text": "Replace one [[icon_minus_2]] card with one [[icon_plus_0]] card"
           },
           {
             "ticks": 3,
@@ -2401,7 +2401,7 @@
                 "card_id": "mod_class_09_plus_1"
               }
             ],
-            "text": "Replace one [-1] card with one [+1] card"
+            "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_1]] card"
           },
           {
             "ticks": 2,
@@ -2411,7 +2411,7 @@
                 "card_id": "mod_class_09_plus_2"
               }
             ],
-            "text": "Add one [+2] card"
+            "text": "Add one [[icon_plus_2]] card"
           },
           {
             "cards": [
@@ -2478,7 +2478,7 @@
                 "card_id": "mod_class_09_plus_1"
               }
             ],
-            "text": "Ignore negative scenario effects and add two [+1] cards"
+            "text": "Ignore negative scenario effects and add two [[icon_plus_1]] cards"
           }
         ]
       },
@@ -2644,7 +2644,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -2654,7 +2654,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "ticks": 2,
@@ -2664,7 +2664,7 @@
                 "card_id": "mod_class_10_minus_1_element_dark"
               }
             ],
-            "text": "Add one [-1] [[icon_element_dark]] card"
+            "text": "Add one [[icon_minus_1]] [[icon_element_dark]] card"
           },
           {
             "ticks": 2,
@@ -2678,7 +2678,7 @@
                 "card_id": "mod_class_10_plus_1_element_dark"
               }
             ],
-            "text": "Replace one [-1] [[icon_element_dark]] card with with one [+1] [[icon_element_dark]] card"
+            "text": "Replace one [[icon_minus_1]] [[icon_element_dark]] card with with one [[icon_plus_1]] [[icon_element_dark]] card"
           },
           {
             "ticks": 2,
@@ -2688,7 +2688,7 @@
                 "card_id": "mod_class_10_plus_1_invisible"
               }
             ],
-            "text": "Add one [+1] INVISIBLE [[icon_status_invisible]] card"
+            "text": "Add one [[icon_plus_1]] INVISIBLE [[icon_status_invisible]] card"
           },
           {
             "ticks": 2,
@@ -2738,7 +2738,7 @@
                 "card_id": "mod_class_10_plus_1"
               }
             ],
-            "text": "Ignore negative scenario effects and add two [+1] cards"
+            "text": "Ignore negative scenario effects and add two [[icon_plus_1]] cards"
           }
         ]
       },
@@ -2914,7 +2914,7 @@
                 "card_id": "mod_class_11_plus_0"
               }
             ],
-            "text": "Replace one [-2] with one [+0] card"
+            "text": "Replace one [[icon_minus_2]] with one [[icon_plus_0]] card"
           },
           {
             "ticks": 2,
@@ -2928,7 +2928,7 @@
                 "card_id": "mod_class_11_plus_1"
               }
             ],
-            "text": "Replace one [-1] with one [+1] card"
+            "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] card"
           },
           {
             "ticks": 2,
@@ -2942,7 +2942,7 @@
                 "card_id": "mod_class_11_plus_2"
               }
             ],
-            "text": "Replace one [+0] with one [+2] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] card"
           },
           {
             "cards": [
@@ -2952,7 +2952,7 @@
                 "card_id": "mod_class_11_plus_1"
               }
             ],
-            "text": "Add two [+1] cards"
+            "text": "Add two [[icon_plus_1]] cards"
           },
           {
             "ticks": 3,
@@ -2962,7 +2962,7 @@
                 "card_id": "mod_class_11_plus_1_element_air"
               }
             ],
-            "text": "Add one [+1] [[icon_element_air]] card"
+            "text": "Add one [[icon_plus_1]] [[icon_element_air]] card"
           },
           {
             "cards": [
@@ -3011,7 +3011,7 @@
                 "card_id": "mod_class_11_plus_1"
               }
             ],
-            "text": "Ignore negative scenario effects and add one [+1] card"
+            "text": "Ignore negative scenario effects and add one [[icon_plus_1]] card"
           }
         ]
       },
@@ -3178,7 +3178,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -3188,7 +3188,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "ticks": 2,
@@ -3202,7 +3202,7 @@
                 "card_id": "mod_class_12_plus_1"
               }
             ],
-            "text": "Replace one [-1] with one [+1] card"
+            "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] card"
           },
           {
             "ticks": 2,
@@ -3216,7 +3216,7 @@
                 "card_id": "mod_class_12_plus_2_rolling"
               }
             ],
-            "text": "Replace one [+0] with one [[icon_rolling]] [+2] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_rolling]] [[icon_plus_2]] card"
           },
           {
             "ticks": 2,
@@ -3247,7 +3247,7 @@
                 "card_id": "mod_class_12_plus_1_disarm_rolling"
               }
             ],
-            "text": "Add one [[icon_rolling]] [+1] DISARM [[icon_status_disarm]] card"
+            "text": "Add one [[icon_rolling]] [[icon_plus_1]] DISARM [[icon_status_disarm]] card"
           },
           {
             "cards": [
@@ -3267,7 +3267,7 @@
                 "card_id": "mod_class_12_plus_2_element_fire"
               }
             ],
-            "text": "Add one [+2] [[icon_element_fire]] card"
+            "text": "Add one [[icon_plus_2]] [[icon_element_fire]] card"
           },
           {
             "cards": [],
@@ -3441,7 +3441,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -3450,7 +3450,7 @@
                 "card_id": "mod_basic_minus_2"
               }
             ],
-            "text": "Remove one [-2] cards"
+            "text": "Remove one [[icon_minus_2]] cards"
           },
           {
             "ticks": 2,
@@ -3465,7 +3465,7 @@
                 "card_id": "mod_class_13_plus_4"
               }
             ],
-            "text": "Replace two [+1] with one [+4] card"
+            "text": "Replace two [[icon_plus_1]] with one [[icon_plus_4]] card"
           },
           {
             "cards": [
@@ -3478,7 +3478,7 @@
                 "card_id": "mod_class_13_plus_1_immobilize"
               }
             ],
-            "text": "Replace one [+0] with one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
           },
           {
             "cards": [
@@ -3491,7 +3491,7 @@
                 "card_id": "mod_class_13_plus_1_disarm"
               }
             ],
-            "text": "Replace one [+0] with one [+1] DISARM [[icon_status_disarm]] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_1]] DISARM [[icon_status_disarm]] card"
           },
           {
             "cards": [
@@ -3504,7 +3504,7 @@
                 "card_id": "mod_class_13_plus_2_wound"
               }
             ],
-            "text": "Replace one [+0] with one [+2] WOUND [[icon_status_wound]] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] WOUND [[icon_status_wound]] card"
           },
           {
             "cards": [
@@ -3517,7 +3517,7 @@
                 "card_id": "mod_class_13_plus_2_poison"
               }
             ],
-            "text": "Replace one [+0] with one [+2] POISON [[icon_status_poison]] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] POISON [[icon_status_poison]] card"
           },
           {
             "cards": [
@@ -3530,7 +3530,7 @@
                 "card_id": "mod_class_13_plus_2_curse"
               }
             ],
-            "text": "Replace one [+0] with one [+2] CURSE [[icon_curse]] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] CURSE [[icon_curse]] card"
           },
           {
             "cards": [
@@ -3543,7 +3543,7 @@
                 "card_id": "mod_class_13_plus_3_muddle"
               }
             ],
-            "text": "Replace one [+0] with one [+3] MUDDLE [[icon_status_muddle]] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_3]] MUDDLE [[icon_status_muddle]] card"
           },
           {
             "cards": [
@@ -3556,7 +3556,7 @@
                 "card_id": "mod_class_13_stun"
               }
             ],
-            "text": "Replace one [-1] with one [+0] STUN [[icon_status_stun]] card"
+            "text": "Replace one [[icon_minus_1]] with one [[icon_plus_0]] STUN [[icon_status_stun]] card"
           },
           {
             "cards": [
@@ -3566,7 +3566,7 @@
                 "card_id": "mod_class_13_plus_1_rolling"
               }
             ],
-            "text": "Add three [[icon_rolling]] [+1] cards"
+            "text": "Add three [[icon_rolling]] [[icon_plus_1]] cards"
           },
           {
             "ticks": 2,
@@ -3753,7 +3753,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "ticks": 3,
@@ -3769,7 +3769,7 @@
                 "card_id": "mod_class_14_plus_1"
               }
             ],
-            "text": "Replace two [+0] cards with two [+1] cards"
+            "text": "Replace two [[icon_plus_0]] cards with two [[icon_plus_1]] cards"
           },
           {
             "ticks": 2,
@@ -3780,7 +3780,7 @@
                 "card_id": "mod_class_14_plus_1_rolling"
               }
             ],
-            "text": "Add two [[icon_rolling]] [+1] card"
+            "text": "Add two [[icon_rolling]] [[icon_plus_1]] card"
           },
           {
             "cards": [
@@ -3789,7 +3789,7 @@
                 "card_id": "mod_class_14_plus_2_muddle"
               }
             ],
-            "text": "Add one [+2] MUDDLE [[icon_status_muddle]] card"
+            "text": "Add one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
           },
           {
             "cards": [
@@ -3798,7 +3798,7 @@
                 "card_id": "mod_class_14_plus_1_poison"
               }
             ],
-            "text": "Add one [+1] POISON [[icon_status_poison]] card"
+            "text": "Add one [[icon_plus_1]] POISON [[icon_status_poison]] card"
           },
           {
             "cards": [
@@ -3807,7 +3807,7 @@
                 "card_id": "mod_class_14_plus_1_wound"
               }
             ],
-            "text": "Add one [+1] WOUND [[icon_status_wound]] card"
+            "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
           },
           {
             "cards": [
@@ -3816,7 +3816,7 @@
                 "card_id": "mod_class_14_plus_1_immobilize"
               }
             ],
-            "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
+            "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
           },
           {
             "cards": [
@@ -3825,7 +3825,7 @@
                 "card_id": "mod_class_14_stun"
               }
             ],
-            "text": "Add one [+0] STUN [[icon_status_stun]] card"
+            "text": "Add one [[icon_plus_0]] STUN [[icon_status_stun]] card"
           },
           {
             "ticks": 2,
@@ -4061,7 +4061,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -4071,7 +4071,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "ticks": 2,
@@ -4085,7 +4085,7 @@
                 "card_id": "mod_class_15_plus_2"
               }
             ],
-            "text": "Replace one [+0] with one [+2] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] card"
           },
           {
             "ticks": 2,
@@ -4095,7 +4095,7 @@
                 "card_id": "mod_class_15_plus_2_rolling"
               }
             ],
-            "text": "Add one [[icon_rolling]] [+2] card"
+            "text": "Add one [[icon_rolling]] [[icon_plus_2]] card"
           },
           {
             "ticks": 2,
@@ -4105,7 +4105,7 @@
                 "card_id": "mod_class_15_plus_1_immobilize"
               }
             ],
-            "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
+            "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
           },
           {
             "ticks": 2,
@@ -4144,7 +4144,7 @@
                 "card_id": "mod_class_15_refresh_item"
               }
             ],
-            "text": "Add one [+0] Refresh an item card"
+            "text": "Add one [[icon_plus_0]] Refresh an item card"
           }
         ]
       },
@@ -4316,7 +4316,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -4329,7 +4329,7 @@
                 "card_id": "mod_class_16_plus_1"
               }
             ],
-            "text": "Replace one [-1] with one [+1] card"
+            "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] card"
           },
           {
             "ticks": 2,
@@ -4343,7 +4343,7 @@
                 "card_id": "mod_class_16_plus_2"
               }
             ],
-            "text": "Replace one [+0] with one [+2] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] card"
           },
           {
             "cards": [
@@ -4353,7 +4353,7 @@
                 "card_id": "mod_class_16_element_fire"
               }
             ],
-            "text": "Add three [+0] [[icon_element_fire]] cards"
+            "text": "Add three [[icon_plus_0]] [[icon_element_fire]] cards"
           },
           {
             "cards": [
@@ -4363,7 +4363,7 @@
                 "card_id": "mod_class_16_element_ice"
               }
             ],
-            "text": "Add three [+0] [[icon_element_ice]] cards"
+            "text": "Add three [[icon_plus_0]] [[icon_element_ice]] cards"
           },
           {
             "cards": [
@@ -4373,7 +4373,7 @@
                 "card_id": "mod_class_16_element_air"
               }
             ],
-            "text": "Add three [+0] [[icon_element_air]] cards"
+            "text": "Add three [[icon_plus_0]] [[icon_element_air]] cards"
           },
           {
             "cards": [
@@ -4383,7 +4383,7 @@
                 "card_id": "mod_class_16_element_earth"
               }
             ],
-            "text": "Add three [+0] [[icon_element_earth]] cards"
+            "text": "Add three [[icon_plus_0]] [[icon_element_earth]] cards"
           },
           {
             "cards": [
@@ -4401,7 +4401,7 @@
                 "card_id": "mod_class_16_element_earth"
               }
             ],
-            "text": "Replace two [+0] cards with one [+0] [[icon_element_fire]] and one [+0] [[icon_element_earth]]"
+            "text": "Replace two [[icon_plus_0]] cards with one [[icon_plus_0]] [[icon_element_fire]] and one [[icon_plus_0]] [[icon_element_earth]]"
           },
           {
             "cards": [
@@ -4419,7 +4419,7 @@
                 "card_id": "mod_class_16_element_air"
               }
             ],
-            "text": "Replace two [+0] cards with one [+0] [[icon_element_ice]] and one [+0] [[icon_element_air]]"
+            "text": "Replace two [[icon_plus_0]] cards with one [[icon_plus_0]] [[icon_element_ice]] and one [[icon_plus_0]] [[icon_element_air]]"
           },
           {
             "cards": [
@@ -4429,7 +4429,7 @@
                 "card_id": "mod_class_16_plus_1_push_1"
               }
             ],
-            "text": "Add two [+1] PUSH [[icon_push]] 1 cards"
+            "text": "Add two [[icon_plus_1]] PUSH [[icon_push]] 1 cards"
           },
           {
             "cards": [
@@ -4438,7 +4438,7 @@
                 "card_id": "mod_class_16_plus_1_wound"
               }
             ],
-            "text": "Add one [+1] WOUND [[icon_status_wound]] card"
+            "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
           },
           {
             "cards": [
@@ -4447,7 +4447,7 @@
                 "card_id": "mod_class_16_stun"
               }
             ],
-            "text": "Add one [+0] STUN [[icon_status_stun]] 1 card"
+            "text": "Add one [[icon_plus_0]] STUN [[icon_status_stun]] 1 card"
           },
           {
             "cards": [
@@ -4456,7 +4456,7 @@
                 "card_id": "mod_class_16_target"
               }
             ],
-            "text": "Add one [+0] ADD TARGET [[icon_target]] card"
+            "text": "Add one [[icon_plus_0]] ADD TARGET [[icon_target]] card"
           }
         ]
       },
@@ -4617,7 +4617,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "ticks": 3,
@@ -4631,7 +4631,7 @@
                 "card_id": "mod_class_17_plus_1"
               }
             ],
-            "text": "Replace one [-1] with one [+1] card"
+            "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] card"
           },
           {
             "ticks": 2,
@@ -4645,7 +4645,7 @@
                 "card_id": "mod_class_17_plus_2"
               }
             ],
-            "text": "Replace one [+0] with one [+2] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] card"
           },
           {
             "ticks": 2,
@@ -4655,7 +4655,7 @@
                 "card_id": "mod_class_17_plus_1_wound"
               }
             ],
-            "text": "Add one [+1] WOUND [[icon_status_wound]] card"
+            "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
           },
           {
             "ticks": 2,
@@ -4665,7 +4665,7 @@
                 "card_id": "mod_class_17_plus_1_immobilize"
               }
             ],
-            "text": "Add one [+1] IMMOBILIZE [[icon_status_immobilize]] card"
+            "text": "Add one [[icon_plus_1]] IMMOBILIZE [[icon_status_immobilize]] card"
           },
           {
             "ticks": 3,
@@ -4867,7 +4867,7 @@
                 "card_id": "mod_basic_minus_2"
               }
             ],
-            "text": "Remove one [-2] card"
+            "text": "Remove one [[icon_minus_2]] card"
           },
           {
             "cards": [
@@ -4877,7 +4877,7 @@
                 "card_id": "mod_basic_plus_0"
               }
             ],
-            "text": "Remove four [+0] cards"
+            "text": "Remove four [[icon_plus_0]] cards"
           },
           {
             "cards": [
@@ -4890,7 +4890,7 @@
                 "card_id": "mod_class_18_plus_1_element_air"
               }
             ],
-            "text": "Replace one [-1] with one [+1] [[icon_element_air]] card"
+            "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] [[icon_element_air]] card"
           },
           {
             "cards": [
@@ -4903,7 +4903,7 @@
                 "card_id": "mod_class_18_plus_1_element_earth"
               }
             ],
-            "text": "Replace one [-1] with one [+1] [[icon_element_earth]] card"
+            "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] [[icon_element_earth]] card"
           },
           {
             "cards": [
@@ -4916,7 +4916,7 @@
                 "card_id": "mod_class_18_plus_1_element_light"
               }
             ],
-            "text": "Replace one [-1] with one [+1] [[icon_element_light]] card"
+            "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] [[icon_element_light]] card"
           },
           {
             "cards": [
@@ -4929,7 +4929,7 @@
                 "card_id": "mod_class_18_plus_1_element_dark"
               }
             ],
-            "text": "Replace one [-1] with one [+1] [[icon_element_dark]] card"
+            "text": "Replace one [[icon_minus_1]] with one [[icon_plus_1]] [[icon_element_dark]] card"
           },
           {
             "ticks": 2,
@@ -4950,7 +4950,7 @@
                 "card_id": "mod_class_18_plus_1_status_wound"
               }
             ],
-            "text": "Add one [+1] WOUND [[icon_status_wound]] card"
+            "text": "Add one [[icon_plus_1]] WOUND [[icon_status_wound]] card"
           },
           {
             "ticks": 2,
@@ -4960,7 +4960,7 @@
                 "card_id": "mod_class_18_plus_1_status_poison"
               }
             ],
-            "text": "Add one [+1] POISON [[icon_status_poison]] card"
+            "text": "Add one [[icon_plus_1]] POISON [[icon_status_poison]] card"
           },
           {
             "cards": [
@@ -4969,7 +4969,7 @@
                 "card_id": "mod_class_18_plus_2_status_muddle"
               }
             ],
-            "text": "Add one [+2] MUDDLE [[icon_status_muddle]] card"
+            "text": "Add one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
           },
           {
             "cards": [
@@ -4978,7 +4978,7 @@
                 "card_id": "mod_class_18_plus_1"
               }
             ],
-            "text": "Ignore negative item effects and add one [+1] card"
+            "text": "Ignore negative item effects and add one [[icon_plus_1]] card"
           },
           {
             "cards": [
@@ -4987,7 +4987,7 @@
                 "card_id": "mod_class_18_plus_1"
               }
             ],
-            "text": "Ignore negative scenario effects and add one [+1] card"
+            "text": "Ignore negative scenario effects and add one [[icon_plus_1]] card"
           }
         ]
       }
@@ -5165,7 +5165,7 @@
                 "card_id": "mod_basic_minus_1"
               }
             ],
-            "text": "Remove two [-1] cards"
+            "text": "Remove two [[icon_minus_1]] cards"
           },
           {
             "cards": [
@@ -5174,7 +5174,7 @@
                 "card_id": "mod_basic_minus_2"
               }
             ],
-            "text": "Remove one [-2] card"
+            "text": "Remove one [[icon_minus_2]] card"
           },
           {
             "ticks": 2,
@@ -5189,7 +5189,7 @@
                 "card_id": "mod_class_19_plus_3_shield_1_self"
               }
             ],
-            "text": "Replace two [+1] with one [+3] Shield [[icon_shield]] 1, Self card"
+            "text": "Replace two [[icon_plus_1]] with one [[icon_plus_3]] Shield [[icon_shield]] 1, Self card"
           },
           {
             "cards": [
@@ -5202,7 +5202,7 @@
                 "card_id": "mod_class_19_plus_1_shield_1_ally"
               }
             ],
-            "text": "Replace one [+0] with one [+1] Shield [[icon_shield]] 1, Affect any ally card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_1]] Shield [[icon_shield]] 1, Affect any ally card"
           },
           {
             "cards": [
@@ -5215,7 +5215,7 @@
                 "card_id": "mod_class_19_plus_2_element_dark"
               }
             ],
-            "text": "Replace one [+0] with one [+2] [[icon_element_dark]] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] [[icon_element_dark]] card"
           },
           {
             "cards": [
@@ -5228,7 +5228,7 @@
                 "card_id": "mod_class_19_plus_2_element_light"
               }
             ],
-            "text": "Replace one [+0] with one [+2] [[icon_element_light]] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] [[icon_element_light]] card"
           },
           {
             "cards": [
@@ -5241,7 +5241,7 @@
                 "card_id": "mod_class_19_plus_3_status_muddle"
               }
             ],
-            "text": "Replace one [+0] with one [+3] MUDDLE [[icon_status_muddle]] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_3]] MUDDLE [[icon_status_muddle]] card"
           },
           {
             "cards": [
@@ -5254,7 +5254,7 @@
                 "card_id": "mod_class_19_plus_2_curse"
               }
             ],
-            "text": "Replace one [+0] with one [+2] CURSE [[icon_curse]] card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] CURSE [[icon_curse]] card"
           },
           {
             "cards": [
@@ -5267,7 +5267,7 @@
                 "card_id": "mod_class_19_plus_2_status_regenerate_self"
               }
             ],
-            "text": "Replace one [+0] with one [+2] REGENERATE [[icon_status_regenerate]], Self card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_2]] REGENERATE [[icon_status_regenerate]], Self card"
           },
           {
             "cards": [
@@ -5280,7 +5280,7 @@
                 "card_id": "mod_class_19_plus_1_heal_2_ally"
               }
             ],
-            "text": "Replace one [+0] with one [+1] Heal [[icon_heal]] 2, Affect any ally card"
+            "text": "Replace one [[icon_plus_0]] with one [[icon_plus_1]] Heal [[icon_heal]] 2, Affect any ally card"
           },
           {
             "cards": [
@@ -5310,7 +5310,7 @@
                 "card_id": "mod_class_19_plus_1"
               }
             ],
-            "text": "Ignore negative scenario effects and add two [+1] cards"
+            "text": "Ignore negative scenario effects and add two [[icon_plus_1]] cards"
           }
         ]
       }
