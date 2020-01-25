@@ -323,23 +323,21 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="140dp"
             android:layout_weight="70">
             <ImageView
                 android:id="@+id/discard_deck_3"
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|bottom"
                 android:adjustViewBounds="true"
-                android:scaleX="0.8"
-                android:scaleY="0.8"
                 android:scaleType="fitStart"
                 android:layout_toEndOf="@id/discard_deck_2"
                 android:layout_alignBottom="@id/discard_deck_2"
                 />
             <ImageView
                 android:id="@+id/discard_deck_2"
-                android:layout_width="120dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|bottom"
                 android:adjustViewBounds="true"
@@ -350,7 +348,7 @@
 
             <ImageView
             android:id="@+id/discard_deck"
-            android:layout_width="130dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start|top"
             android:layout_marginTop="4dp"
@@ -360,7 +358,7 @@
 
             <ImageView
                 android:id="@+id/draw_deck"
-                android:layout_width="130dp"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|top"
                 android:layout_marginTop="4dp"

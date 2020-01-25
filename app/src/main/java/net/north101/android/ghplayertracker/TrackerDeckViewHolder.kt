@@ -22,7 +22,6 @@ import net.north101.android.ghplayertracker.data.PlayedCards
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.math.min
 
 
 class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(itemView) {
@@ -157,16 +156,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         val metrics = DisplayMetrics()
         wm.defaultDisplay.getMetrics(metrics)
         density = metrics.density
-
-        val scaleDivider = 450 * density
-        deckView.setScaleX(min(displayWidth / scaleDivider, 1f))
-        deckView.setScaleY(min(displayWidth / scaleDivider, 1f))
-        discardView.setScaleX(min(displayWidth / scaleDivider, 1f))
-        discardView.setScaleY(min(displayWidth / scaleDivider, 1f))
-        discardView2.setScaleX(min(displayWidth / scaleDivider, 1f))
-        discardView2.setScaleY(min(displayWidth / scaleDivider, 1f))
-        discardView3.setScaleX(min(displayWidth / scaleDivider * 1.25f, 0.8f))
-        discardView3.setScaleY(min(displayWidth / scaleDivider * 1.25f, 0.8f))
     }
 
 
@@ -230,12 +219,15 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     fun onStartAnimation()
     {
         val startingX = deckView.x
-        val endingX = deckView.x+deckView.getMeasuredWidth().toFloat()
+        val endingX = deckView.x+discardView.getMeasuredWidth() + 5f
         val heightOffsetFactor = discardView.getMeasuredHeight() / 4f
         val widthOffsetFactor = discardView.getMeasuredWidth() / 2f * 1.10f
-        val anim3X : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "x", endingX+widthOffsetFactor, endingX+widthOffsetFactor+widthOffsetFactor*0.8f)
-        val anim3Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "y", deckView.y+heightOffsetFactor, deckView.y+heightOffsetFactor+heightOffsetFactor*0.8f)
-        val anim3Scale = ValueAnimator.ofFloat(01f, 0.5f)
+        val scale2Factor = 0.8f
+        val scale3Factor = 0.6f
+
+        val anim3X : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "x", endingX+widthOffsetFactor, endingX+widthOffsetFactor+widthOffsetFactor*scale2Factor)
+        val anim3Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView3, "y", deckView.y+heightOffsetFactor, deckView.y+heightOffsetFactor+heightOffsetFactor*scale2Factor)
+        val anim3Scale = ValueAnimator.ofFloat(scale2Factor, scale3Factor)
 
         anim3Scale.addUpdateListener {
             val value = it.animatedValue as Float
@@ -245,7 +237,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         val anim2X : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "x", endingX, endingX+widthOffsetFactor)
         val anim2Y : ObjectAnimator = ObjectAnimator.ofFloat(discardView2, "y", deckView.y, deckView.y+heightOffsetFactor)
         val anim1X : ObjectAnimator = ObjectAnimator.ofFloat(discardView, "x", startingX, endingX)
-        val anim2Scale = ValueAnimator.ofFloat(01f, 0.8f)
+        val anim2Scale = ValueAnimator.ofFloat(1f, scale2Factor)
 
         anim2Scale.addUpdateListener {
             val value = it.animatedValue as Float
