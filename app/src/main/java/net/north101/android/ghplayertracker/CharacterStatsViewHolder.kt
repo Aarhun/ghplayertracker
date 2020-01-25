@@ -14,8 +14,6 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
 
     var levelContainerView: View = itemView.findViewById(R.id.level_container)
     var levelTextView: TextView = itemView.findViewById(R.id.level_text)
-    var levelPlusView: View = itemView.findViewById(R.id.level_plus)
-    var levelMinusView: View = itemView.findViewById(R.id.level_minus)
 
     var maxHealthView: TextView = itemView.findViewById(R.id.health_text)
     var maxXPView: TextView = itemView.findViewById(R.id.max_xp_text)
@@ -51,12 +49,6 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
         levelContainerView.setOnClickListener {
             onNumberClick?.invoke(CharacterNumericValue.Level)
         }
-        levelPlusView.setOnTouchListener(RepeatListener({ _, _ ->
-            item!!.level.value += 1
-        }))
-        levelMinusView.setOnTouchListener(RepeatListener({ _, _ ->
-            item!!.level.value -= 1
-        }))
 
         xpContainerView.setOnClickListener {
             onNumberClick?.invoke(CharacterNumericValue.XP)

@@ -25,4 +25,6 @@
     <string name="bless">Bénédictions</string>
     <string name="curse">Malédictions</string>
     <string name="minus1">-1</string>
+    <string name="max_health">Vie max.</string>
+    <string name="xp_abbreviated">XP</string>
 </resources>

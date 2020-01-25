@@ -25,4 +25,6 @@
     <string name="bless">Bless</string>
     <string name="curse">Curses</string>
     <string name="minus1">-1</string>
+    <string name="max_health">Max. health</string>
+    <string name="xp_abbreviated">XP</string>
 </resources>
