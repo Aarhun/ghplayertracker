@@ -4,13 +4,9 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.app.AlertDialog
-import android.content.Context
-import android.graphics.Point
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
 import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.TextView
@@ -46,8 +42,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     val discardView3 : ImageView = itemView.findViewById(R.id.discard_deck_3)
 
     var toast : Toast = Toast(itemView.context)
-    var displayWidth = 0f
-    var density = 0f
 
 //    val advantageView: ImageView = itemView.findViewById(R.id.advantage)
 //    val disadvantageView: ImageView = itemView.findViewById(R.id.disadvantage)
@@ -149,13 +143,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             showDiscardedCards()
         }
 
-        var wm = itemView.context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        val point = Point()
-        wm.defaultDisplay.getSize(point)
-        displayWidth = point.x.toFloat()
-        val metrics = DisplayMetrics()
-        wm.defaultDisplay.getMetrics(metrics)
-        density = metrics.density
     }
 
 

@@ -3,7 +3,9 @@ package net.north101.android.ghplayertracker
 import android.content.Context
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
+import android.util.DisplayMetrics
 import android.util.Log
+import android.view.WindowManager
 import android.widget.ImageView
 import org.json.JSONArray
 import org.json.JSONException
@@ -46,6 +48,17 @@ fun setImageViewGreyscale(imageView: ImageView, set: Boolean) {
         imageView.colorFilter = null
         imageView.alpha = 1.0f
     }
+
+}
+
+fun getDensity(context: Context): Float {
+    var wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+//        val point = Point()
+//        wm.defaultDisplay.getSize(point)
+//        displayWidth = point.x.toFloat()
+    val metrics = DisplayMetrics()
+    wm.defaultDisplay.getMetrics(metrics)
+    return metrics.density
 }
 
 class JSONArrayNode(private val items: JSONArray, val index: Int) {
