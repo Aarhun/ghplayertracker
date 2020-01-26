@@ -28,7 +28,7 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
@@ -36,31 +36,25 @@
             android:layout_weight="1">
 
             <LinearLayout
+                android:id="@+id/level_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:foreground="?attr/selectableItemBackground"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/level"
+                    android:paddingRight="8dp"
                     android:paddingLeft="8dp"
+                    android:textSize="17sp"
                     />
 
-
-                <LinearLayout
-                    android:id="@+id/level_container"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp">
 
                     <TextView
                         android:id="@+id/level_text"
@@ -71,14 +65,15 @@
                         android:layout_weight="1"
                         android:clickable="false"
                         android:focusable="false"
-                        android:longClickable="false" />
+                        android:longClickable="false"
+                        android:textSize="17sp"/>
 
                     <ImageView
-                        android:layout_width="15dp"
+                        android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/icon_jump" />
-                </LinearLayout>
+                        app:srcCompat="@drawable/icon_jump"
+                        android:layout_marginRight="8dp"/>
 
 
             </LinearLayout>
@@ -90,7 +85,7 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
@@ -98,48 +93,40 @@
             android:layout_weight="1">
 
             <LinearLayout
+                android:id="@+id/level_health_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/max_health"
-                    android:paddingLeft="8dp"
-                    />
-
-
-                <LinearLayout
-                    android:id="@+id/level_health_container"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@string/max_health"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="8dp"
+                        android:textSize="17sp"
+                        />
 
                     <TextView
                         android:id="@+id/health_text"
                         style="@style/TagEditor.EditNumber"
-                        android:layout_width="0dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="4dp"
-                        android:layout_weight="1"
                         android:clickable="false"
                         android:focusable="false"
-                        android:longClickable="false"/>
+                        android:longClickable="false"
+                        android:textSize="17sp"/>
 
                     <ImageView
-                        android:layout_width="15dp"
+                        android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/icon_heal"/>
-                </LinearLayout>
+                        app:srcCompat="@drawable/icon_heal"
+                        android:layout_marginRight="8dp"/>
 
 
             </LinearLayout>
@@ -153,7 +140,7 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
@@ -174,7 +161,7 @@
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="15dp"
+                        android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="4dp"
@@ -251,7 +238,7 @@
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="15dp"
+                        android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="4dp"
@@ -270,7 +257,7 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="0dp"
-            android:layout_height="35dp"
+            android:layout_height="45dp"
             android:layout_marginBottom="4dp"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
@@ -291,7 +278,7 @@
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="15dp"
+                        android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="4dp"
@@ -354,7 +341,7 @@
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
-                        android:layout_width="15dp"
+                        android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_margin="4dp"
