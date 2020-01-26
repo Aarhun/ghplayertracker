@@ -309,7 +309,8 @@
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:srcCompat="@drawable/icon_shuffle_red"/>
+                app:srcCompat="@drawable/ic_shuffle"
+                android:tint="@color/red"/>
         </FrameLayout>
     </LinearLayout>
 

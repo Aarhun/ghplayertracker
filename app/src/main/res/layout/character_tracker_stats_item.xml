@@ -89,7 +89,7 @@
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/icon_heal"/>
+                        app:srcCompat="@drawable/ic_heal"/>
                 </LinearLayout>
 
                 <View
@@ -185,7 +185,7 @@
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/icon_xp"/>
+                        app:srcCompat="@drawable/ic_xp"/>
                 </LinearLayout>
 
                 <View

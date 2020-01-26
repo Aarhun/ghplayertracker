@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:adjustViewBounds="true"
-        app:srcCompat="@drawable/icon_tick"/>
+        app:srcCompat="@drawable/ic_tick"/>
 
     <CheckBox
         android:id="@+id/perk1"

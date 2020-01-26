@@ -220,7 +220,8 @@
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/icon_attack"/>
+                        app:srcCompat="@drawable/ic_attack"
+                        android:tint="@android:color/white"/>
                 </LinearLayout>
             </LinearLayout>
         </android.support.v7.widget.CardView>

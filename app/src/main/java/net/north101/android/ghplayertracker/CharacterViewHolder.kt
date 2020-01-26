@@ -16,7 +16,8 @@ class CharacterViewHolder(view: View) : BaseViewHolder<SelectableCharacter>(view
     override fun bind(item: SelectableCharacter) {
         super.bind(item)
 
-        this.iconView.setImageResource(Util.getImageResource(itemView.context, item.character.characterClass.id))
+        val iconResId = itemView.context.resources.getIdentifier("ic_"+item.character.characterClass.id, "drawable", itemView.context.packageName)
+        this.iconView.setImageResource(iconResId)
         this.nameView.text = item.character.name
         this.levelView.text = item.character.currentLevel.level.toString()
         if (item.selected) {

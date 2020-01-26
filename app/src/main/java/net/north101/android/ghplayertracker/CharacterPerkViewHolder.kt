@@ -41,7 +41,7 @@ class CharacterPerkViewHolder(itemView: View) : BaseViewHolder<PerkLiveData>(ite
             } else {
 
                 ssb.append(SpannableString(text.substring(index, start)))
-                val scaleFactor : Int = 30 * ceil(getDensity(context)).toInt()
+                val scaleFactor : Int = 22 * ceil(getDensity(context)).toInt()
                 val image = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(res, iconId), scaleFactor, scaleFactor, false)
                 ssb.append(text.substring(start, end), ImageSpan(context, image, ImageSpan.ALIGN_BOTTOM), Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
                 index = end

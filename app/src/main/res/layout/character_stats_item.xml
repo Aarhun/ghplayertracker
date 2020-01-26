@@ -72,7 +72,7 @@
                         android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/icon_jump"
+                        app:srcCompat="@drawable/ic_level"
                         android:layout_marginRight="8dp"/>
 
 
@@ -125,7 +125,7 @@
                         android:layout_width="20dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/icon_heal"
+                        app:srcCompat="@drawable/ic_heal"
                         android:layout_marginRight="8dp"/>
 
 
@@ -222,7 +222,7 @@
                         android:layout_width="15dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/icon_xp"/>
+                        app:srcCompat="@drawable/ic_xp"/>
 
                 </LinearLayout>
 
@@ -325,7 +325,7 @@
                         android:layout_width="15dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/icon_loot" />
+                        app:srcCompat="@drawable/ic_loot" />
 
                 </LinearLayout>
 
