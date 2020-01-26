@@ -48,6 +48,7 @@
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
+                        android:id="@+id/health_minus_button"
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
@@ -143,6 +144,7 @@
                     android:foreground="?attr/selectableItemBackground">
 
                     <ImageView
+                        android:id="@+id/xp_minus_button"
                         android:layout_width="30dp"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"

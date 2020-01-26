@@ -53,9 +53,11 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
         healthTextView.text = it.toString()
         val levelInfo = item!!.character.characterClass.levels.find { levelInfo -> levelInfo.level == item!!.character.level }!!
         setImageViewGreyscale(healthPlusView.findViewById(R.id.health_plus_button), it == levelInfo.health)
+        setImageViewGreyscale(healthMinusView.findViewById(R.id.health_minus_button), it == 0)
     }
     val xpObserver: (Int) -> Unit = {
         xpTextView.text = it.toString()
+        setImageViewGreyscale(xpMinusView.findViewById(R.id.xp_minus_button), it == 0)
     }
 
     override fun bind(item: TrackerLiveData) {
