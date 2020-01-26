@@ -108,9 +108,16 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
     }
     val xpObserver: (Int) -> Unit = {
         xpTextView.text = it.toString()
-        val levelInfo = item!!.characterClass.levels.find { levelInfo -> levelInfo.maxXP!! > it && levelInfo.minXP!! <= it }!!
-        if (item!!.level.value != levelInfo.level) {
-            item!!.level.value = levelInfo.level
+        val newLevel = when {
+            it >= 500 -> 9
+            else -> {
+                val levelInfo = item!!.characterClass.levels.find { levelInfo -> levelInfo.maxXP!! > it && levelInfo.minXP!! <= it }
+                levelInfo?.level ?: 1
+            }
+        }
+
+        if (item!!.level.value != newLevel) {
+            item!!.level.value = newLevel
         }
     }
     val goldObserver: (Int) -> Unit = {
