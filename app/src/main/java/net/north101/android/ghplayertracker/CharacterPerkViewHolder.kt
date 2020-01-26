@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import net.north101.android.ghplayertracker.livedata.PerkLiveData
+import kotlin.math.ceil
 
 class CharacterPerkViewHolder(itemView: View) : BaseViewHolder<PerkLiveData>(itemView) {
     var perk1: CheckBox = itemView.findViewById(R.id.perk1)
@@ -38,8 +39,10 @@ class CharacterPerkViewHolder(itemView: View) : BaseViewHolder<PerkLiveData>(ite
             if (iconId == 0) {
                 offset++
             } else {
+
                 ssb.append(SpannableString(text.substring(index, start)))
-                val image = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(res, iconId), 50, 50, false)
+                val scaleFactor : Int = 30 * ceil(getDensity(context)).toInt()
+                val image = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(res, iconId), scaleFactor, scaleFactor, false)
                 ssb.append(text.substring(start, end), ImageSpan(context, image, ImageSpan.ALIGN_BOTTOM), Spannable.SPAN_INCLUSIVE_EXCLUSIVE)
                 index = end
                 offset = 0
