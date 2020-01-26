@@ -51,6 +51,8 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
 
     val healthObserver: (Int) -> Unit = {
         healthTextView.text = it.toString()
+        val levelInfo = item!!.character.characterClass.levels.find { levelInfo -> levelInfo.level == item!!.character.level }!!
+        setImageViewGreyscale(healthPlusView.findViewById(R.id.health_plus_button), it == levelInfo.health)
     }
     val xpObserver: (Int) -> Unit = {
         xpTextView.text = it.toString()
