@@ -51,7 +51,7 @@ open class TrackerFragment : Fragment() {
         super.onCreate(state)
 
         trackerResultModel = ViewModelProviders.of(this.targetFragment!!).get(TrackerResultModel::class.java)
-        trackerModel = ViewModelProviders.of(this.targetFragment!!).get(TrackerModel::class.java)
+        trackerModel = ViewModelProviders.of(this).get(TrackerModel::class.java)
         if (state == null) {
             trackerModel.init(character)
         } else {
@@ -202,7 +202,7 @@ open class TrackerFragment : Fragment() {
 //        fragment.arguments!!.putInt("xp", trackerModel.tracker.xp.value)
 //        fragment.setTargetFragment(this, 0)
 //        fragment.show(fragmentManager, "TrackerCompleteDialog_")
-        trackerModel.xp = trackerModel.tracker.xp.value
+        trackerResultModel.xp = trackerModel.tracker.xp.value
         fragmentManager!!.popBackStack()
     }
 

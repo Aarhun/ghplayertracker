@@ -12,7 +12,6 @@ class TrackerModel(
     application: Application
 ) : AndroidViewModel(application) {
     lateinit var tracker: TrackerLiveData
-    var xp = 0
 
     val cards = CardsDataLoader(application)
 

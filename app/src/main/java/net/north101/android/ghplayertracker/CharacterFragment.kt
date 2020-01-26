@@ -44,7 +44,6 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
     lateinit var characterModel: CharacterModel
     lateinit var trackerResultModel: TrackerResultModel
     lateinit var selectedItemModel: SelectedItemModel
-    lateinit var trackerModel: TrackerModel
 
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
@@ -53,7 +52,6 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         characterModel = ViewModelProviders.of(this).get(CharacterModel::class.java)
         trackerResultModel = ViewModelProviders.of(this).get(TrackerResultModel::class.java)
         selectedItemModel = ViewModelProviders.of(this).get(SelectedItemModel::class.java)
-        trackerModel = ViewModelProviders.of(this).get(TrackerModel::class.java)
 
         if (state == null) {
             characterModel.init(character)
@@ -70,16 +68,14 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
 
     @AfterViews
     fun afterViews() {
-        if (trackerResultModel.gold > 0) {
-            characterModel.character.gold.value += trackerResultModel.gold
-            trackerResultModel.gold = 0
-        }
+//        if (trackerResultModel.gold > 0) {
+//            characterModel.character.gold.value += trackerResultModel.gold
+//            trackerResultModel.gold = 0
+//        }
         if (trackerResultModel.xp > 0) {
             characterModel.character.xp.value += trackerResultModel.xp
-            trackerResultModel.xp = 0
+//            trackerResultModel.xp = 0
         }
-
-        characterModel.character.xp.value += trackerModel.xp
 
         selectedItemModel.selectedItem.observe(this, Observer {
             if (it != null) {
