@@ -58,8 +58,17 @@ data class Character(
     val currentLevel: Level
         get() = characterClass.levels[level - 1]
 
+    val currentLevelCompanion: Level
+        get() = characterClass.levelsCompanion[level - 1]
+
     val maxHealth: Int
         get() = currentLevel.health
+
+    val maxHealthCompanion: Int
+        get() = when {
+            characterClass.levelsCompanion.isEmpty() -> -1
+            else -> currentLevelCompanion.health
+        }
 
     @IgnoredOnParcel
     var xp: Int

@@ -9,6 +9,7 @@ import java.util.*
 data class Tracker(
     var character: Character,
     var health: Int,
+    var healthCompanion: Int,
     var xp: Int,
     var loot: Int,
     var status: HashMap<Status, Boolean>,

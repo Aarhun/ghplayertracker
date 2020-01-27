@@ -7,6 +7,8 @@ import java.util.*
 class TrackerLiveData {
     var character: Character
     val health = BoundedIntLiveData(0, minValue = 0)
+    val healthCompanion = BoundedIntLiveData(0, minValue = 0)
+    val hasCompanion = InitLiveData(false)
     val xp = BoundedIntLiveData(0, minValue = 0)
     val loot = BoundedIntLiveData(0, minValue = 0)
     val status = HashMap(Status.values().map {
@@ -27,6 +29,9 @@ class TrackerLiveData {
         this.character = character
         this.health.value = character.maxHealth
         this.health.maxValue = character.maxHealth
+        this.hasCompanion.value = character.maxHealthCompanion != -1
+        this.healthCompanion.value = character.maxHealthCompanion
+        this.healthCompanion.maxValue = character.maxHealthCompanion
         this.xp.value = 0
         this.loot.value = 0
         this.status.forEach {
@@ -47,6 +52,8 @@ class TrackerLiveData {
         character = data.character
         health.value = data.health
         health.maxValue = data.character.maxHealth
+        healthCompanion.value = data.healthCompanion
+        healthCompanion.maxValue = data.character.maxHealthCompanion
         xp.value = data.xp
         loot.value = data.loot
         status.putAll(data.status.map {
@@ -68,6 +75,7 @@ class TrackerLiveData {
         return Tracker(
             character,
             health.value,
+            healthCompanion.value,
             xp.value,
             loot.value,
             HashMap(status.entries.map {

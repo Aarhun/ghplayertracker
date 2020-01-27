@@ -2,6 +2,7 @@ package net.north101.android.ghplayertracker
 
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 
@@ -10,6 +11,12 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
     var healthTextView: TextView = itemView.findViewById(R.id.health_text)
     var healthPlusView: View = itemView.findViewById(R.id.health_plus)
     var healthMinusView: View = itemView.findViewById(R.id.health_minus)
+
+    var healthCompanionLayout : LinearLayout = itemView.findViewById(R.id.companion_health_container)
+    var healthCompanionContainerView: View = itemView.findViewById(R.id.companion_health_container)
+    var healthCompanionTextView: TextView = itemView.findViewById(R.id.companion_health_text)
+    var healthCompanionPlusView: View = itemView.findViewById(R.id.companion_health_plus)
+    var healthCompanionMinusView: View = itemView.findViewById(R.id.companion_health_minus)
 
     var xpContainerView: View = itemView.findViewById(R.id.xp_container)
     var xpTextView: TextView = itemView.findViewById(R.id.xp_text)
@@ -29,6 +36,16 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
             item!!.health.value -= 1
         }))
 
+        healthCompanionContainerView.setOnClickListener {
+            onNumberClickListener?.invoke("health")
+        }
+        healthCompanionPlusView.setOnTouchListener(RepeatListener({ _, _ ->
+            item!!.healthCompanion.value += 1
+        }))
+        healthCompanionMinusView.setOnTouchListener(RepeatListener({ _, _ ->
+            item!!.healthCompanion.value -= 1
+        }))
+
         xpContainerView.setOnClickListener {
             onNumberClickListener?.invoke("xp")
         }
@@ -46,7 +63,6 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
                 item!!.xp.value -= 1
             }
         }))
-
     }
 
     val healthObserver: (Int) -> Unit = {
@@ -55,21 +71,52 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
         setImageViewGreyscale(healthPlusView.findViewById(R.id.health_plus_button), it == levelInfo.health)
         setImageViewGreyscale(healthMinusView.findViewById(R.id.health_minus_button), it == 0)
     }
+
+    val healthCompanionObserver: (Int) -> Unit = {
+        healthCompanionTextView.text = it.toString()
+        if(item!!.hasCompanion.value) {
+            val levelInfo = item!!.character.characterClass.levelsCompanion.find { levelInfo -> levelInfo.level == item!!.character.level }!!
+            setImageViewGreyscale(healthCompanionPlusView.findViewById(R.id.companion_health_plus_button), it == levelInfo.health)
+            setImageViewGreyscale(healthCompanionMinusView.findViewById(R.id.companion_health_minus_button), it == 0)
+        }
+    }
+    
+    
     val xpObserver: (Int) -> Unit = {
         xpTextView.text = it.toString()
         setImageViewGreyscale(xpMinusView.findViewById(R.id.xp_minus_button), it == 0)
     }
 
+    val hasCompaniorObserver: (Boolean) -> Unit = {
+        when {
+            it -> {
+                healthCompanionLayout.visibility = View.VISIBLE
+                healthCompanionMinusView.visibility = View.VISIBLE
+                healthCompanionPlusView.visibility = View.VISIBLE
+            }
+            else -> {
+                healthCompanionLayout.visibility = View.GONE
+                healthCompanionMinusView.visibility = View.GONE
+                healthCompanionPlusView.visibility = View.GONE
+            }
+        }
+    }
+
+
     override fun bind(item: TrackerLiveData) {
         super.bind(item)
 
         item.health.observeForever(healthObserver)
+        item.healthCompanion.observeForever(healthCompanionObserver)
+        item.hasCompanion.observeForever(hasCompaniorObserver)
         item.xp.observeForever(xpObserver)
     }
 
     override fun unbind() {
         item?.let {
             item!!.health.removeObserver(healthObserver)
+            item!!.healthCompanion.removeObserver(healthCompanionObserver)
+            item!!.hasCompanion.removeObserver(hasCompaniorObserver)
             item!!.xp.removeObserver(xpObserver)
         }
 

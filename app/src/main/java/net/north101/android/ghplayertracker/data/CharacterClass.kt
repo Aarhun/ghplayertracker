@@ -22,13 +22,14 @@ import kotlin.collections.ArrayList
 
 @Parcelize
 data class CharacterClass(
-    val id: String,
-    val name: String,
-    val color: Int,
-    val levels: ArrayList<Level>,
-    val cards: HashMap<String, Card>,
-    val perks: ArrayList<Perk>,
-    val abilities: ArrayList<Ability>
+        val id: String,
+        val name: String,
+        val color: Int,
+        val levels: ArrayList<Level>,
+        val levelsCompanion: ArrayList<Level>,
+        val cards: HashMap<String, Card>,
+        val perks: ArrayList<Perk>,
+        val abilities: ArrayList<Ability>
 ) : Parcelable, RecyclerItemCompare {
     override val compareItemId: String
         get() = this.id
@@ -58,6 +59,16 @@ data class CharacterClass(
                 "low" -> HEALTH_LOW
                 else -> throw RuntimeException(health)
             }
+            var levelsCompanion : ArrayList<Level> = ArrayList()
+            try {
+                val health_companion = data.getString( "health_companion" )
+                levelsCompanion = when(health_companion) {
+                    "high" -> HEALTH_HIGH
+                    "medium" -> HEALTH_MEDIUM
+                    "low" -> HEALTH_LOW
+                    else -> ArrayList()
+                }
+            } catch (e : JSONException){}
 
             val cardsData = data.getJSONObject("cards")
             val cards = HashMap(cardsData.map {
@@ -74,7 +85,7 @@ data class CharacterClass(
                 Ability.parse(it.key, cardBack(id), it.getJSONObject())
             }.orEmpty())
 
-            return CharacterClass(id, name, color, levels, cards, perks, ArrayList(abilities.sortedBy { it.id }))
+            return CharacterClass(id, name, color, levels, levelsCompanion, cards, perks, ArrayList(abilities.sortedBy { it.id }))
         }
 
         fun decrypt(value: String): String {

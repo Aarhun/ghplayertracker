@@ -4464,6 +4464,7 @@
         "id": "class_17",
         "name": "QmVhc3QgVHlyYW50",
         "health": "low",
+        "health_companion": "high",
         "color": "#AC745D",
         "abilities": {
           "class_17_ability_477": {
