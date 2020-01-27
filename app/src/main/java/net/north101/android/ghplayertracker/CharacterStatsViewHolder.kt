@@ -16,6 +16,8 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
     var levelTextView: TextView = itemView.findViewById(R.id.level_text)
 
     var maxHealthView: TextView = itemView.findViewById(R.id.health_text)
+    var maxHealthCompanionView: TextView = itemView.findViewById(R.id.health_companion_text)
+    val companionCardView : View = itemView.findViewById(R.id.companion_card_view)
     var maxXPView: TextView = itemView.findViewById(R.id.max_xp_text)
 
     var xpContainerView: View = itemView.findViewById(R.id.xp_container)
@@ -101,6 +103,11 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
         val levelInfo = item!!.characterClass.levels.find { levelInfo -> levelInfo.level == it }!!
         levelsView.text = levelInfo.level.toString()
         maxHealthView.text = levelInfo.health.toString()
+        if(item!!.hasCompanion.value)
+        {
+            val levelInfo = item!!.characterClass.levelsCompanion.find { levelInfo -> levelInfo.level == it }!!
+            maxHealthCompanionView.text = levelInfo.health.toString()
+        }
         maxXPView.text = levelInfo.maxXP?.toString() ?: "∞"
         if (item!!.xp.value < levelInfo.minXP) {
             item!!.xp.value = levelInfo.minXP
@@ -127,6 +134,17 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
         retiredView.isChecked = it
     }
 
+    val hasCompanionObserver: (Boolean) -> Unit = {
+        when {
+            it -> {
+                companionCardView.visibility = View.VISIBLE
+            }
+            else -> {
+                companionCardView.visibility = View.GONE
+            }
+        }
+    }
+
     override fun bind(item: CharacterLiveData) {
         super.bind(item)
 
@@ -135,6 +153,7 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
         item.xp.observeForever(xpObserver)
         item.gold.observeForever(goldObserver)
         item.retired.observeForever(retiredObserver)
+        item.hasCompanion.observeForever(hasCompanionObserver)
     }
 
     override fun unbind() {
@@ -143,6 +162,7 @@ class CharacterStatsViewHolder(itemView: View) : BaseViewHolder<CharacterLiveDat
         item?.xp?.removeObserver(xpObserver)
         item?.gold?.removeObserver(goldObserver)
         item?.retired?.removeObserver(retiredObserver)
+        item?.hasCompanion?.removeObserver(hasCompanionObserver)
 
         super.unbind()
     }

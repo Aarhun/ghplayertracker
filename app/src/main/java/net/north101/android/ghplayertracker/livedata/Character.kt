@@ -25,6 +25,7 @@ class CharacterLiveData {
     val items = InitLiveData<ArrayList<Item>>(ArrayList())
     val abilities = InitLiveData<ArrayList<MutableLiveData<Ability>>>(ArrayList())
     val notes = InitLiveData<ArrayList<InitLiveData<String>>>(ArrayList())
+    val hasCompanion = InitLiveData(false)
 
     constructor(character: Character) {
         id = character.id
@@ -54,6 +55,7 @@ class CharacterLiveData {
         notes.value = ArrayList(character.notes.map {
             InitLiveData(it)
         })
+        hasCompanion.value = character.maxHealthCompanion != -1
     }
 
     fun toParcel(): Character {
