@@ -12,7 +12,8 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
     var healthPlusView: View = itemView.findViewById(R.id.health_plus)
     var healthMinusView: View = itemView.findViewById(R.id.health_minus)
 
-    var healthCompanionLayout : LinearLayout = itemView.findViewById(R.id.companion_health_container)
+    var healthCompanionLayout : View = itemView.findViewById(R.id.companion_health_container)
+    var healthCompanionCardView : View = itemView.findViewById(R.id.companion_health_card_view)
     var healthCompanionContainerView: View = itemView.findViewById(R.id.companion_health_container)
     var healthCompanionTextView: TextView = itemView.findViewById(R.id.companion_health_text)
     var healthCompanionPlusView: View = itemView.findViewById(R.id.companion_health_plus)
@@ -91,13 +92,11 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
         when {
             it -> {
                 healthCompanionLayout.visibility = View.VISIBLE
-                healthCompanionMinusView.visibility = View.VISIBLE
-                healthCompanionPlusView.visibility = View.VISIBLE
+                healthCompanionCardView.visibility = View.VISIBLE
             }
             else -> {
                 healthCompanionLayout.visibility = View.GONE
-                healthCompanionMinusView.visibility = View.GONE
-                healthCompanionPlusView.visibility = View.GONE
+                healthCompanionCardView.visibility = View.GONE
             }
         }
     }
