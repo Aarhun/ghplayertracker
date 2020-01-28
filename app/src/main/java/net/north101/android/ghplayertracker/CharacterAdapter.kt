@@ -2,6 +2,7 @@ package net.north101.android.ghplayertracker
 
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context
+import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import net.north101.android.ghplayertracker.data.Ability
@@ -112,12 +113,12 @@ class CharacterAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*
             )
         }
 
-//        val diffCallback = RecyclerListItemsCallback(this.items, newItems)
-//        val diffResult = DiffUtil.calculateDiff(diffCallback)
+        val diffCallback = RecyclerListItemsCallback(this.items, newItems)
+        val diffResult = DiffUtil.calculateDiff(diffCallback)
 
         this.items.clear()
         this.items.addAll(newItems)
-//        diffResult.dispatchUpdatesTo(this)
+        diffResult.dispatchUpdatesTo(this)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
