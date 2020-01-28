@@ -6,7 +6,6 @@ import android.widget.ImageView
 import android.widget.TextView
 
 class CharacterNoteViewHolder(itemView: View) : BaseViewHolder<CharacterAdapter.Note>(itemView) {
-    var indexView: TextView = itemView.findViewById(R.id.index)
     var textView: TextView = itemView.findViewById(R.id.text)
     val deleteView: View = itemView.findViewById(R.id.delete)
 
@@ -29,7 +28,6 @@ class CharacterNoteViewHolder(itemView: View) : BaseViewHolder<CharacterAdapter.
     override fun bind(item: CharacterAdapter.Note) {
         super.bind(item)
 
-        indexView.text = item.index.toString() + "."
         item.note.observeForever(noteObserver)
     }
 
