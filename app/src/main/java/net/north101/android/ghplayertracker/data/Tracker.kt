@@ -13,6 +13,7 @@ data class Tracker(
     var xp: Int,
     var loot: Int,
     var status: HashMap<Status, Boolean>,
+    var statusCompanion: HashMap<Status, Boolean>,
     var drawDeck: ArrayList<Card>,
     var discardDeck: ArrayList<Card>,
     var playedCards: ArrayList<PlayedCards>,

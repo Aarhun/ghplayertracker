@@ -14,6 +14,9 @@ class TrackerLiveData {
     val status = HashMap(Status.values().map {
         it to InitLiveData(false)
     }.toMap())
+    val statusCompanion = HashMap(Status.values().map {
+        it to InitLiveData(false)
+    }.toMap())
     val drawDeck = InitLiveData<ArrayList<Card>>(ArrayList())
     val discardDeck = InitLiveData<ArrayList<Card>>(ArrayList())
     val cleanedDiscardDeck = InitLiveData<ArrayList<Card>>(ArrayList())
@@ -35,6 +38,9 @@ class TrackerLiveData {
         this.xp.value = 0
         this.loot.value = 0
         this.status.forEach {
+            it.value.value = false
+        }
+        this.statusCompanion.forEach {
             it.value.value = false
         }
         this.drawDeck.value = ArrayList()
@@ -59,6 +65,9 @@ class TrackerLiveData {
         status.putAll(data.status.map {
             it.key to InitLiveData(it.value)
         }.toMap())
+        status.putAll(data.statusCompanion.map {
+            it.key to InitLiveData(it.value)
+        }.toMap())
         drawDeck.value = data.drawDeck
         discardDeck.value = data.discardDeck
         playedCards.value = data.playedCards
@@ -80,6 +89,9 @@ class TrackerLiveData {
             loot.value,
             HashMap(status.entries.map {
                 it.key to it.value.value
+            }.toMap()),
+            HashMap(status.entries.map {
+                    it.key to it.value.value
             }.toMap()),
             drawDeck.value,
             discardDeck.value,

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal"
+    android:layout_margin="8dp"
+    android:weightSum="2">
+
+
+    <include
+        android:id="@+id/character_tracker_status_main"
+        layout="@layout/character_tracker_status_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <Space
+        android:id="@+id/spacer_secondary"
+        android:layout_width="8dp"
+        android:layout_height="0dp"
+        />
+
+
+    <include
+        android:id="@+id/character_tracker_status_secondary"
+        layout="@layout/character_tracker_status_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+</LinearLayout>

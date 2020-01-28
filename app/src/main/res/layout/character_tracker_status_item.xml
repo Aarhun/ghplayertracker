@@ -1,98 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
+    android:layout_height="match_parent"
     android:focusableInTouchMode="false"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:orientation="vertical">
 
-    <GridLayout
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:focusableInTouchMode="false">
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="false"
+        android:orientation="horizontal"
+        android:layout_weight="1">
 
         <ImageView
             android:id="@+id/status_disarm"
-            android:layout_width="64dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="1"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/icon_status_disarm"/>
+            app:srcCompat="@drawable/icon_status_disarm"
+            android:layout_weight="1"/>
 
         <ImageView
             android:id="@+id/status_stun"
-            android:layout_width="64dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_row="1"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/icon_status_stun"/>
+            app:srcCompat="@drawable/icon_status_stun"
+            android:layout_weight="1"/>
 
         <ImageView
             android:id="@+id/status_immobilize"
-            android:layout_width="64dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_column="3"
-            android:layout_row="1"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/icon_status_immobilize"/>
+            app:srcCompat="@drawable/icon_status_immobilize"
+            android:layout_weight="1"/>
 
         <ImageView
             android:id="@+id/status_strengthen"
-            android:layout_width="64dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_column="4"
-            android:layout_row="1"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/icon_status_strengthen"/>
+            app:srcCompat="@drawable/icon_status_strengthen"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:focusableInTouchMode="false"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            >
 
         <ImageView
             android:id="@+id/status_poison"
-            android:layout_width="64dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:layout_row="2"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/icon_status_poison"/>
+            app:srcCompat="@drawable/icon_status_poison"
+            android:layout_weight="1"/>
 
         <ImageView
             android:id="@+id/status_wound"
-            android:layout_width="64dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_row="2"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/icon_status_wound"/>
+            app:srcCompat="@drawable/icon_status_wound"
+            android:layout_weight="1"/>
 
         <ImageView
             android:id="@+id/status_muddle"
-            android:layout_width="64dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_column="3"
-            android:layout_row="2"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/icon_status_muddle"/>
+            app:srcCompat="@drawable/icon_status_muddle"
+            android:layout_weight="1"/>
 
         <ImageView
             android:id="@+id/status_invisible"
-            android:layout_width="64dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_column="4"
-            android:layout_row="2"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/icon_status_invisible"/>
-    </GridLayout>
-</FrameLayout>
+            app:srcCompat="@drawable/icon_status_invisible"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>
