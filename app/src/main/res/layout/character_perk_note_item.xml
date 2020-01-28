@@ -5,8 +5,9 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingBottom="4dp"
-    android:paddingTop="4dp">
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="4dp">
 
     <ImageView
         android:layout_width="24dp"
@@ -21,7 +22,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:clickable="false"
-        android:focusable="false"/>
+        android:focusable="false"
+        android:paddingLeft="-2dp"
+        android:paddingRight="-2dp"/>
 
     <CheckBox
         android:id="@+id/perk2"
@@ -29,7 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:clickable="false"
-        android:focusable="false"/>
+        android:focusable="false"
+        android:paddingLeft="-2dp"
+        android:paddingRight="-2dp"/>
 
     <CheckBox
         android:id="@+id/perk3"
@@ -37,5 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:clickable="false"
-        android:focusable="false"/>
+        android:focusable="false"
+        android:paddingLeft="-2dp"
+        android:paddingRight="-2dp"/>
 </LinearLayout>
