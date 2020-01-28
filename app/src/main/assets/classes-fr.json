@@ -703,10 +703,10 @@
           "mod_class_03_plus_1": {
             "deck": "class"
           },
-          "mod_class_03_plus_2_fire": {
+          "mod_class_03_plus_2_element_fire": {
             "deck": "class"
           },
-          "mod_class_03_plus_2_ice": {
+          "mod_class_03_plus_2_element_ice": {
             "deck": "class"
           },
           "mod_class_03_stun": {
@@ -798,7 +798,7 @@
             "cards": [
               {
                 "action": "add",
-                "card_id": "mod_class_03_plus_2_fire"
+                "card_id": "mod_class_03_plus_2_element_fire"
               }
             ],
             "text": "Ajouter une carte [[icon_plus_2]] [[icon_element_fire]]"
@@ -808,7 +808,7 @@
             "cards": [
               {
                 "action": "add",
-                "card_id": "mod_class_03_plus_2_ice"
+                "card_id": "mod_class_03_plus_2_element_ice"
               }
             ],
             "text": "Ajouter une carte [[icon_plus_2]] [[icon_element_ice]]"
@@ -1527,7 +1527,7 @@
             "deck": "class",
             "special": "rolling"
           },
-          "mod_class_06_pull_1_rolling": {
+          "mod_class_06_pull_rolling": {
             "deck": "class",
             "special": "rolling"
           }
@@ -1608,7 +1608,7 @@
               {
                 "action": "add",
                 "repeat": 3,
-                "card_id": "mod_class_06_pull_1_rolling"
+                "card_id": "mod_class_06_pull_rolling"
               }
             ],
             "text": "Ajouter trois cartes [[icon_rolling]] TRACTION [[icon_pull]] 1"
