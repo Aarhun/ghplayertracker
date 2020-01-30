@@ -1,7 +1,11 @@
 package net.north101.android.ghplayertracker
 
+import android.animation.AnimatorSet
+import android.animation.ValueAnimator
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
+import android.widget.ImageView
 import android.widget.TextView
 import net.north101.android.ghplayertracker.data.Status
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
@@ -12,6 +16,7 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
     var maxHealthTextView : TextView = itemView.findViewById(R.id.max_health_text)
     var healthPlusView: View = itemView.findViewById(R.id.health_plus)
     var healthMinusView: View = itemView.findViewById(R.id.health_minus)
+    var statusIconView : ImageView = itemView.findViewById(R.id.status_icon)
 
     var healthCompanionLayout : View = itemView.findViewById(R.id.companion_health_container)
     var healthCompanionCardView : View = itemView.findViewById(R.id.companion_health_card_view)
@@ -20,6 +25,7 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
     var maxHealthCompanionTextView: TextView = itemView.findViewById(R.id.max_companion_health_text)
     var healthCompanionPlusView: View = itemView.findViewById(R.id.companion_health_plus)
     var healthCompanionMinusView: View = itemView.findViewById(R.id.companion_health_minus)
+    var statusCompanionIconView : ImageView = itemView.findViewById(R.id.status_companion_icon)
 
     var xpContainerView: View = itemView.findViewById(R.id.xp_container)
     var xpTextView: TextView = itemView.findViewById(R.id.xp_text)
@@ -43,6 +49,9 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
         }))
         healthMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             item!!.health.value -= 1
+            if(item!!.status[Status.poison]?.value!!) {
+                onStartAnimationStatus(statusIconView)
+            }
         }))
 
         healthCompanionContainerView.setOnClickListener {
@@ -59,6 +68,9 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
         }))
         healthCompanionMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             item!!.healthCompanion.value -= 1
+            if(item!!.statusCompanion[Status.poison]?.value!!) {
+                onStartAnimationStatus(statusCompanionIconView)
+            }
         }))
 
         xpContainerView.setOnClickListener {
@@ -115,6 +127,33 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
                 healthCompanionCardView.visibility = View.GONE
             }
         }
+    }
+
+
+    private fun onStartAnimationStatus(view: View)
+    {
+        val animAlpha = ValueAnimator.ofFloat(1f, 0f)
+        val animScale = ValueAnimator.ofFloat(1f, 1.5f)
+
+        animAlpha.addUpdateListener {
+            val value = it.animatedValue as Float
+            view.alpha = value
+        }
+
+        animScale.addUpdateListener {
+            val value = it.animatedValue as Float
+            view.scaleX = value
+            view.scaleY = value
+        }
+
+        val animatorSet = AnimatorSet()
+        animatorSet.play(animScale).with(animAlpha)
+        animatorSet.interpolator = DecelerateInterpolator(0.5f)
+        animatorSet.duration = 500
+
+        animatorSet.start()
+
+
     }
 
 

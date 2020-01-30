@@ -53,8 +53,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/preference_list_divider_material"/>
 
-                <LinearLayout
-                    android:id="@+id/health_container"
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
@@ -62,7 +61,15 @@
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingLeft="4dp"
-                    android:paddingRight="4dp">
+                    android:paddingRight="4dp"
+                    >
+
+                <LinearLayout
+                    android:id="@+id/health_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <Space
                         android:layout_height="0dp"
@@ -102,13 +109,27 @@
                         android:layout_width="0dp"
                         android:layout_weight="1"/>
 
-                    <ImageView
+
+
+
+                <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
                         app:srcCompat="@drawable/ic_heal"
                         android:layout_gravity="end|center_vertical"/>
+
                 </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/status_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:layout_centerInParent="true"
+                        app:srcCompat="@drawable/icon_status_poison"
+                        android:alpha="0" />
+                </RelativeLayout>
 
                 <View
                     android:layout_width="1dp"
@@ -287,8 +308,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/preference_list_divider_material"/>
 
-                <LinearLayout
-                    android:id="@+id/companion_health_container"
+                <RelativeLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
@@ -296,7 +316,15 @@
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingLeft="4dp"
-                    android:paddingRight="4dp">
+                    android:paddingRight="4dp"
+                    >
+
+                <LinearLayout
+                    android:id="@+id/companion_health_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
                     <Space
                         android:layout_height="0dp"
@@ -344,6 +372,15 @@
                         app:srcCompat="@drawable/ic_heal"
                         android:layout_gravity="end|center_vertical"/>
                 </LinearLayout>
+                    <ImageView
+                        android:id="@+id/status_companion_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:layout_centerInParent="true"
+                        app:srcCompat="@drawable/icon_status_poison"
+                        android:alpha="0" />
+                </RelativeLayout>
 
                 <View
                     android:layout_width="1dp"
