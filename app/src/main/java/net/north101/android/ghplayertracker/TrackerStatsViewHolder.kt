@@ -3,6 +3,7 @@ package net.north101.android.ghplayertracker
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import net.north101.android.ghplayertracker.data.Status
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 
 class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(itemView) {
@@ -32,7 +33,13 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
             onNumberClickListener?.invoke("health")
         }
         healthPlusView.setOnTouchListener(RepeatListener({ _, _ ->
-            item!!.health.value += 1
+            item!!.status[Status.wound]!!.value = false
+            if(item!!.status[Status.poison]?.value!!) {
+                item!!.status[Status.poison]!!.value = false
+            }
+            else {
+                item!!.health.value += 1
+            }
         }))
         healthMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             item!!.health.value -= 1
@@ -42,7 +49,13 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
             onNumberClickListener?.invoke("health")
         }
         healthCompanionPlusView.setOnTouchListener(RepeatListener({ _, _ ->
-            item!!.healthCompanion.value += 1
+            item!!.statusCompanion[Status.wound]!!.value = false
+            if(item!!.statusCompanion[Status.poison]?.value!!) {
+                item!!.statusCompanion[Status.poison]!!.value = false
+            }
+            else {
+                item!!.healthCompanion.value += 1
+            }
         }))
         healthCompanionMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             item!!.healthCompanion.value -= 1
