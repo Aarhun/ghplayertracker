@@ -21,5 +21,10 @@ data class Tracker(
     var shuffle: Boolean,
     var shuffleCount: Int,
     var attackStatus: AttackStatus,
-    var houseRule: Boolean
+    var houseRule: Boolean,
+    var turn: Int,
+    var strengthenTurnCount: Int,
+    var invisibleTurnCount: Int,
+    var strengthenCompanionTurnCount: Int,
+    var invisibleCompanionTurnCount: Int
 ) : Parcelable

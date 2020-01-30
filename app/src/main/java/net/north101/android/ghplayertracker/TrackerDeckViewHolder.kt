@@ -4,11 +4,14 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.app.AlertDialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -17,6 +20,8 @@ import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.CardSpecial
 import net.north101.android.ghplayertracker.data.PlayedCards
 import net.north101.android.ghplayertracker.data.Status
+import net.north101.android.ghplayertracker.livedata.BoundedIntLiveData
+import net.north101.android.ghplayertracker.livedata.InitLiveData
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 import java.util.*
 import kotlin.collections.ArrayList
@@ -43,6 +48,8 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     val discardView2 : ImageView = itemView.findViewById(R.id.discard_deck_2)
     val discardView3 : ImageView = itemView.findViewById(R.id.discard_deck_3)
     val statusIconView : ImageView = itemView.findViewById(R.id.status_icon)
+
+    val nextTurnButton : Button = itemView.findViewById(R.id.next_turn)
 
     var toast : Toast = Toast(itemView.context)
 
@@ -139,13 +146,60 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         deckView.setOnClickListener {
             draw()
         }
-        shuffleView.setOnClickListener {
-            shuffle()
-        }
+//        shuffleView.setOnClickListener {
+//            shuffle()
+//        }
         discardView.setOnClickListener {
             showDiscardedCards()
         }
 
+        nextTurnButton.setOnClickListener() {
+            nextTurn()
+        }
+
+    }
+
+    private fun updateStatus(status: HashMap<Status, InitLiveData<Boolean>>, invisibleTurnCount: InitLiveData<Int>, strengthenTurnCount: InitLiveData<Int>, health: BoundedIntLiveData)
+    {
+        if(status[Status.wound]!!.value) {
+            var poisoned = status[Status.poison]!!.value
+            status[Status.poison]!!.value = false
+            health.value -= 1
+            status[Status.poison]!!.value = poisoned
+        }
+        status[Status.disarm]!!.value = false
+        status[Status.stun]!!.value = false
+        status[Status.immobilize]!!.value = false
+        status[Status.muddle]!!.value = false
+
+
+        if(strengthenTurnCount.value > 0) {
+            strengthenTurnCount.value = 0
+            status[Status.strengthen]!!.value = false
+        }
+
+        if(status[Status.strengthen]!!.value) {
+            strengthenTurnCount.value += 1
+        }
+
+        if(invisibleTurnCount.value > 0) {
+            invisibleTurnCount.value = 0
+            status[Status.invisible]!!.value = false
+        }
+
+        if(status[Status.invisible]!!.value) {
+            invisibleTurnCount.value += 1
+        }
+    }
+
+    private fun nextTurn() {
+        if(shuffle){
+            shuffle()
+        }
+        updateStatus(item!!.status, item!!.invisibleTurnCount, item!!.strengthenTurnCount, item!!.health)
+        updateStatus(item!!.statusCompanion, item!!.invisibleCompanionTurnCount, item!!.strengthenCompanionTurnCount, item!!.healthCompanion)
+
+        item!!.turn.value += 1
     }
 
 
@@ -277,6 +331,13 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 //        item.attackStatus.observeForever(attackStatusObserver)
         item.drawDeck.observeForever(deckObserver)
         item.discardDeck.observeForever(discardDeckObserver)
+
+        var c = item.character.characterClass.color
+        val hsv = FloatArray(3)
+        Color.colorToHSV(c, hsv)
+        hsv[2] = hsv[2] * 2 / 3
+        c = Color.HSVToColor(hsv)
+        nextTurnButton.background = ColorDrawable(c)
     }
 
     override fun unbind() {

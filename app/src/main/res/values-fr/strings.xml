@@ -27,4 +27,5 @@
     <string name="minus1">-1</string>
     <string name="max_health">Vie max.</string>
     <string name="xp_abbreviated">XP</string>
+    <string name="next_turn">Tour Suivant</string>
 </resources>

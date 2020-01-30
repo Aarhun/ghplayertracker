@@ -27,6 +27,11 @@ class TrackerLiveData {
     val shuffleCount = InitLiveData(0)
     val attackStatus = InitLiveData(AttackStatus.None)
     val houseRule = InitLiveData(false)
+    val turn = InitLiveData( 1)
+    val strengthenTurnCount = InitLiveData( 0)
+    val invisibleTurnCount = InitLiveData( 0)
+    val strengthenCompanionTurnCount = InitLiveData( 0)
+    val invisibleCompanionTurnCount = InitLiveData( 0)
 
     constructor(character: Character) {
         this.character = character
@@ -52,6 +57,11 @@ class TrackerLiveData {
         this.shuffleCount.value = 0
         this.attackStatus.value = AttackStatus.None
         this.houseRule.value = false
+        this.turn.value = 1
+        this.strengthenTurnCount.value = 0
+        this.invisibleTurnCount.value = 0
+        this.strengthenCompanionTurnCount.value = 0
+        this.invisibleCompanionTurnCount.value = 0
     }
 
     constructor(data: Tracker) {
@@ -78,6 +88,11 @@ class TrackerLiveData {
         shuffleCount.value = data.shuffleCount
         attackStatus.value = data.attackStatus
         houseRule.value = data.houseRule
+        turn.value = data.turn
+        strengthenTurnCount.value = data.strengthenTurnCount
+        invisibleTurnCount.value = data.invisibleTurnCount
+        strengthenCompanionTurnCount.value = data.strengthenCompanionTurnCount
+        invisibleCompanionTurnCount.value = data.invisibleCompanionTurnCount
     }
 
     fun toParcel(): Tracker {
@@ -102,7 +117,12 @@ class TrackerLiveData {
             shuffle.value,
             shuffleCount.value,
             attackStatus.value,
-            houseRule.value
+            houseRule.value,
+            turn.value,
+            strengthenTurnCount.value,
+            invisibleTurnCount.value,
+            strengthenCompanionTurnCount.value,
+            invisibleCompanionTurnCount.value
         )
     }
 }

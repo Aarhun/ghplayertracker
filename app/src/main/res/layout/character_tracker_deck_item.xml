@@ -324,7 +324,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="@dimen/cardDeckSize"
             android:layout_weight="70">
             <ImageView
                 android:id="@+id/discard_deck_3"
@@ -387,6 +387,18 @@
 
 </RelativeLayout>
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
 
+        <Button
+            android:id="@+id/next_turn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:textColor="@android:color/primary_text_dark"
+            android:text="@string/next_turn"/>
+    </FrameLayout>
 
 </LinearLayout>
