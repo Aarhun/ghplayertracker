@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="false"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:clipChildren="false">
 
 
     <LinearLayout
@@ -13,7 +14,8 @@
         android:layout_height="match_parent"
         android:focusableInTouchMode="false"
         android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:clipChildren="false">
 
         <ImageView
             android:id="@+id/status_disarm"

@@ -1,8 +1,12 @@
 package net.north101.android.ghplayertracker
 
+import android.animation.ValueAnimator
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnticipateOvershootInterpolator
+import android.view.animation.CycleInterpolator
 import android.widget.ImageView
+import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.Status
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 
@@ -40,19 +44,53 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(
         }
     }
 
-    val statusObservers: Map<Status, (Boolean) -> Unit> = Status.values().map { status ->
+    private val statusObservers: Map<Status, (Boolean) -> Unit> = Status.values().map { status ->
         val observer: ((Boolean) -> Unit) = {
             setImageViewGreyscale(statusToView(status,mainStatusTracker), !it)
         }
         status to observer
     }.toMap()
 
-    val statusCompanionObservers: Map<Status, (Boolean) -> Unit> = Status.values().map { status ->
+    private val statusCompanionObservers: Map<Status, (Boolean) -> Unit> = Status.values().map { status ->
         val observer: ((Boolean) -> Unit) = {
             setImageViewGreyscale(statusToView(status,secondaryStatusTracker), !it)
         }
         status to observer
     }.toMap()
+
+    private val discardDeckObserver: (ArrayList<Card>) -> Unit = {
+        if(!it.isEmpty()) {
+                if(item!!.status[Status.strengthen]?.value!!) {onStartAnimation(mainStatusTracker.findViewById(R.id.status_strengthen))}
+                if(item!!.status[Status.muddle]?.value!!) {onStartAnimation(mainStatusTracker.findViewById(R.id.status_muddle))}
+                if(item!!.statusCompanion[Status.strengthen]?.value!!) {onStartAnimation(secondaryStatusTracker.findViewById(R.id.status_strengthen))}
+                if(item!!.statusCompanion[Status.muddle]?.value!!) {onStartAnimation(secondaryStatusTracker.findViewById(R.id.status_muddle))}
+            }
+    }
+
+    private val healthObserver: (Int) -> Unit = {
+        if(item!!.status[Status.poison]?.value!!) {onStartAnimation(mainStatusTracker.findViewById(R.id.status_poison))}
+    }
+
+    private val healthCompanionObserver: (Int) -> Unit = {
+        if(item!!.statusCompanion[Status.poison]?.value!!) {onStartAnimation(secondaryStatusTracker.findViewById(R.id.status_poison))}
+    }
+
+    fun onStartAnimation(view: View)
+    {
+        val animScale = ValueAnimator.ofFloat(1f, 1.2f)
+
+        animScale.addUpdateListener {
+            val value = it.animatedValue as Float
+            view.scaleX = value
+            view.scaleY = value
+        }
+
+        animScale.interpolator = AnticipateOvershootInterpolator( 1.5f)
+        animScale.interpolator = CycleInterpolator(2f)
+        animScale.duration = 500
+
+        animScale.start()
+    }
 
 
     override fun bind(item: TrackerLiveData) {
@@ -66,6 +104,9 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(
             item.statusCompanion[o.key]!!.observeForever(o.value)
         }
         item.hasCompanion.observeForever(hasCompaniorObserver)
+        item.discardDeck.observeForever(discardDeckObserver)
+        item.health.observeForever(healthObserver)
+        item.healthCompanion.observeForever(healthCompanionObserver)
     }
 
     override fun unbind() {
@@ -77,6 +118,9 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(
                 item!!.statusCompanion[o.key]!!.removeObserver(o.value)
             }
             item!!.hasCompanion.removeObserver(hasCompaniorObserver)
+            item!!.discardDeck.removeObserver(discardDeckObserver)
+            item!!.health.removeObserver(healthObserver)
+            item!!.healthCompanion.removeObserver(healthCompanionObserver)
         }
 
         super.unbind()
