@@ -60,10 +60,10 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(
 
     private val discardDeckObserver: (ArrayList<Card>) -> Unit = {
         if(!it.isEmpty()) {
-                if(item!!.status[Status.strengthen]?.value!!) {onStartAnimation(mainStatusTracker.findViewById(R.id.status_strengthen))}
-                if(item!!.status[Status.muddle]?.value!!) {onStartAnimation(mainStatusTracker.findViewById(R.id.status_muddle))}
-                if(item!!.statusCompanion[Status.strengthen]?.value!!) {onStartAnimation(secondaryStatusTracker.findViewById(R.id.status_strengthen))}
-                if(item!!.statusCompanion[Status.muddle]?.value!!) {onStartAnimation(secondaryStatusTracker.findViewById(R.id.status_muddle))}
+                if(item!!.status[Status.strengthen]?.value!! && !item!!.status[Status.muddle]?.value!!) {onStartAnimation(mainStatusTracker.findViewById(R.id.status_strengthen))}
+                if(item!!.status[Status.muddle]?.value!! && !item!!.status[Status.strengthen]?.value!!) {onStartAnimation(mainStatusTracker.findViewById(R.id.status_muddle))}
+                if(item!!.statusCompanion[Status.strengthen]?.value!! && !item!!.statusCompanion[Status.muddle]?.value!!) {onStartAnimation(secondaryStatusTracker.findViewById(R.id.status_strengthen))}
+                if(item!!.statusCompanion[Status.muddle]?.value!! && !item!!.statusCompanion[Status.strengthen]?.value!!) {onStartAnimation(secondaryStatusTracker.findViewById(R.id.status_muddle))}
             }
     }
 

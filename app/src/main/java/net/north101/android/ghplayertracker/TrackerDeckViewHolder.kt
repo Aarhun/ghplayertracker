@@ -7,6 +7,7 @@ import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.TextView
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.discarded_cards_list_layout.view.*
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.CardSpecial
 import net.north101.android.ghplayertracker.data.PlayedCards
+import net.north101.android.ghplayertracker.data.Status
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 import java.util.*
 import kotlin.collections.ArrayList
@@ -40,6 +42,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     val discardView : ImageView = itemView.findViewById(R.id.discard_deck)
     val discardView2 : ImageView = itemView.findViewById(R.id.discard_deck_2)
     val discardView3 : ImageView = itemView.findViewById(R.id.discard_deck_3)
+    val statusIconView : ImageView = itemView.findViewById(R.id.status_icon)
 
     var toast : Toast = Toast(itemView.context)
 
@@ -203,7 +206,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         }
     }
 
-    fun onStartAnimation()
+    private fun onStartAnimation()
     {
         val startingX = deckView.x
         val endingX = deckView.x+discardView.getMeasuredWidth() + 5f
@@ -235,16 +238,36 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         val animatorSet = AnimatorSet()
         animatorSet.play(anim2Scale).with(anim2X).with(anim2Y).with(anim1X).with(anim3X).with(anim3Y).with(anim3Scale)
 
-        anim2X.interpolator = OvershootInterpolator(1.5f)
-        anim2Y.interpolator = OvershootInterpolator(1.5f)
-        anim3X.interpolator = OvershootInterpolator(1.5f)
-        anim3Y.interpolator = OvershootInterpolator(1.5f)
-        anim1X.interpolator = OvershootInterpolator(1.5f)
-        anim2Scale.interpolator = OvershootInterpolator(1.5f)
-        anim3Scale.interpolator = OvershootInterpolator(1.5f)
+        animatorSet.interpolator = OvershootInterpolator(1.5f)
         animatorSet.duration = 500
 
         animatorSet.start()
+    }
+
+    private fun onStartAnimationStatus()
+    {
+        val animAlpha = ValueAnimator.ofFloat(1f, 0f)
+        val animScale = ValueAnimator.ofFloat(1f, 1.5f)
+
+        animAlpha.addUpdateListener {
+            val value = it.animatedValue as Float
+            statusIconView.alpha = value
+        }
+
+        animScale.addUpdateListener {
+            val value = it.animatedValue as Float
+            statusIconView.scaleX = value
+            statusIconView.scaleY = value
+        }
+
+        val animatorSet = AnimatorSet()
+        animatorSet.play(animScale).with(animAlpha)
+        animatorSet.interpolator = DecelerateInterpolator(0.5f)
+        animatorSet.duration = 500
+
+        animatorSet.start()
+
+
     }
 
     override fun bind(item: TrackerLiveData) {
@@ -338,6 +361,18 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         this.playedCards = this.playedCards
         drawDeck = drawDeck
         discardDeck = discardDeck
+
+        when{
+            (item!!.status[Status.strengthen]!!.value && !item!!.status[Status.muddle]!!.value) -> {
+                statusIconView.setImageResource(Util.getImageResource(itemView.context, "icon_status_strengthen"))
+                onStartAnimationStatus()
+            }
+            (item!!.status[Status.muddle]!!.value && !item!!.status[Status.strengthen]!!.value) -> {
+                statusIconView.setImageResource(Util.getImageResource(itemView.context, "icon_status_muddle"))
+                onStartAnimationStatus()
+            }
+        }
+
 
 //        toast.cancel()
 //        toast = Toast.makeText(itemView.context, String.format(itemView.context.getString(R.string.remaining), drawDeck.count()), Toast.LENGTH_SHORT)

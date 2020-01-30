@@ -356,6 +356,9 @@
             android:adjustViewBounds="true"
             android:scaleType="fitStart"
             android:background="?attr/selectableItemBackgroundBorderless"/>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/draw_deck"
@@ -368,8 +371,21 @@
                 android:background="?attr/selectableItemBackgroundBorderless"
                 app:srcCompat="@drawable/card_back"/>
 
-
+            <ImageView
+                android:id="@+id/status_icon"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:layout_centerInParent="true"
+                android:alpha="0"
+                />
         </RelativeLayout>
+
+
+
+</RelativeLayout>
 
 
 
