@@ -8,8 +8,7 @@
     android:paddingTop="4dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:layout_margin="0dp"
-    >
+    android:layout_margin="0dp">
 
     <CheckBox
         android:id="@+id/perk1"
@@ -40,5 +39,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:textSize="13sp"/>
+        android:textSize="@dimen/perkTextSize"/>
 </LinearLayout>

@@ -72,7 +72,7 @@
                         android:clickable="false"
                         android:focusable="false"
                         android:longClickable="false"
-                        android:textSize="25sp"/>
+                        android:textSize="@dimen/textViewSize"/>
 
                     <ImageView
                         android:layout_width="30dp"
@@ -167,7 +167,7 @@
                         android:clickable="false"
                         android:focusable="false"
                         android:longClickable="false"
-                        android:textSize="25sp"/>
+                        android:textSize="@dimen/textViewSize"/>
 
                     <ImageView
                         android:layout_width="30dp"
@@ -263,7 +263,7 @@
                         android:clickable="false"
                         android:focusable="false"
                         android:longClickable="false"
-                        android:textSize="25sp"/>
+                        android:textSize="@dimen/textViewSize"/>
 
                     <ImageView
                         android:layout_width="30dp"
@@ -328,7 +328,7 @@
             android:layout_weight="70">
             <ImageView
                 android:id="@+id/discard_deck_3"
-                android:layout_width="110dp"
+                android:layout_width="@dimen/cardDeckSize"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|bottom"
                 android:adjustViewBounds="true"
@@ -338,7 +338,7 @@
                 />
             <ImageView
                 android:id="@+id/discard_deck_2"
-                android:layout_width="110dp"
+                android:layout_width="@dimen/cardDeckSize"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|bottom"
                 android:adjustViewBounds="true"
@@ -349,7 +349,7 @@
 
             <ImageView
             android:id="@+id/discard_deck"
-            android:layout_width="110dp"
+            android:layout_width="@dimen/cardDeckSize"
             android:layout_height="wrap_content"
             android:layout_gravity="start|top"
             android:layout_marginTop="4dp"
@@ -359,7 +359,7 @@
 
             <ImageView
                 android:id="@+id/draw_deck"
-                android:layout_width="110dp"
+                android:layout_width="@dimen/cardDeckSize"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|top"
                 android:layout_marginTop="4dp"
