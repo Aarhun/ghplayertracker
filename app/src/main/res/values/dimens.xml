@@ -1,6 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="textViewSize">25sp</dimen>
+    <dimen name="characterTextViewSize">20sp</dimen>
+    <dimen name="characterLabelSize">17sp</dimen>
     <dimen name="perkTextSize">13sp</dimen>
     <dimen name="cardDeckSize">110dp</dimen>
 </resources>
