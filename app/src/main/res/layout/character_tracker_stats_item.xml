@@ -81,6 +81,27 @@
                         android:textSize="@dimen/textViewSize"
                         android:layout_gravity="center"/>
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/"
+                        android:layout_gravity="center"
+                        />
+
+                    <TextView
+                        android:id="@+id/max_health_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:layout_gravity="center"/>
+
+                    <Space
+                        android:layout_height="0dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"/>
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -293,6 +314,28 @@
                         android:longClickable="false"
                         android:textSize="@dimen/textViewSize"
                         android:layout_gravity="center"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/"
+                        android:layout_gravity="center"
+                        />
+
+                    <TextView
+                        android:id="@+id/max_companion_health_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:layout_gravity="center"/>
+
+                    <Space
+                        android:layout_height="0dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"/>
+
 
                     <ImageView
                         android:layout_width="wrap_content"

@@ -2,13 +2,13 @@ package net.north101.android.ghplayertracker
 
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 
 class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(itemView) {
     var healthContainerView: View = itemView.findViewById(R.id.health_container)
     var healthTextView: TextView = itemView.findViewById(R.id.health_text)
+    var maxHealthTextView : TextView = itemView.findViewById(R.id.max_health_text)
     var healthPlusView: View = itemView.findViewById(R.id.health_plus)
     var healthMinusView: View = itemView.findViewById(R.id.health_minus)
 
@@ -16,6 +16,7 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
     var healthCompanionCardView : View = itemView.findViewById(R.id.companion_health_card_view)
     var healthCompanionContainerView: View = itemView.findViewById(R.id.companion_health_container)
     var healthCompanionTextView: TextView = itemView.findViewById(R.id.companion_health_text)
+    var maxHealthCompanionTextView: TextView = itemView.findViewById(R.id.max_companion_health_text)
     var healthCompanionPlusView: View = itemView.findViewById(R.id.companion_health_plus)
     var healthCompanionMinusView: View = itemView.findViewById(R.id.companion_health_minus)
 
@@ -68,6 +69,7 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
 
     val healthObserver: (Int) -> Unit = {
         healthTextView.text = it.toString()
+        maxHealthTextView.text = item!!.health.maxValue.toString()
         val levelInfo = item!!.character.characterClass.levels.find { levelInfo -> levelInfo.level == item!!.character.level }!!
         setImageViewGreyscale(healthPlusView.findViewById(R.id.health_plus_button), it == levelInfo.health)
         setImageViewGreyscale(healthMinusView.findViewById(R.id.health_minus_button), it == 0)
@@ -75,6 +77,7 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
 
     val healthCompanionObserver: (Int) -> Unit = {
         healthCompanionTextView.text = it.toString()
+        maxHealthCompanionTextView.text = item!!.healthCompanion.maxValue.toString()
         if(item!!.hasCompanion.value) {
             val levelInfo = item!!.character.characterClass.levelsCompanion.find { levelInfo -> levelInfo.level == item!!.character.level }!!
             setImageViewGreyscale(healthCompanionPlusView.findViewById(R.id.companion_health_plus_button), it == levelInfo.health)
