@@ -94,7 +94,6 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
 
     val healthObserver: (Int) -> Unit = {
         healthTextView.text = it.toString()
-        maxHealthTextView.text = item!!.health.maxValue.toString()
         val levelInfo = item!!.character.characterClass.levels.find { levelInfo -> levelInfo.level == item!!.character.level }!!
         setImageViewGreyscale(healthPlusView.findViewById(R.id.health_plus_button), it == levelInfo.health)
         setImageViewGreyscale(healthMinusView.findViewById(R.id.health_minus_button), it == 0)
@@ -102,7 +101,6 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
 
     val healthCompanionObserver: (Int) -> Unit = {
         healthCompanionTextView.text = it.toString()
-        maxHealthCompanionTextView.text = item!!.healthCompanion.maxValue.toString()
         if(item!!.hasCompanion.value) {
             val levelInfo = item!!.character.characterClass.levelsCompanion.find { levelInfo -> levelInfo.level == item!!.character.level }!!
             setImageViewGreyscale(healthCompanionPlusView.findViewById(R.id.companion_health_plus_button), it == levelInfo.health)
@@ -164,6 +162,9 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
         item.healthCompanion.observeForever(healthCompanionObserver)
         item.hasCompanion.observeForever(hasCompaniorObserver)
         item.xp.observeForever(xpObserver)
+
+        maxHealthTextView.text = item!!.health.maxValue.toString()
+        maxHealthCompanionTextView.text = item!!.healthCompanion.maxValue.toString()
     }
 
     override fun unbind() {
