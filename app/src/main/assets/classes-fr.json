@@ -1367,7 +1367,6 @@
             "text": "Ajouter deux cartes [[icon_rolling]] [[icon_element_air]]"
           },
           {
-            "text": "Ignore negative item effects"
             "cards": [
               {
                 "action": "ignore_object",
@@ -1375,6 +1374,7 @@
                 "card_id": "mod_basic_null_shuffle"
               }
             ],
+            "text": "Ignorer les effets négatifs des objets"
           },
           {
             "cards": [],
@@ -3291,7 +3291,6 @@
             "text": "Ajouter une carte [[icon_plus_2]] [[icon_element_fire]]"
           },
           {
-            "text": "Ignore negative item effects"
             "cards": [
               {
                 "action": "ignore_object",
@@ -3299,6 +3298,7 @@
                 "card_id": "mod_basic_null_shuffle"
               }
             ],
+            "text": "Ignorer les effets négatifs des objets"
           }
         ]
       },
