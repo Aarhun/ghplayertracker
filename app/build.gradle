@@ -30,7 +30,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 12
-        versionName "0.7.4"
+        versionName "0.7.5"
         setProperty("archivesBaseName", "ghplayertracker v$versionName")
     }
     buildTypes {
