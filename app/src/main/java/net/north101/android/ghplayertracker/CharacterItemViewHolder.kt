@@ -12,7 +12,6 @@ class CharacterItemViewHolder(itemView: View) : BaseViewHolder<Item>(itemView) {
     val textView: TextView = itemView.findViewById(R.id.text)
     val idView: TextView = itemView.findViewById(R.id.id)
     val priceView: TextView = itemView.findViewById(R.id.price)
-    val deleteView: View = itemView.findViewById(R.id.delete)
 
     var onItemViewClick: ((Item) -> Unit)? = null
     var onItemDeleteClick: ((Item) -> Unit)? = null
@@ -21,8 +20,9 @@ class CharacterItemViewHolder(itemView: View) : BaseViewHolder<Item>(itemView) {
         itemView.setOnClickListener {
             onItemViewClick?.invoke(item!!)
         }
-        deleteView.setOnClickListener {
+        itemView.setOnLongClickListener {
             onItemDeleteClick?.invoke(item!!)
+            true
         }
     }
 
@@ -38,7 +38,7 @@ class CharacterItemViewHolder(itemView: View) : BaseViewHolder<Item>(itemView) {
             ItemType.Small -> R.drawable.icon_item_small
         })
         textView.text = item.name
-        idView.text = item.itemId
+        idView.text = "("+item.itemId+")"
         priceView.text = item.price.toString() + "g"
     }
 

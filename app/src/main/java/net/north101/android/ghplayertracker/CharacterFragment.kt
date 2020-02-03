@@ -111,35 +111,36 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             fragment.setTargetFragment(this@CharacterFragment, 0)
             fragment.show(fragmentManager, "CharacterNumberEdit")
         }
-//        listAdapter1.onItemAddClick = {
-//            val items = characterModel.character.items.value
-//            val fragment = ItemListFragment.newInstance(items)
-//            fragment.setTargetFragment(this, 1)
-//
-//            fragmentManager!!.beginTransaction()
-//                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-//                .replace(R.id.content, fragment)
-//                .addToBackStack(null)
-//                .commit()
-//        }
-//        listAdapter1.onItemViewClick = {
-//            val items = characterModel.character.items.value
-//            val fragment = ImagePagerFragment.newInstance(ArrayList(characterClass.abilities.map {
-//                it as ImageUrl
-//            }), items.indexOf(it))
-//
-//            activity!!.supportFragmentManager
-//                .beginTransaction()
-//                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
-//                .replace(R.id.content, fragment)
-//                .addToBackStack(null)
-//                .commit()
-//        }
-//        listAdapter1.onItemDeleteClick = {
-//            characterModel.character.items.value.remove(it)
-//            characterModel.character.items.value = characterModel.character.items.value
-//
-//        }
+        listAdapter1.onItemAddClick = {
+            val items = characterModel.character.items.value
+            val fragment = ItemListFragment.newInstance(items)
+            fragment.setTargetFragment(this, 1)
+
+            fragmentManager!!.beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .replace(R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+
+        listAdapter1.onItemViewClick = {
+            val items = characterModel.character.items.value
+            val fragment = ImagePagerFragment.newInstance(ArrayList(items.map {
+                it as ImageUrl
+            }), items.indexOf(it))
+
+            activity!!.supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .replace(R.id.content, fragment)
+                .addToBackStack(null)
+                .commit()
+        }
+        listAdapter1.onItemDeleteClick = {
+            characterModel.character.items.value.remove(it)
+            characterModel.character.items.value = characterModel.character.items.value
+
+        }
 //        listAdapter1.onAbilityGalleryClick = {
 //            val fragment = ImagePagerFragment.newInstance(ArrayList(characterClass.abilities.map {
 //                it as ImageUrl

@@ -31,7 +31,7 @@ data class Item(
         get() = id
 
     override val imageUrl: String
-        get() = "https://github.com/North101/ghplayertracker/raw/master/images/$id.jpg"
+        get() = "https://github.com/Aarhun/ghplayertracker/raw/master/images/$id.jpg"
 
     override val imagePlaceholder: String
         get() = "item_card_back"

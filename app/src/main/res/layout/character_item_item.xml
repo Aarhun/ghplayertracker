@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:foreground="?attr/selectableItemBackground"
-    android:minHeight="48dp"
     android:orientation="horizontal">
 
     <FrameLayout
@@ -22,68 +21,37 @@
             app:srcCompat="@drawable/icon_item_head"/>
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:paddingBottom="4dp"
-        android:paddingLeft="12dp"
-        android:paddingRight="12dp"
-        android:paddingTop="4dp">
+        android:gravity="center_vertical"
+        android:layout_marginEnd="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
-        <TextView
-            android:id="@+id/text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:gravity="center_vertical"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="4dp">
-
-            <TextView
-                android:id="@+id/id"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
-
-            <Space
-                android:layout_width="4dp"
-                android:layout_height="0dp"/>
-
-            <TextView
-                android:id="@+id/price"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1"
-                android:gravity="center_vertical|right"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
-        </LinearLayout>
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/delete"
+    <TextView
+        android:id="@+id/id"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"/>
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:adjustViewBounds="true"
-            app:srcCompat="@drawable/ic_delete_black_24dp"/>
-    </FrameLayout>
+    <Space
+        android:layout_width="4dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:gravity="bottom"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"/>
+
 </LinearLayout>

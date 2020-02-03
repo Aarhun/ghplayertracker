@@ -20,7 +20,7 @@ data class Ability(
         get() = id
 
     override val imageUrl: String
-        get() = "https://github.com/North101/ghplayertracker/raw/master/images/$id.jpg"
+        get() = "https://github.com/Aarhun/ghplayertracker/raw/master/images/$id.jpg"
 
     companion object {
         @Throws(JSONException::class)

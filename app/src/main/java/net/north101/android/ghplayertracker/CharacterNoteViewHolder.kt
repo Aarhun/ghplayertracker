@@ -7,7 +7,6 @@ import android.widget.TextView
 
 class CharacterNoteViewHolder(itemView: View) : BaseViewHolder<CharacterAdapter.Note>(itemView) {
     var textView: TextView = itemView.findViewById(R.id.text)
-    val deleteView: View = itemView.findViewById(R.id.delete)
 
     var onItemEditClick: ((CharacterAdapter.Note) -> Unit)? = null
     var onItemDeleteClick: ((CharacterAdapter.Note) -> Unit)? = null
@@ -16,8 +15,9 @@ class CharacterNoteViewHolder(itemView: View) : BaseViewHolder<CharacterAdapter.
         itemView.setOnClickListener {
             onItemEditClick?.invoke(item!!)
         }
-        deleteView.setOnClickListener {
+        itemView.setOnLongClickListener {
             onItemDeleteClick?.invoke(item!!)
+            true
         }
     }
 
