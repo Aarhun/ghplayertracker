@@ -28,4 +28,6 @@
     <string name="max_health">Max. health</string>
     <string name="xp_abbreviated">XP</string>
     <string name="next_turn">Next Turn</string>
+    <string name="item_id">(%1$s)</string>
+    <string name="item_gold">%1$dg</string>
 </resources>

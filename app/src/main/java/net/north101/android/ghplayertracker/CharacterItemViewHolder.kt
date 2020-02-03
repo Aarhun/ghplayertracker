@@ -38,8 +38,8 @@ class CharacterItemViewHolder(itemView: View) : BaseViewHolder<Item>(itemView) {
             ItemType.Small -> R.drawable.icon_item_small
         })
         textView.text = item.name
-        idView.text = "("+item.itemId+")"
-        priceView.text = item.price.toString() + "g"
+        idView.text = String.format(itemView.context!!.getString(R.string.item_id),item.itemId)
+        priceView.text = String.format(itemView.context!!.getString(R.string.item_gold),item.price)
     }
 
     companion object {

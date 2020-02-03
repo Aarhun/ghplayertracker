@@ -28,4 +28,6 @@
     <string name="max_health">Vie max.</string>
     <string name="xp_abbreviated">XP</string>
     <string name="next_turn">Tour Suivant</string>
+    <string name="item_id">(%1$s)</string>
+    <string name="item_gold">%1$do</string>
 </resources>
