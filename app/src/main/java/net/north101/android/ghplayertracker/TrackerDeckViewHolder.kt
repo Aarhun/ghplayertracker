@@ -11,11 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
-import kotlinx.android.synthetic.main.discarded_cards_list_layout.view.*
+import android.widget.*
+import kotlinx.android.synthetic.main.cards_list_layout.view.*
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.CardSpecial
 import net.north101.android.ghplayertracker.data.PlayedCards
@@ -149,6 +146,11 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 //        shuffleView.setOnClickListener {
 //            shuffle()
 //        }
+        deckView.setOnLongClickListener {
+            showCards()
+            true
+        }
+
         discardView.setOnClickListener {
             showDiscardedCards()
         }
@@ -206,15 +208,40 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     private fun showDiscardedCards()
     {
         //Inflate the dialog with custom view
-        val dialog = LayoutInflater.from(itemView.context!!).inflate(R.layout.discarded_cards_list_layout, null)
+        val dialog = LayoutInflater.from(itemView.context!!).inflate(R.layout.cards_list_layout, null)
         var cardList: ArrayList<Card> = discardDeck
         if(cardList.count() > 1)
         {
             cardList.reverse()
         }
 
+        val adapter = DiscardedCardsAdapter(itemView.context!!, cardList)
+        dialog.card_list.setAdapter(adapter)
+        //AlertDialogBuilder
+        val builder = AlertDialog.Builder(itemView.context!!)
+                .setView(dialog)
+        //show dialog
+        val  mAlertDialog = builder.show()
+    }
+
+    private fun showCards()
+    {
+        //Inflate the dialog with custom view
+        val dialog = LayoutInflater.from(itemView.context!!).inflate(R.layout.cards_list_layout, null)
+        var cardList: ArrayList<Card> = drawDeck
+
         val adapter = CardsAdapter(itemView.context!!, cardList)
         dialog.card_list.setAdapter(adapter)
+
+        val listView : ListView = dialog.findViewById(R.id.card_list)
+
+        listView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+            val imageView : ImageView = view.findViewById(R.id.card)
+            imageView.setImageResource(Util.getImageResource(itemView.context!!, drawDeck[position].id))
+            imageView.invalidate()
+
+        }
+
         //AlertDialogBuilder
         val builder = AlertDialog.Builder(itemView.context!!)
                 .setView(dialog)
@@ -338,6 +365,8 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         hsv[2] = hsv[2] * 2 / 3
         c = Color.HSVToColor(hsv)
         nextTurnButton.background = ColorDrawable(c)
+
+        drawDeck.shuffle(Random(System.currentTimeMillis()))
     }
 
     override fun unbind() {
@@ -399,6 +428,8 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         drawDeck = drawDeck
         discardDeck = discardDeck
         playedCards = playedCards
+
+        drawDeck.shuffle(Random(System.currentTimeMillis()))
 
         toast.cancel()
         toast = Toast.makeText(itemView.context, itemView.context.getString(R.string.shuffled), Toast.LENGTH_SHORT)
@@ -504,7 +535,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             shuffle()
         }
 
-        val index = random.nextInt(drawDeck.size)
-        return drawDeck.removeAt(index)
+//        val index = random.nextInt(drawDeck.size)
+        return drawDeck.removeAt(0)
     }
 }

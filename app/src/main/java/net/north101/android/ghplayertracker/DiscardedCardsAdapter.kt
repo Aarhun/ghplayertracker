@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import net.north101.android.ghplayertracker.data.Card
 
-class CardsAdapter(context: Context, private val discarded: ArrayList<Card>)
+class DiscardedCardsAdapter(context: Context, private val discarded: ArrayList<Card>)
     : ArrayAdapter<Card>(context, R.layout.card_item_view, discarded) {
 
     override fun getView(position: Int, view: View?, parent: ViewGroup): View {
@@ -17,7 +17,7 @@ class CardsAdapter(context: Context, private val discarded: ArrayList<Card>)
 
         val imageView = rowView.findViewById(R.id.card) as ImageView
 
-        imageView.setImageResource(R.drawable.card_back)
+        imageView.setImageResource(Util.getImageResource(context, discarded[position].id))
         return rowView
 
     }
