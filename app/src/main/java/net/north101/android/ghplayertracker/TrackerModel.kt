@@ -26,6 +26,8 @@ class TrackerModel(
             }
         }
 
+        var ignoreObject = false
+
         for (perkIndex in 0 until character.perks.size) {
             val perk = character.characterClass.perks[perkIndex]
             val perkTicks = character.perks[perkIndex]
@@ -40,6 +42,23 @@ class TrackerModel(
                         for (perkItemCount in 0 until perkItem.repeat) {
                             tracker.drawDeck.value.remove(card)
                         }
+                    } else {
+                        ignoreObject = true
+                    }
+                }
+            }
+        }
+
+        for(item in character.items) {
+            for (perkItem in item.perkItems) {
+                val card = Card[perkItem.cardId]
+                if (!ignoreObject && perkItem.perkAction == PerkAction.add) {
+                    for (perkItemCount in 0 until perkItem.repeat) {
+                        tracker.drawDeck.value.add(card)
+                    }
+                } else if (perkItem.perkAction == PerkAction.remove) {
+                    for (perkItemCount in 0 until perkItem.repeat) {
+                        tracker.drawDeck.value.remove(card)
                     }
                 }
             }

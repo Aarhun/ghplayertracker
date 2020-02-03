@@ -275,6 +275,11 @@
               {
                 "action": "add",
                 "card_id": "mod_class_01_plus_1"
+              },
+              {
+                "action": "ignore_object",
+                "repeat": 1,
+                "card_id": "mod_basic_null_shuffle"
               }
             ],
             "text": "Ignorer les effets négatifs des objets et ajouter une carte [[icon_plus_1]]"
@@ -1362,8 +1367,14 @@
             "text": "Ajouter deux cartes [[icon_rolling]] [[icon_element_air]]"
           },
           {
-            "cards": [],
             "text": "Ignore negative item effects"
+            "cards": [
+              {
+                "action": "ignore_object",
+                "repeat": 1,
+                "card_id": "mod_basic_null_shuffle"
+              }
+            ],
           },
           {
             "cards": [],
@@ -1934,6 +1945,11 @@
                 "action": "add",
                 "repeat": 2,
                 "card_id": "mod_class_07_plus_1"
+              },
+              {
+                "action": "ignore_object",
+                "repeat": 1,
+                "card_id": "mod_basic_null_shuffle"
               }
             ],
             "text": "Ignorer les effets négatifs des objets et ajouter deux cartes [[icon_plus_1]]"
@@ -2198,6 +2214,11 @@
                 "action": "add",
                 "repeat": 2,
                 "card_id": "mod_class_08_plus_1"
+              },
+              {
+                "action": "ignore_object",
+                "repeat": 1,
+                "card_id": "mod_basic_null_shuffle"
               }
             ],
             "text": "Ignorer les effets négatifs des objets et ajouter deux cartes [[icon_plus_1]]"
@@ -3270,8 +3291,14 @@
             "text": "Ajouter une carte [[icon_plus_2]] [[icon_element_fire]]"
           },
           {
-            "cards": [],
             "text": "Ignore negative item effects"
+            "cards": [
+              {
+                "action": "ignore_object",
+                "repeat": 1,
+                "card_id": "mod_basic_null_shuffle"
+              }
+            ],
           }
         ]
       },
@@ -4977,6 +5004,11 @@
               {
                 "action": "add",
                 "card_id": "mod_class_18_plus_1"
+              },
+              {
+                "action": "ignore_object",
+                "repeat": 1,
+                "card_id": "mod_basic_null_shuffle"
               }
             ],
             "text": "Ignorer les effets négatifs des objets et ajouter une carte [[icon_plus_1]]"

@@ -15,7 +15,14 @@
         "category": "prosperity_01",
         "id": "item_003",
         "name": "Hide Armor",
-        "type": "body"
+        "type": "body",
+        "cards": [
+            {
+                "action": "add",
+                "repeat": 2,
+                "card_id": "mod_extra_minus_1"
+            }
+        ]
     },
     {
         "category": "prosperity_01",
@@ -129,13 +136,27 @@
         "category": "prosperity_03",
         "id": "item_022",
         "name": "Heavy Greaves",
-        "type": "legs"
+        "type": "legs",
+        "cards": [
+            {
+                "action": "add",
+                "repeat": 1,
+                "card_id": "mod_extra_minus_1"
+            }
+        ]
     },
     {
         "category": "prosperity_03",
         "id": "item_023",
         "name": "Chainmail",
-        "type": "body"
+        "type": "body",
+        "cards": [
+            {
+                "action": "add",
+                "repeat": 3,
+                "card_id": "mod_extra_minus_1"
+            }
+        ]
     },
     {
         "category": "prosperity_03",
@@ -225,7 +246,14 @@
         "category": "prosperity_05",
         "id": "item_038",
         "name": "Heavy Basinet",
-        "type": "head"
+        "type": "head",
+        "cards": [
+            {
+                "action": "add",
+                "repeat": 2,
+                "card_id": "mod_extra_minus_1"
+            }
+        ]
     },
     {
         "category": "prosperity_05",
@@ -261,7 +289,14 @@
         "category": "prosperity_06",
         "id": "item_044",
         "name": "Splintmail",
-        "type": "body"
+        "type": "body",
+        "cards": [
+            {
+                "action": "add",
+                "repeat": 4,
+                "card_id": "mod_extra_minus_1"
+            }
+        ]
     },
     {
         "category": "prosperity_06",
@@ -297,7 +332,14 @@
         "category": "prosperity_07",
         "id": "item_050",
         "name": "Steel Sabatons",
-        "type": "legs"
+        "type": "legs",
+        "cards": [
+            {
+                "action": "add",
+                "repeat": 2,
+                "card_id": "mod_extra_minus_1"
+            }
+        ]
     },
     {
         "category": "prosperity_07",
@@ -387,7 +429,14 @@
         "category": "prosperity_09",
         "id": "item_065",
         "name": "Platemail",
-        "type": "body"
+        "type": "body",
+        "cards": [
+            {
+                "action": "add",
+                "repeat": 5,
+                "card_id": "mod_extra_minus_1"
+            }
+        ]
     },
     {
         "category": "prosperity_09",
@@ -441,7 +490,14 @@
         "category": "random",
         "id": "item_074",
         "name": "Swordedge Armor",
-        "type": "body"
+        "type": "body",
+        "cards": [
+            {
+                "action": "add",
+                "repeat": 4,
+                "card_id": "mod_extra_minus_1"
+            }
+        ]
     },
     {
         "category": "random",
@@ -453,7 +509,14 @@
         "category": "random",
         "id": "item_076",
         "name": "Chain Hood",
-        "type": "head"
+        "type": "head",
+        "cards": [
+            {
+                "action": "add",
+                "repeat": 1,
+                "card_id": "mod_extra_minus_1"
+            }
+        ]
     },
     {
         "category": "random",
@@ -603,7 +666,14 @@
         "category": "other",
         "id": "item_101",
         "name": "Second Skin",
-        "type": "body"
+        "type": "body",
+        "cards": [
+            {
+                "action": "remove",
+                "repeat": 2,
+                "card_id": "mod_basic_minus_1"
+            }
+        ]
     },
     {
         "category": "other",

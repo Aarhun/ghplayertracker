@@ -3,10 +3,7 @@ package net.north101.android.ghplayertracker.data
 import android.content.Context
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
-import net.north101.android.ghplayertracker.ImageUrl
-import net.north101.android.ghplayertracker.RecyclerItemCompare
-import net.north101.android.ghplayertracker.Util
-import net.north101.android.ghplayertracker.mapNotNull
+import net.north101.android.ghplayertracker.*
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -25,7 +22,8 @@ data class Item(
     val type: ItemType,
     val category: ItemCategory,
     val price: Int,
-    val unlocked: Boolean
+    val unlocked: Boolean,
+    val perkItems: List<PerkItem>
 ) : Parcelable, RecyclerItemCompare, ImageUrl {
     override val compareItemId: String
         get() = id
@@ -64,7 +62,17 @@ data class Item(
             }!!
             val price = data.optInt("price", (Random().nextInt(9) + 1) * 10)
 
-            return Item(id, itemId, name, type, category, price, true)
+            var perkItems = ArrayList<PerkItem>()
+            try {
+                val perksData = data.getJSONArray("cards")
+                perkItems = ArrayList<PerkItem>(perksData?.map {
+                    PerkItem.parse(it.getJSONObject())
+                })
+            } catch(e : JSONException) {}
+
+
+
+            return Item(id, itemId, name, type, category, price, true, perkItems)
         }
     }
 }
