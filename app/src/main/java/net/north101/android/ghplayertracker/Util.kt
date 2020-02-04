@@ -48,7 +48,6 @@ fun setImageViewGreyscale(imageView: ImageView, set: Boolean) {
         imageView.colorFilter = null
         imageView.alpha = 1.0f
     }
-
 }
 
 fun getDensity(context: Context): Float {

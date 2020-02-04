@@ -1,29 +1,57 @@
 package net.north101.android.ghplayertracker
 
-import android.graphics.ColorMatrix
-import android.graphics.ColorMatrixColorFilter
+import android.graphics.drawable.ColorDrawable
+import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.ImageView
+import net.north101.android.ghplayertracker.livedata.ModifierCard
 
-class TrackerCardViewHolder(itemView: View) : BaseViewHolder<CardInfo>(itemView) {
+class TrackerCardViewHolder(itemView: View) : BaseViewHolder<ModifierCard>(itemView){
     var cardView: ImageView = itemView.findViewById(R.id.card)
+    var layout: FrameLayout = itemView.findViewById(R.id.card_layout)
 
-    override fun bind(item: CardInfo) {
+    override fun bind(item: ModifierCard) {
         super.bind(item)
 
-        if (item.card == null) {
-            cardView.setImageResource(0)
-        } else {
-            cardView.setImageResource(Util.getImageResource(itemView.context, item.card.id))
+        cardView.setOnClickListener(this)
+        cardView.setOnLongClickListener(this)
+
+        item.revealed.observeForever(revealedObserver)
+        item.selected.observeForever(selectedObserver)
+    }
+
+    override fun unbind() {
+        item?.let {
+            item!!.revealed.removeObserver(revealedObserver)
+            item!!.selected.removeObserver(selectedObserver)
         }
-        if (item.shuffled != null) {
-            val matrix = ColorMatrix()
-            matrix.setSaturation(0.25f)  //0 means grayscale
-            val cf = ColorMatrixColorFilter(matrix)
-            cardView.colorFilter = cf
-        } else {
-            cardView.colorFilter = null
+
+        super.unbind()
+    }
+
+    private val revealedObserver: (Boolean) -> Unit = {
+        when(it){
+            true -> {
+                cardView.setImageResource(Util.getImageResource(itemView.context, item!!.card.id))
+            }
+            else -> {
+                cardView.setImageResource(R.drawable.card_back)
+            }
+        }
+    }
+
+    private val selectedObserver: (Boolean) -> Unit = {
+        when(it){
+            true -> {
+                layout.foreground =  ColorDrawable(ContextCompat.getColor(itemView.context, R.color.colorControlActivated))
+//                layout.background =  ColorDrawable(ContextCompat.getColor(itemView.context, R.color.colorControlActivated))
+            }
+            else -> {
+                layout.foreground = ColorDrawable(ContextCompat.getColor(itemView.context, android.R.color.transparent))
+//                layout.background =  ColorDrawable(ContextCompat.getColor(itemView.context, android.R.color.transparent))
+            }
         }
     }
 

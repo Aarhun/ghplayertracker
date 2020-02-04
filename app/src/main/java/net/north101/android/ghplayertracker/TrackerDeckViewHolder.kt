@@ -6,12 +6,17 @@ import android.animation.ValueAnimator
 import android.app.AlertDialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.cards_list_layout.view.*
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.CardSpecial
@@ -19,6 +24,7 @@ import net.north101.android.ghplayertracker.data.PlayedCards
 import net.north101.android.ghplayertracker.data.Status
 import net.north101.android.ghplayertracker.livedata.BoundedIntLiveData
 import net.north101.android.ghplayertracker.livedata.InitLiveData
+import net.north101.android.ghplayertracker.livedata.ModifierCard
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 import java.util.*
 import kotlin.collections.ArrayList
@@ -147,7 +153,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             shuffle()
         }
         deckView.setOnLongClickListener {
-            showCards()
+            if(drawDeck.isNotEmpty()) {
+                showCards()
+            }
             true
         }
 
@@ -158,7 +166,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         nextTurnButton.setOnClickListener() {
             nextTurn()
         }
-
     }
 
     private fun updateStatus(status: HashMap<Status, InitLiveData<Boolean>>, invisibleTurnCount: InitLiveData<Int>, strengthenTurnCount: InitLiveData<Int>, health: BoundedIntLiveData)
@@ -209,44 +216,68 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     {
         //Inflate the dialog with custom view
         val dialog = LayoutInflater.from(itemView.context!!).inflate(R.layout.cards_list_layout, null)
-        var cardList: ArrayList<Card> = discardDeck
-        if(cardList.count() > 1)
-        {
-            cardList.reverse()
-        }
+        val fab : View = dialog.findViewById(R.id.fab)
+        fab.visibility = View.GONE
+        dialog.card_list.layoutManager = LinearLayoutManager(itemView.context!!)
+
+
+        var cardList = discardDeck.toMutableList() as ArrayList<Card>
+        cardList.reverse()
 
         val adapter = DiscardedCardsAdapter(itemView.context!!, cardList)
-        dialog.card_list.setAdapter(adapter)
+        dialog.card_list.adapter = adapter
         //AlertDialogBuilder
         val builder = AlertDialog.Builder(itemView.context!!)
                 .setView(dialog)
         //show dialog
         val  mAlertDialog = builder.show()
+        mAlertDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     }
 
     private fun showCards()
     {
         //Inflate the dialog with custom view
         val dialog = LayoutInflater.from(itemView.context!!).inflate(R.layout.cards_list_layout, null)
-        var cardList: ArrayList<Card> = drawDeck
+        dialog.card_list.layoutManager = LinearLayoutManager(itemView.context!!)
 
-        val adapter = CardsAdapter(itemView.context!!, cardList)
-        dialog.card_list.setAdapter(adapter)
+        var cardList = ArrayList<ModifierCard>()
+//        var count = 0
 
-        val listView : ListView = dialog.findViewById(R.id.card_list)
+        for(card in drawDeck){
+            cardList.add(ModifierCard(card))
+        }
 
-        listView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-            val imageView : ImageView = view.findViewById(R.id.card)
-            imageView.setImageResource(Util.getImageResource(itemView.context!!, drawDeck[position].id))
-            imageView.invalidate()
+        val cardsAdapter = CardsAdapter(itemView.context!!, cardList)
 
+        val dragHelper = DragHelper(cardsAdapter)
+        val touchHelper = ItemTouchHelper(dragHelper)
+        cardsAdapter.setItemTouchHelper(touchHelper)
+        dialog.card_list.adapter = cardsAdapter
+        touchHelper.attachToRecyclerView(dialog.card_list)
+
+        dialog.fab.setOnClickListener {
+            val tmpCardList = cardList.reversed()
+            for(card in tmpCardList) {
+                if(card.selected.value) {
+                    cardList.add(cardList.removeAt(cardList.indexOf(card)))
+                    card.selected.value = false
+                }
+            }
+            cardsAdapter.notifyDataSetChanged()
         }
 
         //AlertDialogBuilder
         val builder = AlertDialog.Builder(itemView.context!!)
                 .setView(dialog)
         //show dialog
-        val  mAlertDialog = builder.show()
+        val  alertDialog = builder.show()
+        alertDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        alertDialog.setOnCancelListener {
+            drawDeck.clear()
+            for(modifierCard in cardList) {
+                drawDeck.add(modifierCard.card)
+            }
+        }
     }
 
     private val shuffleObserver: (Boolean) -> Unit = {
