@@ -143,9 +143,9 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         deckView.setOnClickListener {
             draw()
         }
-//        shuffleView.setOnClickListener {
-//            shuffle()
-//        }
+        shuffleView.setOnClickListener {
+            shuffle()
+        }
         deckView.setOnLongClickListener {
             showCards()
             true
