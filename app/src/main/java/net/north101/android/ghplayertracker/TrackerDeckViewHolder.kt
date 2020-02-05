@@ -4,8 +4,10 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.app.AlertDialog
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.support.v4.graphics.ColorUtils
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.LayoutInflater
@@ -247,7 +249,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             cardList.add(ModifierCard(card))
         }
 
-        val cardsAdapter = CardsAdapter(itemView.context!!, cardList)
+        val cardsAdapter = CardsAdapter(itemView.context!!, cardList, item!!.character.characterClass.color)
 
         val dragHelper = DragHelper(cardsAdapter)
         val touchHelper = ItemTouchHelper(dragHelper)

@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import net.north101.android.ghplayertracker.livedata.ModifierCard
 
 
-class CardsAdapter(val context: Context, val cardList: ArrayList<ModifierCard>) : RecyclerView.Adapter<TrackerCardViewHolder>(),
+class CardsAdapter(val context: Context, val cardList: ArrayList<ModifierCard>, val classColor : Int) : RecyclerView.Adapter<TrackerCardViewHolder>(),
         DragHelper.ActionCompletionContract
 {
     lateinit var touchHelper : ItemTouchHelper
@@ -33,7 +33,7 @@ class CardsAdapter(val context: Context, val cardList: ArrayList<ModifierCard>) 
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onBindViewHolder(holder: TrackerCardViewHolder, index: Int) {
-        holder.bind(cardList[index])
+        holder.bind(cardList[index], classColor)
         holder.setOnItemClickListener(this.onItemClickListener)
         holder.cardView.setOnTouchListener { v, event ->
             if (event.actionMasked == MotionEvent.ACTION_DOWN) {

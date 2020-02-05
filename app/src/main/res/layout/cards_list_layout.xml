@@ -18,6 +18,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_put_to_bottom"/>
+        app:srcCompat="@drawable/ic_action_icon_to_bottom_white"/>
 
 </android.support.design.widget.CoordinatorLayout>

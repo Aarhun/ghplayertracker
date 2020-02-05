@@ -2,6 +2,7 @@ package net.north101.android.ghplayertracker
 
 import android.graphics.drawable.ColorDrawable
 import android.support.v4.content.ContextCompat
+import android.support.v4.graphics.ColorUtils
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
@@ -11,9 +12,11 @@ import net.north101.android.ghplayertracker.livedata.ModifierCard
 class TrackerCardViewHolder(itemView: View) : BaseViewHolder<ModifierCard>(itemView){
     var cardView: ImageView = itemView.findViewById(R.id.card)
     var layout: FrameLayout = itemView.findViewById(R.id.card_layout)
+    var classColor : Int = R.color.colorControlActivated
 
-    override fun bind(item: ModifierCard) {
+    fun bind(item: ModifierCard, classColor: Int) {
         super.bind(item)
+        this.classColor = classColor
 
         cardView.setOnClickListener(this)
         cardView.setOnLongClickListener(this)
@@ -45,12 +48,12 @@ class TrackerCardViewHolder(itemView: View) : BaseViewHolder<ModifierCard>(itemV
     private val selectedObserver: (Boolean) -> Unit = {
         when(it){
             true -> {
-                layout.foreground =  ColorDrawable(ContextCompat.getColor(itemView.context, R.color.colorControlActivated))
-//                layout.background =  ColorDrawable(ContextCompat.getColor(itemView.context, R.color.colorControlActivated))
+//                layout.foreground =  ColorDrawable(ColorUtils.setAlphaComponent(classColor, 50))
+                layout.background =  ColorDrawable(classColor)
             }
             else -> {
-                layout.foreground = ColorDrawable(ContextCompat.getColor(itemView.context, android.R.color.transparent))
-//                layout.background =  ColorDrawable(ContextCompat.getColor(itemView.context, android.R.color.transparent))
+//                layout.foreground = ColorDrawable(ContextCompat.getColor(itemView.context, android.R.color.transparent))
+                layout.background = ColorDrawable(ContextCompat.getColor(itemView.context, android.R.color.transparent))
             }
         }
     }
