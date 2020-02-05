@@ -232,8 +232,8 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         val builder = AlertDialog.Builder(itemView.context!!)
                 .setView(dialog)
         //show dialog
-        val  mAlertDialog = builder.show()
-        mAlertDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        val  alertDialog = builder.show()
+        alertDialog.window.setBackgroundDrawable(ColorDrawable(ColorUtils.setAlphaComponent(Color.BLACK, 100)))
     }
 
     private fun showCards()
@@ -269,12 +269,14 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             cardsAdapter.notifyDataSetChanged()
         }
 
+
+
         //AlertDialogBuilder
         val builder = AlertDialog.Builder(itemView.context!!)
                 .setView(dialog)
         //show dialog
         val  alertDialog = builder.show()
-        alertDialog.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        alertDialog.window.setBackgroundDrawable(ColorDrawable(ColorUtils.setAlphaComponent(Color.BLACK, 100)))
         alertDialog.setOnCancelListener {
             drawDeck.clear()
             for(modifierCard in cardList) {
