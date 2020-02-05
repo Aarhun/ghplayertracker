@@ -19,7 +19,10 @@ class CardsAdapter(val context: Context, val cardList: ArrayList<ModifierCard>, 
         override fun onItemClick(holder: BaseViewHolder<ModifierCard>) {
             when {
                 holder.item!!.revealed.value -> holder.item!!.selected.value = !holder.item!!.selected.value
-                !holder.item!!.revealed.value ->  holder.item!!.revealed.value = true
+                !holder.item!!.revealed.value ->  {
+                    (holder as TrackerCardViewHolder).startAnimationOut()
+                    holder.item!!.revealed.value = true
+                }
             }
         }
     }

@@ -39,31 +39,24 @@ class TrackerCardViewHolder(itemView: View) : BaseViewHolder<ModifierCard>(itemV
         cardView.setOnClickListener(this)
         cardView.setOnLongClickListener(this)
 
-        item.revealed.observeForever(revealedObserver)
+        when(item.revealed.value){
+            true -> cardView.setImageResource(Util.getImageResource(itemView.context, item!!.card.id))
+            else -> cardView.setImageResource(R.drawable.card_back)
+        }
+
         item.selected.observeForever(selectedObserver)
     }
 
     override fun unbind() {
         item?.let {
-            item!!.revealed.removeObserver(revealedObserver)
             item!!.selected.removeObserver(selectedObserver)
         }
 
         super.unbind()
     }
 
-    private val revealedObserver: (Boolean) -> Unit = {
-        when(it){
-            true -> {
-                startAnimationOut()
-            }
-            else -> {
-                cardView.setImageResource(R.drawable.card_back)
-            }
-        }
-    }
 
-    private fun startAnimationOut() {
+    fun startAnimationOut() {
 
         val left_out: Animator = AnimatorInflater.loadAnimator(itemView.context, R.animator.card_flip_left_out)
 
