@@ -1,6 +1,7 @@
 package net.north101.android.ghplayertracker
 
 import android.content.Context
+import android.graphics.Color
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.util.DisplayMetrics
@@ -35,7 +36,16 @@ object Util {
             Log.d("getImageResource", name)
         return i
     }
+
 }
+
+fun changeColorValue(color: Int, valueFactor: Float): Int {
+    val hsv = FloatArray(3)
+    Color.colorToHSV(color, hsv)
+    hsv[2] = hsv[2] * valueFactor
+    return Color.HSVToColor(hsv)
+}
+
 
 fun setImageViewGreyscale(imageView: ImageView, set: Boolean) {
     if (set) {

@@ -255,6 +255,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         dialog.card_list.adapter = cardsAdapter
         touchHelper.attachToRecyclerView(dialog.card_list)
 
+        dialog.fab.backgroundTintList = ColorStateList.valueOf(changeColorValue(item!!.character.characterClass.color, 0.68f))
         dialog.fab.setOnClickListener {
             val tmpCardList = cardList.reversed()
             for(card in tmpCardList) {
@@ -390,12 +391,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         item.drawDeck.observeForever(deckObserver)
         item.discardDeck.observeForever(discardDeckObserver)
 
-        var c = item.character.characterClass.color
-        val hsv = FloatArray(3)
-        Color.colorToHSV(c, hsv)
-        hsv[2] = hsv[2] * 2 / 3
-        c = Color.HSVToColor(hsv)
-        nextTurnButton.background = ColorDrawable(c)
+        nextTurnButton.background = ColorDrawable(changeColorValue(item.character.characterClass.color, 0.68f))
 
         drawDeck.shuffle(Random(System.currentTimeMillis()))
     }

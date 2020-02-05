@@ -3,7 +3,6 @@ package net.north101.android.ghplayertracker
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.res.Configuration
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -92,12 +91,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         val iconId = Util.getImageResource(context!!, "icon_" + characterClass.id)
         actionBar.setLogo(iconId)
         actionBar.title = characterClass.name
-        var c = characterClass.color
-        val hsv = FloatArray(3)
-        Color.colorToHSV(c, hsv)
-        hsv[2] = hsv[2] * 2 / 3
-        c = Color.HSVToColor(hsv)
-        actionBar.setBackgroundDrawable(ColorDrawable(c))
+        actionBar.setBackgroundDrawable(ColorDrawable(changeColorValue(characterClass.color, 0.68f)))
 
         if (!this::listAdapter1.isInitialized) {
             listAdapter1 = CharacterAdapter(context!!)

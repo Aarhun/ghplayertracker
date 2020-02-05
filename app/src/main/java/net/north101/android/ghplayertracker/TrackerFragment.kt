@@ -3,7 +3,6 @@ package net.north101.android.ghplayertracker
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.res.Configuration
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -85,12 +84,7 @@ open class TrackerFragment : Fragment() {
         val iconId = Util.getImageResource(context!!, "icon_" + character.characterClass.id)
         actionBar.setLogo(iconId)
         actionBar.title = character.name
-        var c = character.characterClass.color
-        val hsv = FloatArray(3)
-        Color.colorToHSV(c, hsv)
-        hsv[2] = hsv[2] * 2 / 3
-        c = Color.HSVToColor(hsv)
-        actionBar.setBackgroundDrawable(ColorDrawable(c))
+        actionBar.setBackgroundDrawable(ColorDrawable(changeColorValue(character.characterClass.color, 0.68f)))
 
         if (!this::listAdapter1.isInitialized) {
             listAdapter1 = TrackerAdapter(context!!)
