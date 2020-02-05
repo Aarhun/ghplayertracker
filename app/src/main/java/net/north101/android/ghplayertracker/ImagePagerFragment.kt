@@ -112,7 +112,7 @@ open class ImagePagerFragment : Fragment() {
                 if (!galleryFragment.isAdded) {
                     activity!!.supportFragmentManager
                         .beginTransaction()
-                        .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                        .setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
                         .hide(this)
                         .add(R.id.content, galleryFragment, ImageGalleryFragment.TAG)
                         .show(galleryFragment)

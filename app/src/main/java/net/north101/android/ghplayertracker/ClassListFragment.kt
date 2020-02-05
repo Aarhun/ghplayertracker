@@ -33,7 +33,7 @@ open class ClassListFragment : Fragment() {
 
             val fragment = CharacterFragment.newInstance(character)
             fragmentManager!!.beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
                 .replace(R.id.content, fragment)
                 .addToBackStack(null)
                 .commit()

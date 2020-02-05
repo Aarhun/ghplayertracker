@@ -62,7 +62,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
 
             val fragment = CharacterFragment.newInstance(holder.item!!.character.copy())
             fragmentManager!!.beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
                 .replace(R.id.content, fragment)
                 .addToBackStack(null)
                 .commit()
@@ -91,7 +91,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         fab.setOnClickListener {
             val fragment = ClassListFragment.newInstance()
             fragmentManager!!.beginTransaction()
-                .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+                .setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
                 .replace(R.id.content, fragment)
                 .addToBackStack(null)
                 .commit()
@@ -234,7 +234,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         val fragment = ItemListFragment.newInstance()
 
         fragmentManager!!.beginTransaction()
-            .setCustomAnimations(R.anim.fade_in, R.anim.fade_out)
+            .setCustomAnimations(R.animator.fade_in, R.animator.fade_out)
             .replace(R.id.content, fragment)
             .addToBackStack(null)
             .commit()
