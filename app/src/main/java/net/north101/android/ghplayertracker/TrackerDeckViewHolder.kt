@@ -114,6 +114,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         blessPlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(blessCard)
             updateBlessText()
+            drawDeck.shuffle(Random(System.currentTimeMillis()))
         }))
         blessMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.remove(blessCard)
@@ -126,6 +127,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         cursePlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(curseCard)
             updateCurseText()
+            drawDeck.shuffle(Random(System.currentTimeMillis()))
         }))
         curseMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.remove(curseCard)
@@ -138,6 +140,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         minus1PlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(minus1Card)
             updateMinus1Text()
+            drawDeck.shuffle(Random(System.currentTimeMillis()))
         }))
         minus1MinusView.setOnTouchListener(RepeatListener({ _, _ ->
             if (drawDeck.contains(minus1Card)) {
