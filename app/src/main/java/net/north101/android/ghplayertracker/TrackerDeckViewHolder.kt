@@ -4,7 +4,6 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.app.AlertDialog
-import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.support.v4.graphics.ColorUtils
@@ -114,7 +113,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         blessPlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(blessCard)
             updateBlessText()
-            drawDeck.shuffle(Random(System.currentTimeMillis()))
         }))
         blessMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.remove(blessCard)
@@ -127,7 +125,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         cursePlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(curseCard)
             updateCurseText()
-            drawDeck.shuffle(Random(System.currentTimeMillis()))
         }))
         curseMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.remove(curseCard)
@@ -140,7 +137,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         minus1PlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(minus1Card)
             updateMinus1Text()
-            drawDeck.shuffle(Random(System.currentTimeMillis()))
         }))
         minus1MinusView.setOnTouchListener(RepeatListener({ _, _ ->
             if (drawDeck.contains(minus1Card)) {
@@ -155,7 +151,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             draw()
         }
         shuffleView.setOnClickListener {
-            shuffle()
+            shuffleDrawAndDiscardDeck()
         }
         deckView.setOnLongClickListener {
             if(drawDeck.isNotEmpty()) {
@@ -208,7 +204,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 
     private fun nextTurn() {
         if(shuffle){
-            shuffle()
+            shuffleDrawAndDiscardDeck()
         }
         updateStatus(item!!.status, item!!.invisibleTurnCount, item!!.strengthenTurnCount, item!!.health)
         updateStatus(item!!.statusCompanion, item!!.invisibleCompanionTurnCount, item!!.strengthenCompanionTurnCount, item!!.healthCompanion)
@@ -386,7 +382,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 
         nextTurnButton.background = ColorDrawable(changeColorValue(item.character.characterClass.color, 0.68f))
 
-        drawDeck.shuffle(Random(System.currentTimeMillis()))
+        shuffleDrawDeck()
     }
 
     override fun unbind() {
@@ -410,16 +406,31 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 
     fun updateBlessText() {
         val count = (drawDeck).count { it == blessCard }
+        var current =  0
+        try {current = blessTextView.text.toString().toInt()} catch ( e :  NumberFormatException){}
+        if(count > current){
+            shuffleDrawDeck(true)
+        }
         blessTextView.text = count.toString()
     }
 
     fun updateCurseText() {
         val count = (drawDeck).count { it == curseCard }
+        var current =  0
+        try {current = curseTextView.text.toString().toInt()} catch ( e :  NumberFormatException){}
+        if(count > current){
+            shuffleDrawDeck(true)
+        }
         curseTextView.text = count.toString()
     }
 
     fun updateMinus1Text() {
         val count = (drawDeck + discardDeck).count { it == minus1Card }
+        var current =  0
+        try {current = minus1TextView.text.toString().toInt()} catch ( e :  NumberFormatException){}
+        if(count > current){
+            shuffleDrawDeck(true)
+        }
         minus1TextView.text = count.toString()
     }
 
@@ -428,12 +439,12 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 //        setImageViewGreyscale(disadvantageView, attackStatus != AttackStatus.Disadvantage)
 //    }
 
-    fun updateShuffle() {
+    private fun updateShuffle() {
         shuffleView.isEnabled = shuffle
         setImageViewGreyscale(shuffleView, !shuffle)
     }
 
-    fun shuffle() {
+    private fun shuffleDrawAndDiscardDeck() {
         shuffle = false
 
         shuffleCount += 1
@@ -449,11 +460,17 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         discardDeck = discardDeck
         playedCards = playedCards
 
+        shuffleDrawDeck(true)
+    }
+
+    private fun shuffleDrawDeck(showToast: Boolean = false) {
         drawDeck.shuffle(Random(System.currentTimeMillis()))
 
-        toast.cancel()
-        toast = Toast.makeText(itemView.context, itemView.context.getString(R.string.shuffled), Toast.LENGTH_SHORT)
-        toast.show()
+        if(showToast) {
+            toast.cancel()
+            toast = Toast.makeText(itemView.context, itemView.context.getString(R.string.shuffled), Toast.LENGTH_SHORT)
+            toast.show()
+        }
     }
 
     fun draw() {
@@ -552,7 +569,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     var random = Random()
     fun drawCard(): Card {
         if (drawDeck.isEmpty()) {
-            shuffle()
+            shuffleDrawAndDiscardDeck()
         }
 
 //        val index = random.nextInt(drawDeck.size)
