@@ -104,7 +104,7 @@ open class CharacterListFragment : Fragment(), ActionMode.Callback {
         listView.itemAnimator = animator
 
         if (!::listAdapter.isInitialized) {
-            listAdapter = CharacterListAdapter()
+            listAdapter = CharacterListAdapter(context!!)
         }
         listAdapter.setOnClickListener(onClickListener)
         listView.adapter = listAdapter

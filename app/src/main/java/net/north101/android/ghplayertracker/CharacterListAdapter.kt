@@ -1,5 +1,6 @@
 package net.north101.android.ghplayertracker
 
+import android.content.Context
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
@@ -7,7 +8,7 @@ import net.north101.android.ghplayertracker.BaseViewHolder.ClickListener
 import net.north101.android.ghplayertracker.data.SelectableCharacter
 import java.util.*
 
-class CharacterListAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
+class CharacterListAdapter(val context: Context) : RecyclerView.Adapter<BaseViewHolder<*>>() {
     private val items = ArrayList<RecyclerItemCompare>()
 
     private var listener: ClickListener<SelectableCharacter>? = null
@@ -34,11 +35,11 @@ class CharacterListAdapter : RecyclerView.Adapter<BaseViewHolder<*>>() {
 
         val newItems = ArrayList<RecyclerItemCompare>()
         if (activeCharacters.isNotEmpty()) {
-            newItems.add(TextHeader("Active"))
+            newItems.add(TextHeader(context.getString(R.string.active)))
             newItems.addAll(activeCharacters)
         }
         if (retiredCharacters.isNotEmpty()) {
-            newItems.add(TextHeader("Retired"))
+            newItems.add(TextHeader(context.getString(R.string.retired)))
             newItems.addAll(retiredCharacters)
         }
 

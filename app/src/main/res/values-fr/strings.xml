@@ -8,7 +8,7 @@
     <string name="notes">notes</string>
     <string name="perks">bénéfices</string>
     <string name="perks_notes">notes de bénéfices</string>
-    <string name="retired">Retraite</string>
+    <string name="retired">Retraité</string>
     <string name="stats">caractéristiques</string>
     <string name="attack_deck">Cartes d\'Attaque</string>
     <string name="shuffled">Mélangé</string>
@@ -30,4 +30,5 @@
     <string name="next_turn">Tour Suivant</string>
     <string name="item_id">(%1$s)</string>
     <string name="item_gold">%1$do</string>
+    <string name="active">Actif</string>
 </resources>
