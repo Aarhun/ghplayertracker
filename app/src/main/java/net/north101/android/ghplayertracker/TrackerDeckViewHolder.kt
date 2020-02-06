@@ -260,20 +260,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         dialog.card_list.adapter = cardsAdapter
         touchHelper.attachToRecyclerView(dialog.card_list)
 
-        dialog.fab.backgroundTintList = ColorStateList.valueOf(changeColorValue(item!!.character.characterClass.color, 0.68f))
-        dialog.fab.setOnClickListener {
-            val tmpCardList = cardList.reversed()
-            for(card in tmpCardList) {
-                if(card.selected.value) {
-                    cardList.add(cardList.removeAt(cardList.indexOf(card)))
-                    card.selected.value = false
-                }
-            }
-            cardsAdapter.notifyDataSetChanged()
-        }
-
-
-
         //AlertDialogBuilder
         val builder = AlertDialog.Builder(itemView.context!!)
                 .setView(dialog)

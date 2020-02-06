@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.ViewGroup
 import net.north101.android.ghplayertracker.livedata.ModifierCard
+import kotlin.math.abs
 
 
 class CardsAdapter(val context: Context, val cardList: ArrayList<ModifierCard>, val classColor : Int) : RecyclerView.Adapter<TrackerCardViewHolder>(),
@@ -18,7 +19,6 @@ class CardsAdapter(val context: Context, val cardList: ArrayList<ModifierCard>, 
     var onItemClickListener: BaseViewHolder.ClickListener<ModifierCard> = object : BaseViewHolder.ClickListener<ModifierCard>() {
         override fun onItemClick(holder: BaseViewHolder<ModifierCard>) {
             when {
-                holder.item!!.revealed.value -> holder.item!!.selected.value = !holder.item!!.selected.value
                 !holder.item!!.revealed.value ->  {
                     (holder as TrackerCardViewHolder).startAnimationOut()
                     holder.item!!.revealed.value = true
@@ -38,16 +38,31 @@ class CardsAdapter(val context: Context, val cardList: ArrayList<ModifierCard>, 
     override fun onBindViewHolder(holder: TrackerCardViewHolder, index: Int) {
         holder.bind(cardList[index], classColor)
         holder.setOnItemClickListener(this.onItemClickListener)
-        holder.cardView.setOnTouchListener { v, event ->
+        var startX = 0f
+        var startY = 0f
+        holder.cardView.setOnTouchListener { _, event ->
             if (event.actionMasked == MotionEvent.ACTION_DOWN) {
-                touchHelper!!.startDrag(holder)
+                startX = event.rawX
+                startY = event.rawY
+            } else if (event.actionMasked == MotionEvent.ACTION_MOVE) {
+                if(abs(startX-event.rawX) > 10){
+//                    Log.d("START SWIPE", abs(startX-event.rawX).toString())
+                    touchHelper!!.startSwipe(holder)
+                } else if(abs(startY-event.rawY) > 2){
+//                    Log.d("START DRAG", abs(startY-event.rawY).toString())
+                    touchHelper!!.startDrag(holder)
+                }
+
             }
+
+//            Log.d("Motion Event", "$v $event")
             false
         }
     }
 
     override fun onViewMoved(oldPosition: Int, newPosition: Int) {
-        val targetCard = cardList.get(oldPosition)
+//        Log.d("OnViewMoved", "$oldPosition $newPosition")
+        val targetCard = cardList[oldPosition]
         val card = ModifierCard(targetCard)
         cardList.removeAt(oldPosition)
         cardList.add(newPosition, card)
@@ -55,7 +70,10 @@ class CardsAdapter(val context: Context, val cardList: ArrayList<ModifierCard>, 
     }
 
     override fun onViewSwiped(position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//        Log.d("onViewSwiped", "$position")
+        val card = ModifierCard(cardList.removeAt(position))
+        cardList.add(card)
+        notifyItemRemoved(position)
     }
 
     fun setItemTouchHelper(itemTouchHelper: ItemTouchHelper) {

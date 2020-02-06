@@ -1,6 +1,5 @@
 package net.north101.android.ghplayertracker
 
-import android.graphics.Canvas
 import android.support.v7.widget.helper.ItemTouchHelper
 import android.support.v7.widget.RecyclerView
 
@@ -24,20 +23,6 @@ class DragHelper(private val contract: ActionCompletionContract) : ItemTouchHelp
 
     override fun isLongPressDragEnabled(): Boolean {
         return false
-    }
-
-    override fun onChildDraw(c: Canvas,
-                    recyclerView: RecyclerView,
-                    viewHolder: RecyclerView.ViewHolder,
-                    dX: Float,
-                    dY: Float,
-                    actionState: Int,
-                    isCurrentlyActive: Boolean) {
-        if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
-            val alpha = 1 - Math.abs(dX) / recyclerView.width
-            viewHolder.itemView.alpha = alpha
-        }
-        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
     }
 
     interface ActionCompletionContract {
