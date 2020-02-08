@@ -73,7 +73,7 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
 //        }
         if (trackerResultModel.xp > 0) {
             characterModel.character.xp.value += trackerResultModel.xp
-//            trackerResultModel.xp = 0
+            trackerResultModel.xp = 0
         }
 
         selectedItemModel.selectedItem.observe(this, Observer {
