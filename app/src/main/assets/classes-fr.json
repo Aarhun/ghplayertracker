@@ -2505,7 +2505,7 @@
       },
       {
         "id": "class_10",
-        "name": "TmlnaHRzaHJvdWQ=",
+        "name": "Vm9pbHNvbWJyZQ==",
         "health": "medium",
         "color": "#9E9FCF",
         "abilities": {
@@ -2637,7 +2637,7 @@
           "mod_class_10_minus_1_element_dark": {
             "deck": "class"
           },
-          "mod_class_10_mod_class_10_muddle_rolling": {
+          "mod_class_10_muddle_rolling": {
             "deck": "class",
             "special": "rolling"
           },
@@ -2720,7 +2720,7 @@
                 "card_id": "mod_class_10_muddle_rolling"
               }
             ],
-            "text": "Ajouter deux cartes [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
+            "text": "Ajouter trois cartes [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
           },
           {
             "cards": [

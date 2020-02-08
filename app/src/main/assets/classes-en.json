@@ -2637,7 +2637,7 @@
           "mod_class_10_minus_1_element_dark": {
             "deck": "class"
           },
-          "mod_class_10_mod_class_10_muddle_rolling": {
+          "mod_class_10_muddle_rolling": {
             "deck": "class",
             "special": "rolling"
           },
@@ -2720,7 +2720,7 @@
                 "card_id": "mod_class_10_muddle_rolling"
               }
             ],
-            "text": "Add two [[icon_rolling]] MUDDLE [[icon_status_muddle]] cards"
+            "text": "Add three [[icon_rolling]] MUDDLE [[icon_status_muddle]] cards"
           },
           {
             "cards": [
