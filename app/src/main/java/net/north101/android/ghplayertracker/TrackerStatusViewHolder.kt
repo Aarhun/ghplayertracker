@@ -19,29 +19,11 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(
     init {
         for (status in Status.values()) {
             statusToView(status, mainStatusTracker).setOnClickListener {
-                if(status == Status.invisible && item!!.status[status]!!.value) {
-                    item!!.invisibleTurnCount.value = 0
-                } else if(status == Status.strengthen && item!!.status[status]!!.value){
-                    item!!.strengthenTurnCount.value = 0
-                } else if(!item!!.status[status]!!.value) {
-                    item!!.status[status]!!.value = true
-                }
-            }
-            statusToView(status, mainStatusTracker).setOnClickListener {
                 item!!.status[status]!!.value = !(item!!.status[status]!!.value)
             }
         }
 
         for (status in Status.values()) {
-            statusToView(status, secondaryStatusTracker).setOnClickListener {
-                if(status == Status.invisible && item!!.statusCompanion[status]!!.value) {
-                    item!!.invisibleCompanionTurnCount.value = 0
-                } else if(status == Status.strengthen && item!!.statusCompanion[status]!!.value){
-                    item!!.strengthenCompanionTurnCount.value = 0
-                } else if(!item!!.statusCompanion[status]!!.value) {
-                    item!!.statusCompanion[status]!!.value = true
-                }
-            }
             statusToView(status, secondaryStatusTracker).setOnClickListener {
                 item!!.statusCompanion[status]!!.value = !(item!!.statusCompanion[status]!!.value)
             }
