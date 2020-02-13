@@ -379,7 +379,6 @@
                 android:scaleType="fitStart"
                 android:layout_centerInParent="true"
                 android:alpha="0"
-                android:rotation="-45"
                 />
 
 
