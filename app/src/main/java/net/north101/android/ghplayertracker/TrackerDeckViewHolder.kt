@@ -301,7 +301,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     private fun onStartAnimationStatus()
     {
         val animAlpha = ValueAnimator.ofFloat(1f, 0f)
-        val animScale = ValueAnimator.ofFloat(1f, 1.5f)
+        val animScale = ValueAnimator.ofFloat(1f, 2f)
 
         animAlpha.addUpdateListener {
             val value = it.animatedValue as Float

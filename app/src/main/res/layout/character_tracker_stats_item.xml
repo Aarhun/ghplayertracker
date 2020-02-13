@@ -128,7 +128,8 @@
                         android:adjustViewBounds="true"
                         android:layout_centerInParent="true"
                         app:srcCompat="@drawable/icon_status_poison"
-                        android:alpha="0" />
+                        android:alpha="0"
+                        android:rotation="-45"/>
                 </RelativeLayout>
 
                 <View
