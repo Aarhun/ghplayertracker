@@ -26,6 +26,7 @@ class TrackerSummonViewHolder(itemView: View) : BaseViewHolder<SummonLiveData>(i
     val statusWoundView: ImageView = itemView.findViewById(R.id.status_wound)
     val statusMuddleView: ImageView = itemView.findViewById(R.id.status_muddle)
     val statusInvisibleView: ImageView = itemView.findViewById(R.id.status_invisible)
+    val statusRegenerateView: ImageView = itemView.findViewById(R.id.status_regenerate)
 
     var onSummonDeleteClick: ((SummonLiveData) -> Unit)? = null
 
@@ -110,6 +111,7 @@ class TrackerSummonViewHolder(itemView: View) : BaseViewHolder<SummonLiveData>(i
             Status.wound -> statusWoundView
             Status.muddle -> statusMuddleView
             Status.invisible -> statusInvisibleView
+            Status.regenerate -> statusRegenerateView
         }
     }
 

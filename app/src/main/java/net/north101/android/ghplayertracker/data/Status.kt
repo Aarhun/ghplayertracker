@@ -8,5 +8,6 @@ enum class Status {
     wound,
     muddle,
     invisible,
-    strengthen
+    strengthen,
+    regenerate
 }

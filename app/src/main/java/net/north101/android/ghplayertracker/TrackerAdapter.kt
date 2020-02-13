@@ -1,10 +1,8 @@
 package net.north101.android.ghplayertracker
 
 import android.content.Context
-import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
-//import net.north101.android.ghplayertracker.livedata.SummonLiveData
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 
 class TrackerAdapter(context: Context) : RecyclerView.Adapter<BaseViewHolder<*>>() {

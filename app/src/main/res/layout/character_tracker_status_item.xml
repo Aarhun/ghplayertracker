@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:focusableInTouchMode="false"
-    android:orientation="vertical"
     android:clipChildren="false">
 
 
     <LinearLayout
+        android:id="@+id/first_line"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:focusableInTouchMode="false"
         android:orientation="horizontal"
-        android:layout_weight="1"
         android:clipChildren="false">
+
+        <Space
+            android:id="@+id/first_line_spacer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"/>
 
         <ImageView
             android:id="@+id/status_disarm"
@@ -24,6 +30,7 @@
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/icon_status_disarm"
+            android:rotation="-45"
             android:layout_weight="1"/>
 
         <ImageView
@@ -33,6 +40,7 @@
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/icon_status_stun"
+            android:rotation="-45"
             android:layout_weight="1"/>
 
         <ImageView
@@ -42,25 +50,19 @@
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/icon_status_immobilize"
+            android:rotation="-45"
             android:layout_weight="1"/>
 
-        <ImageView
-            android:id="@+id/status_strengthen"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/icon_status_strengthen"
-            android:layout_weight="1"/>
     </LinearLayout>
     
 
         <LinearLayout
+            android:id="@+id/second_line"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:focusableInTouchMode="false"
             android:orientation="horizontal"
-            android:layout_weight="1"
+            android:layout_below="@id/first_line"
             >
 
         <ImageView
@@ -70,6 +72,7 @@
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/icon_status_poison"
+            android:rotation="-45"
             android:layout_weight="1"/>
 
         <ImageView
@@ -79,16 +82,52 @@
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/icon_status_wound"
+            android:rotation="-45"
             android:layout_weight="1"/>
 
+            <ImageView
+                android:id="@+id/status_muddle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/icon_status_muddle"
+                android:rotation="-45"
+                android:layout_weight="1"/>
+
+
+            <Space
+                android:id="@+id/second_line_spacer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"/>
+
+        </LinearLayout>
+    <LinearLayout
+        android:id="@+id/third_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="false"
+        android:orientation="horizontal"
+        android:layout_below="@id/second_line"
+        >
+        <Space
+            android:id="@+id/third_line_spacer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"/>
+
         <ImageView
-            android:id="@+id/status_muddle"
+            android:id="@+id/status_regenerate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/icon_status_muddle"
+            app:srcCompat="@drawable/icon_status_regenerate"
+            android:rotation="-45"
             android:layout_weight="1"/>
+
+
 
         <ImageView
             android:id="@+id/status_invisible"
@@ -97,6 +136,18 @@
             android:adjustViewBounds="true"
             android:background="?attr/selectableItemBackgroundBorderless"
             app:srcCompat="@drawable/icon_status_invisible"
+            android:rotation="-45"
             android:layout_weight="1"/>
+
+
+            <ImageView
+                android:id="@+id/status_strengthen"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/icon_status_strengthen"
+                android:rotation="-45"
+                android:layout_weight="1"/>
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.view.animation.AnticipateOvershootInterpolator
 import android.view.animation.CycleInterpolator
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.Status
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
@@ -13,7 +15,6 @@ import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(itemView) {
     val mainStatusTracker: View = itemView.findViewById(R.id.character_tracker_status_main)
     val secondaryStatusTracker: View = itemView.findViewById(R.id.character_tracker_status_secondary)
-    val secondarySpacer: View = itemView.findViewById(R.id.spacer_secondary)
 
     init {
         for (status in Status.values()) {
@@ -26,9 +27,8 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(
                     item!!.status[status]!!.value = true
                 }
             }
-            statusToView(status, mainStatusTracker).setOnLongClickListener {
+            statusToView(status, mainStatusTracker).setOnClickListener {
                 item!!.status[status]!!.value = !(item!!.status[status]!!.value)
-                true
             }
         }
 
@@ -42,9 +42,8 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(
                     item!!.statusCompanion[status]!!.value = true
                 }
             }
-            statusToView(status, secondaryStatusTracker).setOnLongClickListener {
+            statusToView(status, secondaryStatusTracker).setOnClickListener {
                 item!!.statusCompanion[status]!!.value = !(item!!.statusCompanion[status]!!.value)
-                true
             }
         }
     }
@@ -53,12 +52,10 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(
         when {
             it -> {
                 secondaryStatusTracker.visibility = View.VISIBLE
-                secondarySpacer.visibility = View.VISIBLE
                 mainStatusTracker.setPadding(0,0, 0, 0)
             }
             else -> {
                 mainStatusTracker.setPadding(100,0, 100, 0)
-                secondarySpacer.visibility = View.GONE
                 secondaryStatusTracker.visibility = View.GONE
             }
         }
@@ -127,6 +124,16 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(
         item.discardDeck.observeForever(discardDeckObserver)
         item.health.observeForever(healthObserver)
         item.healthCompanion.observeForever(healthCompanionObserver)
+
+
+
+
+        mainStatusTracker.addOnLayoutChangeListener{ view: View, i: Int, i1: Int, i2: Int, i3: Int, i4: Int, i5: Int, i6: Int, i7: Int ->
+            updateLinesMargins(view)
+        }
+        secondaryStatusTracker.addOnLayoutChangeListener{ view: View, i: Int, i1: Int, i2: Int, i3: Int, i4: Int, i5: Int, i6: Int, i7: Int ->
+            updateLinesMargins(view)
+        }
     }
 
     override fun unbind() {
@@ -156,6 +163,35 @@ class TrackerStatusViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(
             Status.wound -> view.findViewById(itemView.context.resources.getIdentifier("status_wound", "id", itemView.context.packageName))
             Status.muddle -> view.findViewById(itemView.context.resources.getIdentifier("status_muddle", "id", itemView.context.packageName))
             Status.invisible -> view.findViewById(itemView.context.resources.getIdentifier("status_invisible", "id", itemView.context.packageName))
+            Status.regenerate -> view.findViewById(itemView.context.resources.getIdentifier("status_regenerate", "id", itemView.context.packageName))
+        }
+    }
+
+    private fun updateLinesMargins(mainView : View) {
+        val firstLineLayout : View = mainView.findViewById(R.id.first_line)
+        val secondLineLayout : View = mainView.findViewById(R.id.second_line)
+        val thirdLineLayout : View = mainView.findViewById(R.id.third_line)
+
+        val offset = 4
+        val smallOffset = - 1.75
+        var params : RelativeLayout.LayoutParams = firstLineLayout.layoutParams as RelativeLayout.LayoutParams
+        params.setMargins((secondLineLayout.height / (offset + smallOffset)).toInt(), secondLineLayout.height / 4, (secondLineLayout.height / offset).toInt(), 0)
+        firstLineLayout.layoutParams = params
+
+        params = secondLineLayout.layoutParams as RelativeLayout.LayoutParams
+        params.setMargins((secondLineLayout.height / offset).toInt(), 0, (secondLineLayout.height / (offset + smallOffset)).toInt(), 0)
+        secondLineLayout.layoutParams = params
+
+        params = thirdLineLayout.layoutParams as RelativeLayout.LayoutParams
+        params.setMargins((secondLineLayout.height / (offset + smallOffset)).toInt(), 0, (secondLineLayout.height / offset).toInt(), secondLineLayout.height / 4)
+        thirdLineLayout.layoutParams = params
+
+        for (status in Status.values()) {
+            if(status == Status.stun || status == Status.wound || status == Status.invisible) {
+                var params = statusToView(status, mainView).layoutParams as LinearLayout.LayoutParams
+                params.setMargins((secondLineLayout.height / 2.5).toInt(), 0, (secondLineLayout.height / 2.5).toInt(), 0);
+                statusToView(status, mainStatusTracker).layoutParams = params
+            }
         }
     }
 

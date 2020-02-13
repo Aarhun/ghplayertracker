@@ -15,20 +15,16 @@
         layout="@layout/character_tracker_status_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
-
-    <Space
-        android:id="@+id/spacer_secondary"
-        android:layout_width="8dp"
-        android:layout_height="0dp"
-        />
-
+        android:layout_weight="1"
+        android:clipChildren="false"/>
 
     <include
         android:id="@+id/character_tracker_status_secondary"
         layout="@layout/character_tracker_status_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:clipChildren="false"/>
+
 
 </LinearLayout>
