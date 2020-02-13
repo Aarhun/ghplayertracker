@@ -52,6 +52,7 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
             if(item!!.status[Status.poison]?.value!!) {
                 onStartAnimationStatus(statusIconView)
             }
+            item!!.status[Status.regenerate]!!.value = false
         }))
 
         healthCompanionContainerView.setOnClickListener {
@@ -71,6 +72,7 @@ class TrackerStatsViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(i
             if(item!!.statusCompanion[Status.poison]?.value!!) {
                 onStartAnimationStatus(statusCompanionIconView)
             }
+            item!!.statusCompanion[Status.regenerate]!!.value = false
         }))
 
         xpContainerView.setOnClickListener {
