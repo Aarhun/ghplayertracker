@@ -42,7 +42,7 @@ open class CharacterNoteDialog : DialogFragment() {
 
         builder.setView(view2)
             .setTitle(String.format(context!!.getString(R.string.edit),context!!.getString(R.string.note)))
-            .setPositiveButton(context!!.getString(R.string.ok)) { dialog, id ->
+            .setPositiveButton(context!!.getString(R.string.OK)) { dialog, id ->
                 if (index == null) {
                     notes.add(InitLiveData(textView.text.toString()))
                 } else {
@@ -50,7 +50,7 @@ open class CharacterNoteDialog : DialogFragment() {
                 }
                 notes = notes
             }
-            .setNegativeButton(context!!.getString(R.string.cancel)) { dialog, id ->
+            .setNegativeButton(context!!.getString(R.string.CANCEL)) { dialog, id ->
                 this@CharacterNoteDialog.dialog.cancel()
             }
 

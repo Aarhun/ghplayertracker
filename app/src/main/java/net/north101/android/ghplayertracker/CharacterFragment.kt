@@ -258,16 +258,16 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
             return false
 
         val builder = AlertDialog.Builder(context!!)
-        builder.setTitle("Would you like to save your changes?")
-            .setPositiveButton("Yes") { dialog, which ->
+        builder.setTitle(context!!.getString(R.string.save_changes))
+            .setPositiveButton(context!!.getString(R.string.yes)) { dialog, which ->
                 saveCharacter(characterModel.character.toParcel(), Runnable {
                     fragmentManager!!.popBackStack()
                 })
             }
-            .setNegativeButton("No") { dialog, which ->
+            .setNegativeButton(context!!.getString(R.string.no)) { dialog, which ->
                 fragmentManager!!.popBackStack()
             }
-            .setNeutralButton("Cancel") { dialog, which ->
+            .setNeutralButton(context!!.getString(R.string.cancel)) { dialog, which ->
                 dialog.dismiss()
             }
             .show()
@@ -323,15 +323,15 @@ open class CharacterFragment : Fragment(), OnBackPressedListener {
         } catch (e: IOException) {
             e.printStackTrace()
 
-            Snackbar.make(activity!!.findViewById(R.id.content), "Failed to save", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(activity!!.findViewById(R.id.content), context!!.getString(R.string.save_failed), Snackbar.LENGTH_SHORT).show()
             return
         } catch (e: JSONException) {
             e.printStackTrace()
-            Snackbar.make(activity!!.findViewById(R.id.content), "Failed to save", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(activity!!.findViewById(R.id.content), context!!.getString(R.string.save_failed), Snackbar.LENGTH_SHORT).show()
             return
         }
 
-        Snackbar.make(activity!!.findViewById(R.id.content), "Saved", Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(activity!!.findViewById(R.id.content), context!!.getString(R.string.saved), Snackbar.LENGTH_SHORT).show()
 
         if (callback != null) {
             activity!!.runOnUiThread(callback)

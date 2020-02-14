@@ -13,8 +13,8 @@
     <string name="attack_deck">Attack Deck</string>
     <string name="shuffled">Shuffled</string>
     <string name="remaining">%1$d card(s) remaining</string>
-    <string name="ok">OK</string>
-    <string name="cancel">CANCEL</string>
+    <string name="OK">OK</string>
+    <string name="CANCEL">CANCEL</string>
     <string name="edit">Edit: %1$s</string>
     <string name="note">Note</string>
     <string name="level">Level</string>
@@ -31,4 +31,16 @@
     <string name="item_id">(%1$s)</string>
     <string name="item_gold">%1$dg</string>
     <string name="active">Active</string>
+    <string name="save">Save</string>
+    <string name="start">Start</string>
+    <string name="load">Load</string>
+    <string name="complete">Complete</string>
+    <string name="save_changes">Would you like to save your changes ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+    <string name="save_exists">A save aleardy exists. Do you want to override it ?</string>
+    <string name="loaded">Loaded</string>
+    <string name="saved">Saved</string>
+    <string name="save_failed">Failed to save</string>
 </resources>

@@ -6,19 +6,19 @@
     <item
         android:id="@+id/load"
         android:icon="@drawable/ic_action_file_load"
-        android:title="Load"
+        android:title="@string/load"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/save"
         android:icon="@drawable/ic_save_white_24dp"
-        android:title="Save"
+        android:title="@string/save"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/complete"
         android:icon="@drawable/icon_tick_inverse"
-        android:title="Complete"
+        android:title="@string/complete"
         app:showAsAction="always"/>
 
 

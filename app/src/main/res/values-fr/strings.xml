@@ -13,8 +13,8 @@
     <string name="attack_deck">Cartes d\'Attaque</string>
     <string name="shuffled">Mélangé</string>
     <string name="remaining">Il reste %1$d carte(s)</string>
-    <string name="ok">OK</string>
-    <string name="cancel">ANNULER</string>
+    <string name="OK">OK</string>
+    <string name="CANCEL">ANNULER</string>
     <string name="edit">Édition: %1$s</string>
     <string name="note">Note</string>
     <string name="level">Niveau</string>
@@ -31,4 +31,16 @@
     <string name="item_id">(%1$s)</string>
     <string name="item_gold">%1$do</string>
     <string name="active">Actif</string>
+    <string name="save">Sauvegarder</string>
+    <string name="start">Commencer</string>
+    <string name="load">Charger</string>
+    <string name="complete">Terminer</string>
+    <string name="save_changes">Voulez-vous sauvegarder les changements ?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="cancel">Annuler</string>
+    <string name="save_exists">Une sauvegarde existe. Voulez-vous l\'écraser ?</string>
+    <string name="loaded">Chargé</string>
+    <string name="saved">Sauvegardé</string>
+    <string name="save_failed">Erreur de sauvegarde</string>
 </resources>

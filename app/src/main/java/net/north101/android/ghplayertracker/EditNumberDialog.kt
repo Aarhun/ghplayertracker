@@ -30,8 +30,8 @@ abstract class EditNumberDialog : DialogFragment() {
 
         builder.setView(view2)
             .setTitle(String.format(context!!.getString(R.string.edit),context!!.getString(title)))
-            .setPositiveButton(context!!.getString(R.string.ok), null)
-            .setNegativeButton(context!!.getString(R.string.cancel)) { dialog, id ->
+            .setPositiveButton(context!!.getString(R.string.OK), null)
+            .setNegativeButton(context!!.getString(R.string.CANCEL)) { dialog, id ->
                 this@EditNumberDialog.dialog.cancel()
             }
 

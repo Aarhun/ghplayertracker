@@ -245,19 +245,18 @@ open class TrackerFragment : Fragment() {
         } ?: TrackerData(context!!, JSONObject())
         val trackerParseData = Tracker.parse(data.data)
         trackerModel.tracker.loadSavedData(trackerParseData)
-        Snackbar.make(activity!!.findViewById(R.id.content), "Loaded", Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(activity!!.findViewById(R.id.content), context!!.getString(R.string.loaded), Snackbar.LENGTH_SHORT).show()
     }
-
 
     @OptionsItem(R.id.save)
     fun onMenuSaveClick() {
         if(TrackerData.saveExists(context!!)) {
             val builder = AlertDialog.Builder(context!!)
-            builder.setTitle("Save exists. Do you want to override it?")
-                    .setPositiveButton("Yes") { dialog, which ->
+            builder.setTitle(context!!.getString(R.string.save_exists))
+                    .setPositiveButton(context!!.getString(R.string.yes)) { dialog, which ->
                         saveTracker(trackerModel.tracker.toParcel(), null)
                     }
-                    .setNegativeButton("No") { dialog, which ->
+                    .setNegativeButton(context!!.getString(R.string.no)) { dialog, which ->
                         dialog.dismiss()
                     }
                     .show()
@@ -292,15 +291,15 @@ open class TrackerFragment : Fragment() {
         } catch (e: IOException) {
             e.printStackTrace()
 
-            Snackbar.make(activity!!.findViewById(R.id.content), "Failed to save", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(activity!!.findViewById(R.id.content), context!!.getString(R.string.save_failed), Snackbar.LENGTH_SHORT).show()
             return
         } catch (e: JSONException) {
             e.printStackTrace()
-            Snackbar.make(activity!!.findViewById(R.id.content), "Failed to save", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(activity!!.findViewById(R.id.content), context!!.getString(R.string.save_failed), Snackbar.LENGTH_SHORT).show()
             return
         }
 
-        Snackbar.make(activity!!.findViewById(R.id.content), "Saved", Snackbar.LENGTH_SHORT).show()
+        Snackbar.make(activity!!.findViewById(R.id.content), context!!.getString(R.string.saved), Snackbar.LENGTH_SHORT).show()
 
         if (callback != null) {
             activity!!.runOnUiThread(callback)
