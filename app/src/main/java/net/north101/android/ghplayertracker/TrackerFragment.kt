@@ -244,7 +244,7 @@ open class TrackerFragment : Fragment() {
             null
         } ?: TrackerData(context!!, JSONObject())
         val trackerParseData = Tracker.parse(data.data)
-        trackerModel.tracker.update(trackerParseData)
+        trackerModel.tracker.loadSavedData(trackerParseData)
         Snackbar.make(activity!!.findViewById(R.id.content), "Loaded", Snackbar.LENGTH_SHORT).show()
     }
 
@@ -374,6 +374,7 @@ abstract class TrackerEditCardDialog : TrackerNumberDialog() {
             if (current < value) {
                 for (index in current until value) {
                     trackerModel.tracker.drawDeck.value.add(card)
+                    trackerModel.tracker.shuffleNow.value = true
                 }
             } else if (current > value) {
                 for (index in value until current) {

@@ -94,11 +94,12 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         }
         blessPlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(blessCard)
+            item!!.shuffleNow.value = true
             updateBlessText()
         }))
         blessMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.remove(blessCard)
-            updateBlessText(false)
+            updateBlessText()
         }))
 
         curseContainerView.setOnClickListener {
@@ -106,11 +107,12 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         }
         cursePlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(curseCard)
+            item!!.shuffleNow.value = true
             updateCurseText()
         }))
         curseMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.remove(curseCard)
-            updateCurseText(false)
+            updateCurseText()
         }))
 
         minus1ContainerView.setOnClickListener {
@@ -118,6 +120,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         }
         minus1PlusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.add(minus1Card)
+            item!!.shuffleNow.value = true
             updateMinus1Text()
         }))
         minus1MinusView.setOnTouchListener(RepeatListener({ _, _ ->
@@ -126,7 +129,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             } else if (discardDeck.contains(minus1Card)) {
                 discardDeck.remove(minus1Card)
             }
-            updateMinus1Text(false)
+            updateMinus1Text()
         }))
 
         deckView.setOnClickListener {
@@ -337,31 +340,31 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         }
     }
 
-    fun updateBlessText(doShuffle : Boolean = true) {
+    fun updateBlessText() {
         val count = (drawDeck).count { it == blessCard }
         var current =  0
         try {current = blessTextView.text.toString().toInt()} catch ( e :  NumberFormatException){}
-        if(count > current && doShuffle){
+        if(count > current && item!!.shuffleNow.value){
             shuffleDrawDeck(true)
         }
         blessTextView.text = count.toString()
     }
 
-    fun updateCurseText(doShuffle : Boolean = true) {
+    fun updateCurseText() {
         val count = (drawDeck).count { it == curseCard }
         var current =  0
         try {current = curseTextView.text.toString().toInt()} catch ( e :  NumberFormatException){}
-        if(count > current && doShuffle){
+        if(count > current && item!!.shuffleNow.value){
             shuffleDrawDeck(true)
         }
         curseTextView.text = count.toString()
     }
 
-    fun updateMinus1Text(doShuffle : Boolean = true) {
+    fun updateMinus1Text() {
         val count = (drawDeck + discardDeck).count { it == minus1Card }
         var current =  0
         try {current = minus1TextView.text.toString().toInt()} catch ( e :  NumberFormatException){}
-        if(count > current && doShuffle){
+        if(count > current && item!!.shuffleNow.value){
             shuffleDrawDeck(true)
         }
         minus1TextView.text = count.toString()
@@ -400,6 +403,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             toast = Toast.makeText(itemView.context, itemView.context.getString(R.string.shuffled), Toast.LENGTH_SHORT)
             toast.show()
         }
+        item!!.shuffleNow.value = false
     }
 
     fun draw() {

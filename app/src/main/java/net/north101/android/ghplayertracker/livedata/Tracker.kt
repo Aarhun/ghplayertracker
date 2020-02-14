@@ -27,6 +27,7 @@ class TrackerLiveData {
     val attackStatus = InitLiveData(AttackStatus.None)
     val houseRule = InitLiveData(false)
     val turn = InitLiveData( 1)
+    val shuffleNow = InitLiveData(false)
 
     constructor(character: Character) {
         this.character = character
@@ -52,6 +53,7 @@ class TrackerLiveData {
         this.attackStatus.value = AttackStatus.None
         this.houseRule.value = false
         this.turn.value = 1
+        this.shuffleNow.value = false
     }
 
     constructor(data: Tracker) {
@@ -78,6 +80,7 @@ class TrackerLiveData {
         attackStatus.value = data.attackStatus
         houseRule.value = data.houseRule
         turn.value = data.turn
+        shuffleNow.value = false
     }
 
     fun toParcel(): Tracker {
@@ -106,8 +109,7 @@ class TrackerLiveData {
         )
     }
 
-    fun update( trackerParseData: TrackerParseData) {
-
+    fun loadSavedData(trackerParseData: TrackerParseData) {
         this.health.value = trackerParseData.health
         this.healthCompanion.value = trackerParseData.healthCompanion
         this.xp.value = trackerParseData.xp
@@ -123,9 +125,6 @@ class TrackerLiveData {
         this.discardDeck.value.clear()
         this.drawDeck.value = trackerParseData.drawDeck
         this.discardDeck.value = trackerParseData.discardDeck
-
         this.shuffle.value = trackerParseData.shuffle
-
-
     }
 }
