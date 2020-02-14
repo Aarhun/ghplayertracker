@@ -14,17 +14,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.view.animation.OvershootInterpolator
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.cards_list_layout.view.*
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.CardSpecial
-import net.north101.android.ghplayertracker.data.PlayedCards
 import net.north101.android.ghplayertracker.data.Status
-import net.north101.android.ghplayertracker.livedata.BoundedIntLiveData
-import net.north101.android.ghplayertracker.livedata.InitLiveData
 import net.north101.android.ghplayertracker.livedata.ModifierCard
 import net.north101.android.ghplayertracker.livedata.TrackerLiveData
 import java.util.*
@@ -92,18 +88,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             item!!.discardDeck.value = value
         }
 
-    var cleanedDiscardDeck: ArrayList<Card>
-        get() = item!!.cleanedDiscardDeck.value
-        set(value) {
-            item!!.cleanedDiscardDeck.value = value
-        }
-
-    var playedCards: ArrayList<PlayedCards>
-        get() = item!!.playedCards.value
-        set(value) {
-            item!!.playedCards.value = value
-        }
-
     init {
         blessContainerView.setOnClickListener {
             onNumberClickListener?.invoke("bless")
@@ -114,7 +98,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         }))
         blessMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.remove(blessCard)
-            updateBlessText()
+            updateBlessText(false)
         }))
 
         curseContainerView.setOnClickListener {
@@ -126,7 +110,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         }))
         curseMinusView.setOnTouchListener(RepeatListener({ _, _ ->
             drawDeck.remove(curseCard)
-            updateCurseText()
+            updateCurseText(false)
         }))
 
         minus1ContainerView.setOnClickListener {
@@ -142,7 +126,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
             } else if (discardDeck.contains(minus1Card)) {
                 discardDeck.remove(minus1Card)
             }
-            updateMinus1Text()
+            updateMinus1Text(false)
         }))
 
         deckView.setOnClickListener {
@@ -228,7 +212,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 //        updateAttackStatus()
 //    }
 
-    private val deckObserver: (ArrayList<Card>) -> Unit = {
+    private val drawDeckObserver: (ArrayList<Card>) -> Unit = {
         updateBlessText()
         updateCurseText()
         updateMinus1Text()
@@ -245,6 +229,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         else {
 
             var i = discardDeck.lastIndex
+            shuffle = shuffle || discardDeck[i].special == CardSpecial.Shuffle
             discardView.setImageResource(Util.getImageResource(itemView.context, discardDeck[i--].id))
 
             if (i >= 0) {
@@ -327,7 +312,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 
         item.shuffle.observeForever(shuffleObserver)
 //        item.attackStatus.observeForever(attackStatusObserver)
-        item.drawDeck.observeForever(deckObserver)
+        item.drawDeck.observeForever(drawDeckObserver)
         item.discardDeck.observeForever(discardDeckObserver)
 
         shuffleDrawDeck()
@@ -337,7 +322,7 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         item?.let {
             item!!.shuffle.removeObserver(shuffleObserver)
 //            item!!.attackStatus.removeObserver(attackStatusObserver)
-            item!!.drawDeck.removeObserver(deckObserver)
+            item!!.drawDeck.removeObserver(drawDeckObserver)
             item!!.discardDeck.removeObserver(discardDeckObserver)
         }
 
@@ -352,31 +337,31 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
         }
     }
 
-    fun updateBlessText() {
+    fun updateBlessText(doShuffle : Boolean = true) {
         val count = (drawDeck).count { it == blessCard }
         var current =  0
         try {current = blessTextView.text.toString().toInt()} catch ( e :  NumberFormatException){}
-        if(count > current){
+        if(count > current && doShuffle){
             shuffleDrawDeck(true)
         }
         blessTextView.text = count.toString()
     }
 
-    fun updateCurseText() {
+    fun updateCurseText(doShuffle : Boolean = true) {
         val count = (drawDeck).count { it == curseCard }
         var current =  0
         try {current = curseTextView.text.toString().toInt()} catch ( e :  NumberFormatException){}
-        if(count > current){
+        if(count > current && doShuffle){
             shuffleDrawDeck(true)
         }
         curseTextView.text = count.toString()
     }
 
-    fun updateMinus1Text() {
+    fun updateMinus1Text(doShuffle : Boolean = true) {
         val count = (drawDeck + discardDeck).count { it == minus1Card }
         var current =  0
         try {current = minus1TextView.text.toString().toInt()} catch ( e :  NumberFormatException){}
-        if(count > current){
+        if(count > current && doShuffle){
             shuffleDrawDeck(true)
         }
         minus1TextView.text = count.toString()
@@ -394,19 +379,15 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
 
     private fun shuffleDrawAndDiscardDeck() {
         shuffle = false
-
-        shuffleCount += 1
-        for (playedCards in playedCards) {
-            playedCards.shuffledIndex = shuffleCount
+        for(card in discardDeck) {
+            if (card.special != CardSpecial.Remove) {
+                drawDeck.add(card)
+            }
         }
-
-        drawDeck.addAll(cleanedDiscardDeck)
-        cleanedDiscardDeck.clear()
         discardDeck.clear()
 
         drawDeck = drawDeck
         discardDeck = discardDeck
-        playedCards = playedCards
 
         shuffleDrawDeck(true)
     }
@@ -422,20 +403,10 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     }
 
     fun draw() {
-        val playedCards =  drawNormal()
-        if (playedCards.hasShuffle()) {
-            shuffle = true
-        }
+        val card = drawCard()
 
-        for (card in playedCards.pile1) {
-            if (card.special != CardSpecial.Remove) {
-                cleanedDiscardDeck.add(card)
-            }
-            discardDeck.add(card)
-        }
+        discardDeck.add(card)
 
-        this.playedCards.add(playedCards)
-        this.playedCards = this.playedCards
         drawDeck = drawDeck
         discardDeck = discardDeck
 
@@ -449,78 +420,13 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
                 onStartAnimationStatus()
             }
         }
-
-
-//        toast.cancel()
-//        toast = Toast.makeText(itemView.context, String.format(itemView.context.getString(R.string.remaining), drawDeck.count()), Toast.LENGTH_SHORT)
-//        toast.show()
-
     }
 
-    fun drawNormal(): PlayedCards {
-        return PlayedCards(drawCards(), null, null)
-    }
-
-    fun drawAdvantage(): PlayedCards {
-        val item1 = drawCards()
-        val item2 = ArrayList<Card>()
-        if (item1.count() < 2) {
-            val card = drawCard()
-            if (card.special == CardSpecial.Rolling) {
-                item1.add(card)
-            } else {
-                item2.add(card)
-            }
-        }
-        return PlayedCards(item1, item2, null)
-    }
-
-    fun drawDisadvantage(): PlayedCards {
-        val item1 = ArrayList<Card>()
-        val item2 = ArrayList<Card>()
-        val card1 = drawCard()
-        val card2 = drawCard()
-
-        item1.add(card1)
-        if (card1.special == CardSpecial.Rolling && card2.special == CardSpecial.Rolling) {
-            item1.add(card2)
-            while (true) {
-                val card = drawCard()
-                item1.add(card)
-                if (card.special != CardSpecial.Rolling)
-                    break
-            }
-        } else {
-            item2.add(card2)
-        }
-        return PlayedCards(item1, item2, null)
-    }
-
-    fun drawHouse(): PlayedCards {
-        return PlayedCards(drawCards(), drawCards(), null)
-    }
-
-    fun drawCards(): ArrayList<Card> {
-        val cards = ArrayList<Card>()
-
-        while (true) {
-            val card = drawCard()
-
-            cards.add(card)
-//            if (card.special != CardSpecial.Rolling)
-                break
-        }
-
-        return cards
-    }
-
-    var random = Random()
     fun drawCard(): Card {
         if (drawDeck.isEmpty()) {
             shuffleDrawAndDiscardDeck()
         }
 
-//        val index = random.nextInt(drawDeck.size)
         return drawDeck.removeAt(0)
     }
 }

@@ -3,6 +3,7 @@ package net.north101.android.ghplayertracker.livedata
 import net.north101.android.ghplayertracker.AttackStatus
 import net.north101.android.ghplayertracker.data.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class TrackerLiveData {
     var character: Character
@@ -19,8 +20,6 @@ class TrackerLiveData {
     }.toMap())
     val drawDeck = InitLiveData<ArrayList<Card>>(ArrayList())
     val discardDeck = InitLiveData<ArrayList<Card>>(ArrayList())
-    val cleanedDiscardDeck = InitLiveData<ArrayList<Card>>(ArrayList())
-    val playedCards = InitLiveData<ArrayList<PlayedCards>>(ArrayList())
     val summons = InitLiveData<ArrayList<SummonLiveData>>(ArrayList())
 
     val shuffle = InitLiveData(false)
@@ -46,7 +45,6 @@ class TrackerLiveData {
         }
         this.drawDeck.value = ArrayList()
         this.discardDeck.value = ArrayList()
-        this.playedCards.value = ArrayList()
         this.summons.value = ArrayList()
 
         this.shuffle.value = false
@@ -72,7 +70,6 @@ class TrackerLiveData {
         }.toMap())
         drawDeck.value = data.drawDeck
         discardDeck.value = data.discardDeck
-        playedCards.value = data.playedCards
         summons.value = ArrayList(data.summons.map {
             SummonLiveData(it)
         })
@@ -98,7 +95,6 @@ class TrackerLiveData {
             }.toMap()),
             drawDeck.value,
             discardDeck.value,
-            playedCards.value,
             ArrayList(summons.value.map {
                 it.toParcel()
             }),
@@ -108,5 +104,28 @@ class TrackerLiveData {
             houseRule.value,
             turn.value
         )
+    }
+
+    fun update( trackerParseData: TrackerParseData) {
+
+        this.health.value = trackerParseData.health
+        this.healthCompanion.value = trackerParseData.healthCompanion
+        this.xp.value = trackerParseData.xp
+        this.loot.value = trackerParseData.loot
+
+        for( enum in trackerParseData.status.keys) {
+            this.status[enum]!!.value = trackerParseData.status[enum]!!
+        }
+        for( enum in trackerParseData.statusCompanion.keys) {
+            this.statusCompanion[enum]!!.value = trackerParseData.statusCompanion[enum]!!
+        }
+        this.drawDeck.value.clear()
+        this.discardDeck.value.clear()
+        this.drawDeck.value = trackerParseData.drawDeck
+        this.discardDeck.value = trackerParseData.discardDeck
+
+        this.shuffle.value = trackerParseData.shuffle
+
+
     }
 }

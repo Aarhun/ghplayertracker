@@ -1,12 +1,13 @@
 package net.north101.android.ghplayertracker
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.res.Configuration
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBar
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -16,9 +17,15 @@ import android.view.MenuInflater
 import android.view.WindowManager
 import net.north101.android.ghplayertracker.data.Card
 import net.north101.android.ghplayertracker.data.Character
+import net.north101.android.ghplayertracker.data.Tracker
+import net.north101.android.ghplayertracker.data.TrackerData
 import net.north101.android.ghplayertracker.livedata.SummonLiveData
 import org.androidannotations.annotations.*
 import org.androidannotations.annotations.sharedpreferences.Pref
+import org.json.JSONException
+import org.json.JSONObject
+import java.io.IOException
+import java.text.ParseException
 
 @OptionsMenu(R.menu.character_tracker)
 @EFragment(R.layout.character_tracker_layout)
@@ -158,13 +165,6 @@ open class TrackerFragment : Fragment() {
         listAdapter1.updateItems(trackerModel.tracker)
         listAdapter2.updateItems(trackerModel.tracker)
 
-        trackerModel.tracker.playedCards.observe(this, Observer {
-            if (it == null) return@Observer
-
-            listAdapter1.updateItems(trackerModel.tracker)
-            listAdapter2.updateItems(trackerModel.tracker)
-        })
-
 //        trackerModel.tracker.summons.observe(this, Observer {
 //            if (it == null) return@Observer
 //
@@ -183,9 +183,10 @@ open class TrackerFragment : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        val item = menu?.findItem(R.id.load)
+        item?.isEnabled = TrackerData.saveExists(context!!)
+        item?.icon?.alpha = when {item?.isEnabled!! -> 255 else -> 100}
         super.onCreateOptionsMenu(menu, inflater)
-
-//        trackerModel.tracker.houseRule.value = trackerModel.tracker.houseRule.value
     }
 
     @OptionsItem(R.id.complete)
@@ -217,6 +218,94 @@ open class TrackerFragment : Fragment() {
 
             return fragment
         }
+    }
+
+    @OptionsItem(R.id.load)
+    fun onMenuLoadClick() {
+        loadTracker(null)
+    }
+
+
+    fun loadTracker(callback: Runnable?) {
+        loadTrackerTask(callback)
+    }
+
+    open fun loadTrackerTask(callback: Runnable?) {
+        val data = try {
+            TrackerData.load(context!!)
+        } catch (e: IOException) {
+            e.printStackTrace()
+            null
+        } catch (e: JSONException) {
+            e.printStackTrace()
+            null
+        } catch (e: ParseException) {
+            e.printStackTrace()
+            null
+        } ?: TrackerData(context!!, JSONObject())
+        val trackerParseData = Tracker.parse(data.data)
+        trackerModel.tracker.update(trackerParseData)
+        Snackbar.make(activity!!.findViewById(R.id.content), "Loaded", Snackbar.LENGTH_SHORT).show()
+    }
+
+
+    @OptionsItem(R.id.save)
+    fun onMenuSaveClick() {
+        if(TrackerData.saveExists(context!!)) {
+            val builder = AlertDialog.Builder(context!!)
+            builder.setTitle("Save exists. Do you want to override it?")
+                    .setPositiveButton("Yes") { dialog, which ->
+                        saveTracker(trackerModel.tracker.toParcel(), null)
+                    }
+                    .setNegativeButton("No") { dialog, which ->
+                        dialog.dismiss()
+                    }
+                    .show()
+        } else {
+            saveTracker(trackerModel.tracker.toParcel(), null)
+        }
+    }
+
+    fun saveTracker(tracker: Tracker, callback: Runnable?) {
+        saveTrackerTask(tracker, callback)
+    }
+
+    open fun saveTrackerTask(tracker: Tracker, callback: Runnable?) {
+        val data = try {
+            TrackerData.load(context!!)
+        } catch (e: IOException) {
+            e.printStackTrace()
+            null
+        } catch (e: JSONException) {
+            e.printStackTrace()
+            null
+        } catch (e: ParseException) {
+            e.printStackTrace()
+            null
+        } ?: TrackerData(context!!, JSONObject())
+
+        data.update(tracker)
+
+        try {
+            data.save()
+
+        } catch (e: IOException) {
+            e.printStackTrace()
+
+            Snackbar.make(activity!!.findViewById(R.id.content), "Failed to save", Snackbar.LENGTH_SHORT).show()
+            return
+        } catch (e: JSONException) {
+            e.printStackTrace()
+            Snackbar.make(activity!!.findViewById(R.id.content), "Failed to save", Snackbar.LENGTH_SHORT).show()
+            return
+        }
+
+        Snackbar.make(activity!!.findViewById(R.id.content), "Saved", Snackbar.LENGTH_SHORT).show()
+
+        if (callback != null) {
+            activity!!.runOnUiThread(callback)
+        }
+
     }
 }
 
@@ -297,6 +386,7 @@ abstract class TrackerEditCardDialog : TrackerNumberDialog() {
             }
             trackerModel.tracker.drawDeck.value = trackerModel.tracker.drawDeck.value
         }
+
 }
 
 
