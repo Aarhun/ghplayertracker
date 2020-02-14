@@ -169,8 +169,6 @@ class TrackerDeckViewHolder(itemView: View) : BaseViewHolder<TrackerLiveData>(it
     {
         //Inflate the dialog with custom view
         val dialog = LayoutInflater.from(itemView.context!!).inflate(R.layout.cards_list_layout, null)
-        val fab : View = dialog.findViewById(R.id.fab)
-        fab.visibility = View.GONE
         dialog.card_list.layoutManager = LinearLayoutManager(itemView.context!!)
 
 
