@@ -249,7 +249,7 @@
                 "card_id": "mod_class_01_muddle_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] DÉSARMEMENT [[icon_status_disarm]] card and one [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
+            "text": "Ajouter une carte [[icon_rolling]] DÉSARMEMENT [[icon_status_disarm]] et une carte [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
           },
           {
             "ticks": 2,
@@ -829,7 +829,7 @@
                 "card_id": "mod_class_03_element_air_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] [[icon_element_earth]] and one [[icon_rolling]] [[icon_element_air]]"
+            "text": "Ajouter une carte [[icon_rolling]] [[icon_element_earth]] et une carte [[icon_rolling]] [[icon_element_air]]"
           },
           {
             "cards": [
@@ -842,7 +842,7 @@
                 "card_id": "mod_class_03_element_dark_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] [[icon_element_light]] and one [[icon_rolling]] [[icon_element_dark]]"
+            "text": "Ajouter une carte [[icon_rolling]] [[icon_element_light]] et une carte [[icon_rolling]] [[icon_element_dark]]"
           }
         ]
       },
@@ -1313,7 +1313,7 @@
                 "card_id": "mod_class_05_plus_2"
               }
             ],
-            "text": "Ajouter une carte [[icon_minus_2]] card and two [[icon_plus_2]]s"
+            "text": "Ajouter une carte [[icon_minus_2]] et deux cartes [[icon_plus_2]]"
           },
           {
             "ticks": 2,
@@ -1664,7 +1664,7 @@
                 "card_id": "mod_class_06_muddle_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] DÉSARMEMENT [[icon_status_disarm]] card and one [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
+            "text": "Ajouter une carte [[icon_rolling]] DÉSARMEMENT [[icon_status_disarm]] et une carte [[icon_rolling]] CONFUSION [[icon_status_muddle]]"
           },
           {
             "cards": [],
@@ -2227,7 +2227,7 @@
       },
       {
         "id": "class_09",
-        "name": "U3VtbW9uZXI=",
+        "name": "SW52b2NhdGV1cg==",
         "health": "medium",
         "color": "#EA71A2",
         "abilities": {
@@ -2476,7 +2476,7 @@
                 "card_id": "mod_class_09_element_air_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] [[icon_element_fire]] and one [[icon_element_air]]"
+            "text": "Ajouter une carte [[icon_rolling]] [[icon_element_fire]] et une carte [[icon_rolling]] [[icon_element_air]]"
           },
           {
             "cards": [
@@ -2489,7 +2489,7 @@
                 "card_id": "mod_class_09_element_earth_rolling"
               }
             ],
-            "text": "Ajouter une carte [[icon_rolling]] [[icon_element_dark]] and one [[icon_element_earth]]"
+            "text": "Ajouter une carte [[icon_rolling]] [[icon_element_dark]] et une carte [[icon_rolling]] [[icon_element_earth]]"
           },
           {
             "cards": [
@@ -3610,7 +3610,7 @@
       },
       {
         "id": "class_14",
-        "name": "RG9vbXN0YWxrZXI=",
+        "name": "Q29uZGFtbmV1cg==",
         "health": "medium",
         "color": "#37C2F1",
         "abilities": {
