@@ -108,8 +108,13 @@ class CharacterClassData(val context: Context, val data: JSONArray) {
         }
 
         private fun getFileInput(context: Context): InputStream {
-            var currentLocale = context.resources.configuration.locale.language
-            val jsonFileName = "classes-$currentLocale.json"
+            val currentLocale = context.resources.configuration.locale.language
+
+            val jsonFileName = when (currentLocale) {
+                "fr" -> "classes-$currentLocale.json"
+                else -> "classes-en.json"
+            }
+
             val file = File(context.getExternalFilesDir(null), jsonFileName)
             return if (file.exists()) {
                 FileInputStream(file)
