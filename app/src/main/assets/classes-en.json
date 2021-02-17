@@ -4721,12 +4721,7 @@
             "text": "Ignore negative scenario effects"
           }
         ]
-      }
-    ]
-  },
-  {
-    "name": "Gloomhaven: X",
-    "classes": [
+      },
       {
         "id": "class_18",
         "name": "QmxhZGVzd2FybQ==",
@@ -5024,8 +5019,7 @@
           }
         ]
       }
-    ],
-    "hidden": true
+    ]
   },
   {
     "name": "Gloomhaven: Forgotten Circles",
@@ -5349,4 +5343,580 @@
       }
     ]
   },
+  {
+    "name": "Gloomhaven: Jaws of Lion",
+    "classes": [
+      {
+        "id": "class_20",
+        "name": "RGVtb2xpdGlvbmlzdA==",
+        "health": "medium",
+        "color": "#ff7f00",
+        "abilities": {
+        },
+        "cards": {
+          "mod_class_20_damage": {
+            "deck": "class"
+          },
+          "mod_class_20_plus_2": {
+            "deck": "class"
+          },
+          "mod_class_20_plus_2_earth": {
+            "deck": "class"
+          },
+          "mod_class_20_plus_2_fire": {
+            "deck": "class"
+          },
+          "mod_class_20_plus_2_muddle": {
+            "deck": "class"
+          },
+          "mod_class_20_poison": {
+            "deck": "class"
+          }
+        },
+        "perks": [
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "repeat": 4,
+                "card_id": "mod_basic_plus_0"
+              }
+            ],
+            "text": "Remove four [[icon_plus_0]] cards"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "repeat": 2,
+                "card_id": "mod_basic_plus_1"
+              }
+            ],
+            "text": "Remove two [[icon_minus_1]] cards"
+          },
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_minus_2"
+              },
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              }
+            ],
+            "text": "Remove one [[icon_minus_2]] card and one [[icon_plus_1]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_0"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_muddle"
+              }
+            ],
+            "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
+          },
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_minus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_poison"
+              }
+            ],
+            "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_0]] POISON [[icon_status_poison]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2"
+              }
+            ],
+            "text": "Add one [[icon_plus_2]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_earth"
+              }
+            ],
+            "text": "Replace one [[icon_plus_1]] with one [[icon_plus_2]] [[icon_element_earth]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_fire"
+              }
+            ],
+            "text": "Replace one [[icon_plus_1]] with one [[icon_plus_2]] [[icon_element_fire]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "add",
+                "card_id": "mod_class_20_damage"
+              }
+            ],
+            "text": "Add one [[icon_plus_0]] 'All adjacent enemies suffer 1 damage' card"
+          }
+        ]
+      },
+      {
+        "id": "class_21",
+        "name": "SGF0Y2hldA==",
+        "health": "medium",
+        "color": "#00b7ff",
+        "abilities": {
+        },
+        "cards": {
+          "mod_class_21_plus_3": {
+            "deck": "class"
+          },
+          "mod_class_21_plus_2_air": {
+            "deck": "class"
+          },
+          "mod_class_21_plus_1_stun": {
+            "deck": "class"
+          },
+          "mod_class_21_plus_1_push_2": {
+            "deck": "class"
+          },
+          "mod_class_21_stun": {
+            "deck": "class"
+          },
+          "mod_class_21_plus_1_immobilize": {
+            "deck": "class"
+          },
+          "mod_class_21_plus_1_fire": {
+            "deck": "class"
+          },
+          "mod_class_21_plus_1_poison": {
+            "deck": "class"
+          },
+          "mod_class_21_plus_2_muddle": {
+            "deck": "class"
+          }
+        },
+        "perks": [
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "repeat": 4,
+                "card_id": "mod_basic_plus_0"
+              }
+            ],
+            "text": "Remove four [[icon_plus_0]] cards"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "repeat": 2,
+                "card_id": "mod_basic_plus_1"
+              }
+            ],
+            "text": "Remove two [[icon_minus_1]] cards"
+          },
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_minus_2"
+              },
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              }
+            ],
+            "text": "Remove one [[icon_minus_2]] card and one [[icon_plus_1]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_0"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_muddle"
+              }
+            ],
+            "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
+          },
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_minus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_poison"
+              }
+            ],
+            "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_0]] POISON [[icon_status_poison]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2"
+              }
+            ],
+            "text": "Add one [[icon_plus_2]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_earth"
+              }
+            ],
+            "text": "Replace one [[icon_plus_1]] with one [[icon_plus_2]] [[icon_element_earth]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_fire"
+              }
+            ],
+            "text": "Replace one [[icon_plus_1]] with one [[icon_plus_2]] [[icon_element_fire]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "add",
+                "card_id": "mod_class_20_damage"
+              }
+            ],
+            "text": "Add one [[icon_plus_0]] 'All adjacent enemies suffer 1 damage' card"
+          }
+        ]
+      },
+      {
+        "id": "class_22",
+        "name": "UmVkIEd1YXJk",
+        "health": "high",
+        "color": "#ff1100",
+        "abilities": {
+        },
+        "cards": {
+          "mod_class_22_plus_1_wound": {
+            "deck": "class"
+          },
+          "mod_class_22_plus_1_immobilize": {
+            "deck": "class"
+          },
+          "mod_class_22_plus_1_shield_self": {
+            "deck": "class"
+          },
+          "mod_class_22_plus_1_fire_light": {
+            "deck": "class"
+          },
+          "mod_class_22_plus_2_light": {
+            "deck": "class"
+          },
+          "mod_class_22_plus_2_fire": {
+            "deck": "class"
+          },
+          "mod_class_22_plus_1": {
+            "deck": "class"
+          }
+        },
+        "perks": [
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "repeat": 4,
+                "card_id": "mod_basic_plus_0"
+              }
+            ],
+            "text": "Remove four [[icon_plus_0]] cards"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "repeat": 2,
+                "card_id": "mod_basic_plus_1"
+              }
+            ],
+            "text": "Remove two [[icon_minus_1]] cards"
+          },
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_minus_2"
+              },
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              }
+            ],
+            "text": "Remove one [[icon_minus_2]] card and one [[icon_plus_1]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_0"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_muddle"
+              }
+            ],
+            "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
+          },
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_minus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_poison"
+              }
+            ],
+            "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_0]] POISON [[icon_status_poison]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2"
+              }
+            ],
+            "text": "Add one [[icon_plus_2]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_earth"
+              }
+            ],
+            "text": "Replace one [[icon_plus_1]] with one [[icon_plus_2]] [[icon_element_earth]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_fire"
+              }
+            ],
+            "text": "Replace one [[icon_plus_1]] with one [[icon_plus_2]] [[icon_element_fire]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "add",
+                "card_id": "mod_class_20_damage"
+              }
+            ],
+            "text": "Add one [[icon_plus_0]] 'All adjacent enemies suffer 1 damage' card"
+          }
+        ]
+      },
+      {
+        "id": "class_23",
+        "name": "Vm9pZHdhcmRlbg==",
+        "health": "low",
+        "color": "#000000",
+        "abilities": {
+        },
+        "cards": {
+          "mod_class_23_plus_1_curse": {
+            "deck": "class"
+          },
+          "mod_class_23_plus_3": {
+            "deck": "class"
+          },
+          "mod_class_23_plus_1_poison": {
+            "deck": "class"
+          },
+          "mod_class_23_plus_1_heal_1_ally": {
+            "deck": "class"
+          },
+          "mod_class_23_heal_1_ally": {
+            "deck": "class"
+          },
+          "mod_class_23_plus_1_ice": {
+            "deck": "class"
+          },
+          "mod_class_23_plus_1_dark": {
+            "deck": "class"
+          }
+        },
+        "perks": [
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "repeat": 4,
+                "card_id": "mod_basic_plus_0"
+              }
+            ],
+            "text": "Remove four [[icon_plus_0]] cards"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "repeat": 2,
+                "card_id": "mod_basic_plus_1"
+              }
+            ],
+            "text": "Remove two [[icon_minus_1]] cards"
+          },
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_minus_2"
+              },
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              }
+            ],
+            "text": "Remove one [[icon_minus_2]] card and one [[icon_plus_1]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_0"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_muddle"
+              }
+            ],
+            "text": "Replace one [[icon_plus_0]] card with one [[icon_plus_2]] MUDDLE [[icon_status_muddle]] card"
+          },
+          {
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_minus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_poison"
+              }
+            ],
+            "text": "Replace one [[icon_minus_1]] card with one [[icon_plus_0]] POISON [[icon_status_poison]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2"
+              }
+            ],
+            "text": "Add one [[icon_plus_2]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_earth"
+              }
+            ],
+            "text": "Replace one [[icon_plus_1]] with one [[icon_plus_2]] [[icon_element_earth]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "remove",
+                "card_id": "mod_basic_plus_1"
+              },
+              {
+                "action": "add",
+                "card_id": "mod_class_20_plus_2_fire"
+              }
+            ],
+            "text": "Replace one [[icon_plus_1]] with one [[icon_plus_2]] [[icon_element_fire]] card"
+          },
+          {
+            "ticks": 2,
+            "cards": [
+              {
+                "action": "add",
+                "card_id": "mod_class_20_damage"
+              }
+            ],
+            "text": "Add one [[icon_plus_0]] 'All adjacent enemies suffer 1 damage' card"
+          }
+        ]
+      }
+    ]
+  }
 ]
