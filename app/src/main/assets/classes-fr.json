@@ -1962,7 +1962,7 @@
       },
       {
         "id": "class_08",
-        "name": "UXVhdGVybWFzdGVy",
+        "name": "SW50ZW5kYW50",
         "health": "high",
         "color": "#D88929",
         "abilities": {
@@ -4729,7 +4729,7 @@
     "classes": [
       {
         "id": "class_18",
-        "name": "QmxhZGVzd2FybQ==",
+        "name": "SG9yZGVsYW1lcw==",
         "health": "medium",
         "color": "#916556",
         "abilities": {
